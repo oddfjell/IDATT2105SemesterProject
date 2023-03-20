@@ -21,6 +21,7 @@
 </template>
 
 <script>
+//import loginCheckAuthentication from "../middlewares/loginCheckAuthentication";
 export default {
   name: "LoginPageView.vue",
   data() {
@@ -38,6 +39,12 @@ export default {
       this.loginText = this.username + " " + this.password
       console.log("hello world")
 
+      if(this.username!== "" && this.password!== ""){//TODO !=
+
+        //eller før router
+        //loginCheckAuthentication();
+        //return true
+      }
 
       //if("sjekk for gyldige felt"){
       //send data og få svar:  let response = await loginRequest({})  ||  SentFeedbackService.postFeedback(this.feedB).then(() => {}).catch((error) => {console.log(error);});
