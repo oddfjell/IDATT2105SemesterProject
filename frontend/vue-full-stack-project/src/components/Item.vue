@@ -28,8 +28,7 @@ export default {
   border-radius: 5px;
   border: solid black 4px;
 }
-#thumbnail{
-  width: 80%;
-  align-content: center;
+img{
+  width: 100%;
 }
 </style>

@@ -2,7 +2,7 @@
   <main>
     <h1>ELO</h1>
     <div id="item_grid">
-    <div id="item" :key="item" v-for="item in items">
+    <div class="item" @click="bop" :key="item" v-for="item in items">
     <ItemComponent/>
     </div>
     </div>
@@ -19,6 +19,11 @@ export default {
     return{
       props:{
         items:Array
+      },
+      methods:{
+        getevent(item){
+          console.log(item)
+        }
       }
     }
   },
@@ -32,8 +37,11 @@ export default {
 <style scoped>
 #item_grid{
   display: grid;
-  grid-template-columns: fit-content(5%);
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 5%;
+}
+.item:hover{
+  margin: 20px;
 }
 
 </style>
