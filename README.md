@@ -55,4 +55,23 @@ The layout and design of user-interface elements such as screens is open-ended a
   - can add items into their favorite or bookmarked list.  
   - can negotiate price on a listed item   
   - can buy an item listed by other users  
-- The application shall have a main menu towards top of the screen with relevant menu items  
+- The application shall have a main menu towards top of the screen with relevant menu items
+
+## How to run the project
+
+### Frontend
+> cd frontend/vue-full-stack-project
+> 
+> npm install
+> 
+> npm run dev
+
+### Backend
+> Click on green play button in IDE (there has to be a better way?!?)
+
+### Database
+> cd db
+>
+> mysql -u root > create.sql && mysql -u root (creation and running)
+> 
+> mysql -u root > delete.sql (deletion)
