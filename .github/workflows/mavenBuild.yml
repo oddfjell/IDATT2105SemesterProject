@@ -2,9 +2,9 @@ name: Java CI with Maven to master
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, make-backend-spring]
   pull_request:
-    branches: [ master ]
+    branches: [ master, make-backend-spring]
     
 jobs:
   build:
