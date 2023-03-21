@@ -1,4 +1,4 @@
-package ntnu.idatt2105.semesterProject.eCommerceMarketplace.model;
+package ntnu.idatt2105.semesterProject.eCommerceMarketplace.accessingdatamysql;
 
 public class Address {
     private int id;
