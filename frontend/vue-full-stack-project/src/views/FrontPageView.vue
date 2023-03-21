@@ -35,10 +35,13 @@ export default {
 </script>
 
 <style scoped>
+
 #item_grid{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 5%;
+  grid-gap: 2%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 .item:hover{
   margin: 20px;
