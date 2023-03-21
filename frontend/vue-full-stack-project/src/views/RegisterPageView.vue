@@ -1,16 +1,20 @@
 <template>
-  <div id="loginField" class="loginField">
-    <div id="loginLabel" class="loginLabel">
-      <label>Please login!</label>
+  <div id="registerField" class="registerField">
+    <div id="registerLabel" class="registerLabel">
+      <label>Please register!</label>
     </div>
     <div id="username">
-      <label id="usernameLabel" class="loginLabel">Username:</label>
-      <textarea v-model="user.username" id="username" class="loginTextarea" @input="onInputUsername"></textarea>
+      <label id="usernameLabel" class="registerLabel">Username:</label>
+      <textarea v-model="user.username" id="username" class="registerTextarea" @input="onInputUsername"></textarea>
+    </div>
+    <div id="email">
+      <label id="emailLabel" class="registerLabel">Email:</label>
+      <textarea v-model="user.email" id="email" class="registerTextarea" @input="onInputEmail"></textarea>
     </div>
     <div id="password">
-      <label id="passwordLabel" class="loginLabel">Password: </label>
-      <textarea v-model="user.password" id="password" class="loginTextarea" @input="onInputPassword"></textarea>
-      <button v-on:click="handleLoginClick" id="loginbutton" class="loginButton">Sign in</button>
+      <label id="passwordLabel" class="registerLabel">Password: </label>
+      <textarea v-model="user.password" id="password" class="registerTextarea" @input="onInputPassword"></textarea>
+      <button v-on:click="handleRegisterClick" id="registerbutton" class="registerButton">Sign in</button>
     </div>
     <div>
       <p class="errorText">{{errorText}}</p>
@@ -21,10 +25,11 @@
 <script>
 import setUserService from "@/services/setUserService";
 export default {
-  name: "LoginPageView.vue",
+  name: "RegisterPageView.vue",
   data() {
     return {
       user: {
+        email: "",
         password: "",
         username: ""
       },
@@ -34,22 +39,25 @@ export default {
   methods: {
     onInputUsername(username) {
       this.user.username = username.target.value;
-      console.log(this.user.username + " " + this.user.password)
       //this.$store.commit("UPDATE_NAME", e.target.value);
+    },
+    onInputEmail(email) {
+      this.user.email = email.target.value;
     },
     onInputPassword(password) {
       this.user.password = password.target.value;
-      console.log(this.user.username + " " + this.user.password)
     },
-    async handleLoginClick() {
+    async handleRegisterClick() {
       //TODO let clean = DOMPurify.sanitize(dirty);  https://github.com/cure53/DOMPurify
       if(this.user.username === ""){//undefined
-        this.errorText = "You must type a username to log in"
+        this.errorText = "You must type a username to register"
+      } else if(this.user.email === ""){
+        this.errorText = "You must type a email to register"
       } else if(this.user.password === ""){
-        this.errorText = "You must type a password to log in"
+        this.errorText = "You must type a password to register"
       }else{
         //sett session tid og lagre bruker og session i store
-        await setUserService.methods.sendUserLogin(this.user);
+        await setUserService.methods.sendUserRegister(this.user);
         //TODO feil innlogging
       }
     },
@@ -58,7 +66,7 @@ export default {
 </script>
 
 <style scoped>
-.loginField{
+.registerField{
   max-width: 420px;
   margin: 30px auto;
   background: white;
@@ -66,7 +74,7 @@ export default {
   padding: 40px;
   border-radius: 10px;
 }
-.loginLabel{
+.registerLabel{
   color: #1b1a1a;
   display: inline-block;
   margin: 25px 0 15px;
@@ -75,7 +83,7 @@ export default {
   letter-spacing: 1px;
   font-weight: bold;
 }
-.loginTextarea{
+.registerTextarea{
   display: block;
   padding: 10px 6px;
   width: 100%;
@@ -86,7 +94,7 @@ export default {
   height: auto;
   max-width: 100%;
 }
-.loginButton{
+.registerButton{
   background: #0b6dff;
   border: 0;
   padding: 10px 20px;

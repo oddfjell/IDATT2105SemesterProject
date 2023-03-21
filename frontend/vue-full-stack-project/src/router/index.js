@@ -14,6 +14,11 @@ const router = createRouter({
       component: () => import('../views/LoginPageView.vue')
     },
     {
+      path: '/register',
+      name: 'RegisterPageView',
+      component: () => import('../views/RegisterPageView.vue')
+    },
+    {
       path: '/profile',
       name: 'profilePageView',
       //TODO if auth fra store
