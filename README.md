@@ -67,7 +67,9 @@ The layout and design of user-interface elements such as screens is open-ended a
 > npm run dev
 
 ### Backend
-> Click on green play button in IDE (there has to be a better way?!?)
+> cd backend/eCommerceMarketplace
+> 
+> mvn spring-boot:run
 
 ### Database
 > cd db
