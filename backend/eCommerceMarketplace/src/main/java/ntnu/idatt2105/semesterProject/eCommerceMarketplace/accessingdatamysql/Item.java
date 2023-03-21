@@ -1,4 +1,6 @@
-package ntnu.idatt2105.semesterProject.eCommerceMarketplace.model;
+package ntnu.idatt2105.semesterProject.eCommerceMarketplace.accessingdatamysql;
+
+import ntnu.idatt2105.semesterProject.eCommerceMarketplace.accessingdatamysql.User;
 
 import java.util.List;
 
@@ -17,7 +19,7 @@ public class Item {
     public Item() {
     }
 
-    public Item(int id, String title, String description, String full_description, double price, String image, User user, List<Category> categories, boolean for_sale, Address address) {
+    public Item(int id, String title, String description, String full_description, double price, String image, ntnu.idatt2105.semesterProject.eCommerceMarketplace.accessingdatamysql.User user, List<Category> categories, boolean for_sale, Address address) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -78,7 +80,7 @@ public class Item {
         this.image = image;
     }
 
-    public User getUser() {
+    public ntnu.idatt2105.semesterProject.eCommerceMarketplace.accessingdatamysql.User getUser() {
         return user;
     }
 
