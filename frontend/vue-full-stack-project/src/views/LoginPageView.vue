@@ -22,6 +22,11 @@
 
 <script>
 //import loginCheckAuthentication from "../middlewares/loginCheckAuthentication";
+// import axios from "jsdom/lib/jsdom/living/fetch/header-list";
+
+// EKSTRA IMPORT SOM JONAS MÅTTE BRUKE
+// import axios from 'axios';
+
 export default {
   name: "LoginPageView.vue",
   data() {
@@ -37,7 +42,6 @@ export default {
 
       //TODO let clean = DOMPurify.sanitize(dirty);  https://github.com/cure53/DOMPurify
       this.loginText = this.username + " " + this.password
-      console.log("hello world")
 
       if(this.username!== "" && this.password!== ""){//TODO !=
 
@@ -55,6 +59,20 @@ export default {
       } else {
         this.loginStatus = "Login failed!"
       }*/
+
+      /**
+      // JONAS TESTER HER...
+      axios.post(
+          "http://localhost:8080/login",
+          {"username": this.username, "password": this.password})
+          .then(response => response.data)
+          .then(data => {
+            this.loginText = data;
+          })
+          .catch((response) => {
+              console.log(response)
+      });
+       */
     },
   },
 }

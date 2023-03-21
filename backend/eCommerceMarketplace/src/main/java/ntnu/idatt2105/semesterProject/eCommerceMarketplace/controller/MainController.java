@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
 import java.util.Optional;
 
 @Controller
@@ -25,15 +26,30 @@ public class MainController {
     }
 
     // Returns all users
-    @GetMapping(path="/user/{id}")
+    @CrossOrigin
+    @GetMapping("/user/{id}")
     public @ResponseBody Optional<User> getUser(@PathVariable int id) {
         return userRepository.findById(id);
     }
 
     // Returns user with given id
     // If no user exist with given id, it returns null
-    @GetMapping(path="/user")
+    @CrossOrigin
+    @GetMapping("/user")
     public @ResponseBody Iterable<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    @CrossOrigin
+    @PostMapping("/login")
+    public @ResponseBody boolean isUser (@RequestBody Map<String, Object> payload) {
+        String username = payload.get("username").toString();
+        String password = payload.get("password").toString();
+
+        for (User user : userRepository.findAll()) {
+            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+                return true;
+            }
+        } return false;
     }
 }
