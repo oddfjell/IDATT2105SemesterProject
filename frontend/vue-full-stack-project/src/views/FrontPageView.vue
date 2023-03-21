@@ -2,9 +2,9 @@
   <main>
     <h1>ELO</h1>
     <div id="item_grid">
-    <div class="item" @click="bop" :key="item" v-for="item in items">
-    <ItemComponent/>
-    </div>
+      <div class="item" @click="bop" :key="item" v-for="item in items">
+        <ItemComponent/>
+      </div>
     </div>
   </main>
 </template>

@@ -14,8 +14,20 @@ public class User {
     private Date registered;
 
     public User(){
-
     }
+
+    /**
+     * This user constructor is the same as a login request
+     * It is constructed by a login request from the LoginPageView.vue
+     * DO NOT USE TO MAKE A NORMAL USER
+     * @param password String
+     * @param username String
+     */
+    public User(String password, String username){
+        this.password = password;
+        this.username = username;
+    }
+
     public User(String username, String firstName, String lastName, String email, String phone_number, String image, String password, Date date_of_birth, Date registered) {
         this.username = username;
         this.firstName = firstName;
