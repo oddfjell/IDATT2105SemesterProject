@@ -1,26 +1,30 @@
 <template>
   <div class="container">
     <div id="thumbnail">
-      <img alt="bird" src="https://ctl.s6img.com/society6/img/T4B1_3uYoossKHshTuH-AWt3I2I/w_1500/prints/~artwork/s6-original-art-uploads/society6/uploads/misc/dd1abcfa933c48e982c730c3cc154cf2/~~/yellow-red-lovebird-lovebird-bird-pets-cute-cute-bird-yellow-lovebird-yellow-bird-prints.jpg">
+      <img alt="bird" :src=item.image>
     </div>
     <div id="item-header">
-  <label id="title">En fugl</label>
-  <p id="price">Pris: 500kr</p>
+  <label id="title">{{item.title}}</label>
+  <p id="price">{{ price }}</p>
     </div>
-  <p id="description">Dette er en beskrivelse</p>
+  <p id="description">{{item.briefDescription}}</p>
   </div>
 </template>
 
 <script>
 export default {
   name: "Item-component",
-  data(){
-    return{
-
+  props: {
+    item: {
+      type: Object,
+      required: true
+    },
+  },
+    computed:{
+    price(){
+      return this.item.price + " kr"
     }
-  }
-
-
+    }
 }
 </script>
 
