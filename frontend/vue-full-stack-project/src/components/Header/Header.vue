@@ -29,8 +29,12 @@ export default {
 
 #logo{
   width: min(50vw, 150px);
+  vertical-align: middle;
+
 }
+
 #title{
+  vertical-align: middle;
   display: inline;
   color: white;
   padding: 0;
