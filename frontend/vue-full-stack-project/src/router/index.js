@@ -30,7 +30,7 @@ const router = createRouter({
       name:'itemView',
       component: ()=> import('../views/ItemView.vue'),
 
-    }
+    },
 
     {
       path: '/newad',
