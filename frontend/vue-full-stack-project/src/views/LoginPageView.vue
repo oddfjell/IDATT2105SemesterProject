@@ -3,9 +3,13 @@
     <div id="loginLabel" class="loginLabel">
       <label>Please login!</label>
     </div>
+
+    <BaseInput v-model="user.username"
+               :modelValue="name"
+               :error="errorText"/>
+    <BaseInput v-model="user.password" :model-value="password" :error="errorText" />
     <div id="username">
       <label id="usernameLabel" class="loginLabel">Username:</label>
-
       <input
           v-model="user.username"
           id="username"
@@ -60,9 +64,10 @@ export default {
 <script>
 import setUserService from "@/services/setUserService";
 import AlertBox from "@/components/AlertBox.vue";
+import BaseInput from "@/components/Form/Input.vue";
 export default {
   name: "LoginPageView.vue",
-  components: {AlertBox},
+  components: {BaseInput, AlertBox},
   data() {
     return {
       user: {
