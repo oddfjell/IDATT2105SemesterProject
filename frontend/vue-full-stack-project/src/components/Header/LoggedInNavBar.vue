@@ -3,6 +3,7 @@
     <div id="routerList">
       <router-link class="navElement" to="/">Profile</router-link>
       <router-link class="navElement" to="/">Cart</router-link>
+      <router-link class="navElement" to="/">New ad</router-link>
     </div>
   </nav>
 </template>
