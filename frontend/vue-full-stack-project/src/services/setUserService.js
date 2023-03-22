@@ -17,12 +17,16 @@ export default {
         async sendUserLogin(user) {
             try {
                 const response = await apiUserService.post('/login', user);
-                if(response.data != null){ //TODO send feilmedling og ta den imot
+                console.log(response)
+                if(response.data != false){ //TODO send feilmedling og ta den imot
                     //session og user
                     // store ting
                     await router.push("/profile")
                 } else{
                     return "this user does not exist"
+                    //alertWrongLogin("this user does not exist")
+                    //alert("this user does not exist")
+                    //return "this user does not exist"
                 }
                 console.log(response);
                 console.log(response.data);
