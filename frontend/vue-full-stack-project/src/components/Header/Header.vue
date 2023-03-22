@@ -1,7 +1,7 @@
 <template>
 <header>
-  <img id="logo" src="https://dieselpunkcore.com/wp-content/uploads/2014/06/logo-placeholder.png" alt="">
-  <h1 id="title">Tittel</h1>
+  <a class="link" href="/"><img id="logo" src="/Logo.svg" alt=""></a>
+  <a class="link" href="/"><h1 id="title">Tittel</h1></a>
 </header>
   <LoggedInNavBar v-if="isLoggedIn" />
   <default-nav-bar v-else/>
@@ -20,7 +20,7 @@ export default {
     }
   },
   created() {
-    this.isLoggedIn = true;
+    this.isLoggedIn = false;
   }
 }
 </script>
@@ -32,11 +32,16 @@ export default {
 }
 #title{
   display: inline;
+  color: white;
+  padding: 0;
+}
+.link{
+  text-decoration: none;
 }
 header {
   background: #1abc9c;
   color: white;
-  font-size: xx-large;
+  font-size: x-large;
 }
 
 
