@@ -19,6 +19,12 @@ const router = createRouter({
       //TODO if auth fra store
       component: () => import('../views/ProfilePageView.vue'),
     },
+    {
+      path:'/item',
+      name:'itemView',
+      component: ()=> import('../views/ItemView.vue'),
+
+    }
     //catch all 404
     /*{
       path: '/:catchAll(.*)',  //redux pattern
