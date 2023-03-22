@@ -3,8 +3,8 @@
   <img id="logo" src="https://dieselpunkcore.com/wp-content/uploads/2014/06/logo-placeholder.png" alt="">
   <h1 id="title">Tittel</h1>
 </header>
-    <default-nav-bar v-if="isLoggedIn"/>
-  <LoggedInNavBar v-else />
+  <LoggedInNavBar v-if="isLoggedIn" />
+  <default-nav-bar v-else/>
 </template>
 
 <script>
@@ -20,7 +20,7 @@ export default {
     }
   },
   created() {
-    this.isLoggedIn = false;
+    this.isLoggedIn = true;
   }
 }
 </script>

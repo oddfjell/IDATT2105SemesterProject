@@ -26,6 +26,13 @@ const router = createRouter({
     },
 
     {
+      path:'/item',
+      name:'itemView',
+      component: ()=> import('../views/ItemView.vue'),
+
+    }
+
+    {
       path: '/newad',
       name: 'NewAdView',
       component: () => import('../views/NewAdView.vue')
