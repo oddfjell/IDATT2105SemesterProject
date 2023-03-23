@@ -18,51 +18,8 @@ public class MainController {
     @Autowired
     private ItemRepository itemRepository;
 
-    // Create new user and adds it to database
-    @CrossOrigin
-    @PostMapping("/createuser")
-    public @ResponseBody boolean createUser(@RequestBody User user) {
-        try {
-            userRepository.save(user);
-            return true;
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return false;
-        }
-    }
 
-    // Return user with given id
-    @CrossOrigin
-    @GetMapping("/user/{id}")
-    public @ResponseBody Optional<User> getUser(@PathVariable int id) {
-        return userRepository.findById(id);
-    }
-
-    // Return all users
-    @CrossOrigin
-    @GetMapping("/user")
-    public @ResponseBody Iterable<User> getAllUsers() {
-        return userRepository.findAll();
-    }
-
-    /**
-    // Update user with given id
-    @CrossOrigin
-    @PutMapping("/updateuser")
-    public @ResponseBody boolean updateUser(@RequestBody JSONPObject object) {
-        try {
-            object.
-
-            User user = userRepository.findById(id).get();
-            user.setUsername("Jonas");
-            userRepository.save(user);
-            return true;
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return false;
-        }
-    }
-     */
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @CrossOrigin
     @PostMapping("/login")
@@ -77,6 +34,68 @@ public class MainController {
         }
         return false;
     }
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+    // Create new user and adds it to database
+    @CrossOrigin
+    @PostMapping("/createuser")
+    public @ResponseBody boolean createUser(@RequestBody User user) {
+        try {
+            userRepository.save(user);
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+
+
+
+    // Return all users
+    @CrossOrigin
+    @GetMapping("/user")
+    public @ResponseBody Iterable<User> getAllUsers() {
+        return userRepository.findAll();
+    }
+
+
+
+
+    // Return user with given id
+    @CrossOrigin
+    @GetMapping("/user/{id}")
+    public @ResponseBody Optional<User> getUser(@PathVariable int id) {
+        return userRepository.findById(id);
+    }
+
+
+
+
+    // Update user (id must be present in payload, or new user will be created)
+    @CrossOrigin
+    @PutMapping("/updateuser")
+    public @ResponseBody boolean updateUser(@RequestBody User user) {
+        try {
+            userRepository.save(user);
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 
     @CrossOrigin
