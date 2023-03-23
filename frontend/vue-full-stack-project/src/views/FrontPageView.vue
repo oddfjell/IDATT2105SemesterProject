@@ -2,8 +2,8 @@
   <main>
     <h1>Her kommer det evt. en søkebar</h1>
     <div id="item_grid">
-      <div class="item" :key="item.title" v-for="item in items">
-        <ItemComponent :item="item" @click="selectItem(item)"/>
+      <div class="item" :key="item.title" v-for="(item,index) in items">
+        <ItemComponent :tabindex="index+1" :item="item" v-on:keyup.enter="selectItem(item)" @click="selectItem(item)"/>
       </div>
     </div>
   </main>

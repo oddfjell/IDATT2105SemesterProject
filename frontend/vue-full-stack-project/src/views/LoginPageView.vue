@@ -1,4 +1,5 @@
 <template>
+  <back-header/>
   <div class="container">
     <h1>Log in</h1>
   <form id="loginField" class="loginField" @submit.prevent="submit">
@@ -39,9 +40,10 @@ import BaseInput from "@/components/Form/Input.vue";
 import { useField, useForm } from "vee-validate";
 import { string, object } from "yup";
 import router from "@/router";
+import BackHeader from "@/components/Header/backHeader.vue";
 export default {
   name: "LoginPageView.vue",
-  components: {BaseInput, AlertBox},
+  components: {BackHeader, BaseInput, AlertBox},
   data() {
     return {
       user: {
