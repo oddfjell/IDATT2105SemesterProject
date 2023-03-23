@@ -1,14 +1,29 @@
 package ntnu.idatt2105.semesterProject.eCommerceMarketplace.accessingdatamysql;
 
+import jakarta.persistence.*;
+import java.util.List;
+
+@Entity
+@Table (name = "category")
 public class Category {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
+
     private String title;
 
-    public Category(){}
+    @ManyToMany(mappedBy = "categories")
+    private List<Item> items;
 
-    public Category(int id, String title) {
+    public Category() {
+
+    }
+
+    public Category(int id, String title, List<Item> items) {
         this.id = id;
         this.title = title;
+        this.items = items;
     }
 
     public int getId() {
