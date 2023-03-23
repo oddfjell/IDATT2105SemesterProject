@@ -92,6 +92,21 @@ public class MainController {
 
 
 
+    // Delete user (id must be present in payload, or new user will be created)
+    @CrossOrigin
+    @DeleteMapping("/deleteuser")
+    public @ResponseBody boolean deleteUser(@RequestBody User user) {
+        try {
+            userRepository.delete(user);
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+
+
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
