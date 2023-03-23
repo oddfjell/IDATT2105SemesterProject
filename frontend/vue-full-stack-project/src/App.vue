@@ -1,15 +1,17 @@
 <script setup>
 import { RouterView } from 'vue-router'
+import Footer from "@/components/Footer.vue";
 
 </script>
 <script>
 import Header from "@/components/Header/Header.vue";
+import FooterComponent from "@/components/Footer.vue";
 
 export default {
   name: "App",
   data(){
     return{
-      components:Header
+      components:Header, FooterComponent,
       }
   }
 }
@@ -17,6 +19,7 @@ export default {
 <template>
   <Header />
   <RouterView />
+  <Footer/>
 </template>
 
 <style>
