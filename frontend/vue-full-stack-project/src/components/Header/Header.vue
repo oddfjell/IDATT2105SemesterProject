@@ -47,6 +47,11 @@ header {
   color: white;
   font-size: x-large;
 }
+@media only screen and (max-width: 350px) {
+  #title{
+    display: none;
+  }
+}
 
 
 </style>
