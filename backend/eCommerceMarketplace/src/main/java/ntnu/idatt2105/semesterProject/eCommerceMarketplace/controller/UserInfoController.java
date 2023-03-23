@@ -1,10 +1,8 @@
 package ntnu.idatt2105.semesterProject.eCommerceMarketplace.controller;
 
-//import no.ntnu.idatt2105.tokenauth.demo.dao.MockDao;
-//import no.ntnu.idatt2105.tokenauth.demo.model.UserInfoResponse;
+import ntnu.idatt2105.semesterProject.eCommerceMarketplace.model.UserInfoResponse;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
-import spring.calculator.task4.restfulbackendtask4.model.UserInfoResponse;
 
 @RestController
 @RequestMapping(value = "/users")

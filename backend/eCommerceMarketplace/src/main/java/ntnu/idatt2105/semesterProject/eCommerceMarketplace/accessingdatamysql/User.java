@@ -1,28 +1,48 @@
 package ntnu.idatt2105.semesterProject.eCommerceMarketplace.accessingdatamysql;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
+import jakarta.persistence.*;
 import java.sql.Date;
 
-@Entity // This tells Hibernate to make a table out of this class
+@Entity
+@Table (name = "user")
 public class User {
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
+
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "user_id")
+    private int id;
+
+    @Column(name = "username")
     private String username;
+
+    @Column(name = "password")
     private String password;
+
+    @Column(name = "first_name")
     private String firstName;
+
+    @Column(name = "last_name")
     private String lastName;
+
+    @Column(name = "email")
     private String email;
-    private String phone_number;
-    private Date date_of_birth;
+
+    @Column(name = "phone_number")
+    private String phoneNumber;
+
+    @Column(name = "date_of_birth")
+    private Date dateOfBirth;
+
+    @Column(name = "registered")
     private Date registered;
+
+    @Column(name = "image")
     private String image;
 
-    public Integer getId() {
+    @ManyToOne
+    @JoinColumn(name = "address_id_fk", referencedColumnName = "address_id")
+    private Address address;
+
+    public int getId() {
         return id;
     }
 
@@ -46,12 +66,12 @@ public class User {
         return email;
     }
 
-    public String getPhone_number() {
-        return phone_number;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public Date getDate_of_birth() {
-        return date_of_birth;
+    public Date getDateOfBirth() {
+        return dateOfBirth;
     }
 
     public Date getRegistered() {
@@ -62,7 +82,11 @@ public class User {
         return image;
     }
 
-    public void setId(Integer id) {
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -86,12 +110,12 @@ public class User {
         this.email = email;
     }
 
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public void setDate_of_birth(Date date_of_birth) {
-        this.date_of_birth = date_of_birth;
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public void setRegistered(Date registered) {
@@ -102,18 +126,7 @@ public class User {
         this.image = image;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "username='" + username + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", phone_number='" + phone_number + '\'' +
-                ", image='" + image + '\'' +
-                ", password='" + password + '\'' +
-                ", date_of_birth=" + date_of_birth +
-                ", registered=" + registered +
-                '}';
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }

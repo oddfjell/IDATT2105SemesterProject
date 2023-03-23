@@ -1,31 +1,55 @@
 <template>
-  <div id="registerField" class="registerField">
-    <div id="registerLabel" class="registerLabel">
-      <label>Please register!</label>
-    </div>
-    <div id="username">
-      <label id="usernameLabel" class="registerLabel">Username:</label>
-      <textarea v-model="user.username" id="username" class="registerTextarea" @input="onInputUsername"></textarea>
-    </div>
-    <div id="email">
-      <label id="emailLabel" class="registerLabel">Email:</label>
-      <textarea v-model="user.email" id="email" class="registerTextarea" @input="onInputEmail"></textarea>
-    </div>
-    <div id="password">
-      <label id="passwordLabel" class="registerLabel">Password: </label>
-      <textarea v-model="user.password" id="password" class="registerTextarea" @input="onInputPassword"></textarea>
-      <button v-on:click="handleRegisterClick" id="registerbutton" class="registerButton">Sign in</button>
-    </div>
-    <div>
-      <p class="errorText">{{errorText}}</p>
+  <back-header/>
+  <div class="container">
+    <h1>Register</h1>
+    <form id="loginField" class="loginField" @submit.prevent="submit">
+      <BaseInput
+          v-model="user.username"
+          :modelValue="user.username"
+          :error="errors.username"
+          @input="onInputUsername"
+          label="Username"
+          type="text"
+          class="field"
+      />
+      <BaseInput
+      v-model="user.email"
+      :modelValue="user.email"
+      :error="errors.email"
+      @input="onInputEmail"
+      label="Email"
+      type="email"
+      class="field"
+      />
+      <BaseInput
+          v-model="user.password"
+          :modelValue="user.password"
+          :error="errors.password"
+          @input="onInputPassword"
+          label="Password"
+          type="password"
+          class="field"
+      />
+      <div class="Btn">
+        <button id="registerBtn" v-on:click="handleRegisterClick" type="submit">Register</button>
+      </div>
+    </form>
+    <div class="Btn">
+      <button id="loginBtn" @click="onLogin" >Already have an account? Log in here!</button>
     </div>
   </div>
 </template>
 
 <script>
 import setUserService from "@/services/setUserService";
+import BaseInput from "@/components/Form/Input.vue";
+import { useField, useForm } from "vee-validate";
+import { string, object } from "yup";
+import router from "@/router";
+import BackHeader from "@/components/Header/backHeader.vue";
 export default {
   name: "RegisterPageView.vue",
+  components: {BackHeader, BaseInput},
   data() {
     return {
       user: {
@@ -38,68 +62,78 @@ export default {
   },
   methods: {
     onInputUsername(username) {
-      this.user.username = username.target.value;
+      this.username = username.target.value;
       //this.$store.commit("UPDATE_NAME", e.target.value);
     },
     onInputEmail(email) {
-      this.user.email = email.target.value;
+      this.email = email.target.value;
     },
     onInputPassword(password) {
-      this.user.password = password.target.value;
+      this.password = password.target.value;
     },
-    async handleRegisterClick() {
-      //TODO let clean = DOMPurify.sanitize(dirty);  https://github.com/cure53/DOMPurify
-      if(this.user.username === ""){//undefined
-        this.errorText = "You must type a username to register"
-      } else if(this.user.email === ""){
-        this.errorText = "You must type a email to register"
-      } else if(this.user.password === ""){
-        this.errorText = "You must type a password to register"
-      }else{
-        //sett session tid og lagre bruker og session i store
-        await setUserService.methods.sendUserRegister(this.user);
-        //TODO feil innlogging
-      }
-    },
-  },//TODO lag template for register med de samme attributene
-}
+    onLogin(){
+      router.push("/login")
+    }
+  },
+  setup() {
+    const validationSchema = object({
+      username: string("Wrong format").required("Cannot be empty"),
+      email: string("Wrong format").email("Please enter a valid email").required("Cannot be empty"),
+      password: string("Wrong format").required("Cannot be empty"),
+    });
+    const {handleSubmit, errors} = useForm({
+      validationSchema,
+    });
+    const {value: username} = useField("username");
+    const {value: email} = useField("email");
+    const {value: password} = useField("password");
+    const submit = handleSubmit((values) => {
+      setUserService.methods.sendUserLogin(values)
+    });
+    return {
+      username,
+      email,
+      password,
+      errors,
+      submit,
+    };
+  }
+  }
 </script>
 
 <style scoped>
-.registerField{
-  max-width: 420px;
-  margin: 30px auto;
-  background: white;
-  text-align: left;
-  padding: 40px;
-  border-radius: 10px;
-}
-.registerLabel{
-  color: #1b1a1a;
-  display: inline-block;
-  margin: 25px 0 15px;
-  font-size: 0.6em;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: bold;
-}
-.registerTextarea{
+.field{
   display: block;
-  padding: 10px 6px;
-  width: 100%;
-  box-sizing: border-box;
-  border: none;
-  border-bottom: 1px solid #ddd;
-  color: #555;
-  height: auto;
-  max-width: 100%;
+  width: 80%;
+  margin: 10px auto;
 }
-.registerButton{
+
+.Btn{
+  margin: 20px auto;
+  text-align: center;
+}
+#registerBtn{
   background: #0b6dff;
   border: 0;
   padding: 10px 20px;
-  margin-top: 20px;
+  width: 80%;
   color: white;
-  border-radius: 20px;
+  border-radius: 5px;
+}
+#loginBtn{
+  background: #b7b7b7;
+  border: 0;
+  padding: 10px 20px;
+  width: 60%;
+  color: black;
+  border-radius: 5px;
+}
+#registerBtn:hover{
+  background-color: #4169a8;
+  cursor: pointer;
+}
+#loginBtn:hover{
+  background-color: #d0cece;
+  cursor: pointer;
 }
 </style>

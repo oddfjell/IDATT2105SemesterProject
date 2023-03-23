@@ -30,8 +30,10 @@ export default {
 
 <style scoped>
 .container{
+  margin-top: 0;
+  margin-bottom: 0;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: #eeeeee;
 }
 label{
