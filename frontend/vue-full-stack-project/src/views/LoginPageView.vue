@@ -58,8 +58,10 @@ export default {
 </script> -->
 
 <script>
-import setUserService from "@/services/setUserService";
+//import setUserService from "@/services/setUserService";
 import AlertBox from "@/components/AlertBox.vue";
+import { useTokenStore } from "../stores/token";
+import router from "@/router";
 export default {
   name: "LoginPageView.vue",
   components: {AlertBox},
@@ -78,24 +80,37 @@ export default {
       }
     };
   },
+  setup() {
+    const tokenStore = useTokenStore();
+    return { tokenStore };
+  },
   methods: {
     onInputUsername(username) {
       this.user.username = username.target.value;
-      console.log(this.user.username + " " + this.user.password)
       //this.$store.commit("UPDATE_NAME", e.target.value);
     },
     onInputPassword(password) {
       this.user.password = password.target.value;
-      console.log(this.user.username + " " + this.user.password)
     },
     async handleLoginClick() {
+
       if(this.user.username === "" || this.user.password === "") {
         console.log("oi")
       }else{
-        var login = await setUserService.methods.sendUserLogin(this.user);
+
+
+        await this.tokenStore.getTokenAndSaveInStore(this.user.username, this.user.password);
+        if(this.tokenStore.jwtToken){
+          await router.push("/profile");
+        } else {
+          console.log("Login failed!")
+         // this.loginStatus = "Login failed!" //TODO
+        }
+
+        /*var login = await setUserService.methods.sendUserLogin(this.user);
         if(login !== null){
           this.popupData.display = "block";
-        }
+        }*/
       }
 
 
