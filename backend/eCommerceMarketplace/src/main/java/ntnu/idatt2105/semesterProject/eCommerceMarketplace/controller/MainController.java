@@ -1,5 +1,6 @@
 package ntnu.idatt2105.semesterProject.eCommerceMarketplace.controller;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.accessingdatamysql.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,10 +18,10 @@ public class MainController {
     @Autowired
     private ItemRepository itemRepository;
 
-    // Register new user and adds it to database
-    @PostMapping("/register")
-    public @ResponseBody boolean addNewUser(@RequestBody User user) {
-
+    // Create new user and adds it to database
+    @CrossOrigin
+    @PostMapping("/createuser")
+    public @ResponseBody boolean createUser(@RequestBody User user) {
         try {
             userRepository.save(user);
             return true;
@@ -30,20 +31,38 @@ public class MainController {
         }
     }
 
-    // Returns all users
+    // Return user with given id
     @CrossOrigin
     @GetMapping("/user/{id}")
     public @ResponseBody Optional<User> getUser(@PathVariable int id) {
         return userRepository.findById(id);
     }
 
-    // Returns user with given id
-    // If no user exist with given id, it returns null
+    // Return all users
     @CrossOrigin
     @GetMapping("/user")
     public @ResponseBody Iterable<User> getAllUsers() {
         return userRepository.findAll();
     }
+
+    /**
+    // Update user with given id
+    @CrossOrigin
+    @PutMapping("/updateuser")
+    public @ResponseBody boolean updateUser(@RequestBody JSONPObject object) {
+        try {
+            object.
+
+            User user = userRepository.findById(id).get();
+            user.setUsername("Jonas");
+            userRepository.save(user);
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+     */
 
     @CrossOrigin
     @PostMapping("/login")
@@ -71,5 +90,13 @@ public class MainController {
             System.out.println(e.getMessage());
             return false;
         }
+    }
+
+    // Return all users
+    @CrossOrigin
+    @GetMapping("/getitems")
+    public @ResponseBody Iterable<Item> getAllItems() {
+        return itemRepository.findAll();
+
     }
 }

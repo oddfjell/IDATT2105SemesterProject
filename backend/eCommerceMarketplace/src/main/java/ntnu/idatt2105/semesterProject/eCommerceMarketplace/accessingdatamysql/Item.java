@@ -34,5 +34,69 @@ public class Item {
     @ManyToMany
     @JoinTable(name = "item_category", joinColumns = @JoinColumn(name = "item_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
     private List<Category> categories;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public boolean isForSale() {
+        return forSale;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public void setForSale(boolean forSale) {
+        this.forSale = forSale;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
 }
 
