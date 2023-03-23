@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c44d86ab-ae88-42f9-bcd5-0525e24d117a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/views/LoginPageView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/views/LoginPageView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/views/ProfilePageView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/views/ProfilePageView.vue" afterDir="false" />
-    </list>
+    <list default="true" id="c44d86ab-ae88-42f9-bcd5-0525e24d117a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
