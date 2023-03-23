@@ -1,70 +1,44 @@
 <template>
-  <form id="loginField" class="loginField" @submit.prevent>
-    <div id="loginLabel" class="loginLabel">
-      <label>Please login!</label>
-    </div>
+  <div class="container">
+    <h1>Log in</h1>
+  <form id="loginField" class="loginField" @submit.prevent="submit">
 
-    <BaseInput v-model="user.username"
-               :modelValue="name"
-               :error="errorText"/>
-    <BaseInput v-model="user.password" :model-value="password" :error="errorText" />
-    <div id="username">
-      <label id="usernameLabel" class="loginLabel">Username:</label>
-      <input
-          v-model="user.username"
-          id="username"
-          class="loginTextarea"
-          @input="onInputUsername"
-          type="text"
-          required
-      >
+    <BaseInput
+        v-model="user.username"
+        :modelValue="user.username"
+        :error="errors.username"
+        @input="onInputUsername"
+        label="Username"
+        type="text"
+        class="field"
+    />
+    <BaseInput
+        v-model="user.password"
+        :modelValue="user.password"
+        :error="errors.password"
+        @input="onInputPassword"
+        label="Password"
+        type="password"
+        class="field"
+    />
+    <div class="Btn">
+     <button id="loginBtn" v-on:click="handleLoginClick" type="submit">Sign in</button>
     </div>
-    <div id="password">
-      <label id="passwordLabel" class="loginLabel">Password: </label>
-      <input
-          v-model="user.password"
-          id="password"
-          class="loginTextarea"
-          @input="onInputPassword"
-          type="password"
-          required
-      >
-
-     <button v-on:click="handleLoginClick" id="loginbutton" class="loginButton" type="submit">Sign in</button>
       <alert-box :popupData="popupData" ></alert-box>
-    </div>
-    <div>
-      <p class="errorText">{{errorText}}</p>
-    </div>
   </form>
+    <div class="Btn">
+      <button id="registerBtn" @click="onRegister" >Dont have an account? Register here!</button>
+    </div>
+  </div>
 </template>
-
-<!--
-<template>
-  <input :type="passwordFieldType" v-model="password">
-  <button type="password" @click="switchVisibility">show / hide</button>
-</template>
-
-<script>
-export default {
-  data() {
-    return {
-      password: "",
-      passwordFieldType: "password"
-    };
-  },
-  methods: {
-    switchVisibility() {
-      this.passwordFieldType = this.passwordFieldType === "password" ? "text" : "password";
-    }
-  }
-};
-</script> -->
 
 <script>
 import setUserService from "@/services/setUserService";
 import AlertBox from "@/components/AlertBox.vue";
 import BaseInput from "@/components/Form/Input.vue";
+import { useField, useForm } from "vee-validate";
+import { string, object } from "yup";
+import router from "@/router";
 export default {
   name: "LoginPageView.vue",
   components: {BaseInput, AlertBox},
@@ -80,19 +54,22 @@ export default {
         "body" : "this user does not exist",
         "footer" : "--hilsen fugl.",
         "display" : "none"
-      }
+      },
+      logo:Image
     };
   },
   methods: {
     onInputUsername(username) {
-      this.user.username = username.target.value;
-      console.log(this.user.username + " " + this.user.password)
+      this.username = username.target.value;
       //this.$store.commit("UPDATE_NAME", e.target.value);
     },
     onInputPassword(password) {
-      this.user.password = password.target.value;
-      console.log(this.user.username + " " + this.user.password)
+      this.password = password.target.value;
     },
+    onRegister(){
+      router.push("/register")
+    }
+    /*
     async handleLoginClick() {
       if(this.user.username === "" || this.user.password === "") {
         console.log("oi")
@@ -102,55 +79,29 @@ export default {
           this.popupData.display = "block";
         }
       }
-
-
-
-      /**
-       * //TODO let clean = DOMPurify.sanitize(dirty);  https://github.com/cure53/DOMPurify
-      if(this.user.username === ""){//undefined
-        //this.errorText.push("You must type a username to log in");
-        //this.errorText = "You must type a username to log in"
-      } else if(this.user.password === ""){
-        //this.errorText.push("You must type a password to log in")
-        //this.errorText = "You must type a password to log in"
-      }else{
-        //sett session tid og lagre bruker og session i store
-        var login = await setUserService.methods.sendUserLogin(this.user);
-        if(login !== null){
-          this.popupData.display = "block";
-        }
-        //if (response != "") var response =
-        //TODO feil innlogging
-      }*/
-    },
-
-
-
-    /**checkForm: function (e) {
-      //this.errors = [];
-
-      if (!this.name) {
-        this.errorText.push("Name required.");
-      } else if ()
-     if (!this.email) {
-        this.errorText.push('Email required.');
-      } else if (!this.validEmail(this.email)) {
-        this.errorText.push('Valid email required.');
-      }egen func da validEmail: function (email) {
-      var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(email);
-    }
-
-      if (!this.errors.length) {
-        return true;
-      }
-
-      e.preventDefault();
     },*/
+  },
+  setup() {
+    const validationSchema = object({
+      username: string("Wrong format").required("Cannot be empty"),
+      password: string("Wrong format").required("Cannot be empty"),
+    });
+    const { handleSubmit, errors } = useForm({
+      validationSchema,
+    });
+    const { value: username } = useField("username");
+    const { value: password } = useField("password");
+    const submit = handleSubmit((values) => {
+      setUserService.methods.sendUserLogin(values)
+    });
+    return {
+      username,
+      password,
+      errors,
+      submit,
+    };
 
-
-
-  },//TODO lag template for register med de samme attributene
+  },
   /*mounted(){
     this.popupData.display = "block";
   }*/
@@ -158,40 +109,38 @@ export default {
 </script>
 
 <style scoped>
-.loginField{
-  max-width: 420px;
-  margin: 30px auto;
-  background: white;
-  text-align: left;
-  padding: 40px;
-  border-radius: 10px;
-}
-.loginLabel{
-  color: #1b1a1a;
-  display: inline-block;
-  margin: 25px 0 15px;
-  font-size: 0.6em;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: bold;
-}
-.loginTextarea{
+.field{
   display: block;
-  padding: 10px 6px;
-  width: 100%;
-  box-sizing: border-box;
-  border: none;
-  border-bottom: 1px solid #ddd;
-  color: #555;
-  height: auto;
-  max-width: 100%;
+  width: 80%;
+  margin: 10px auto;
 }
-.loginButton{
+
+.Btn{
+  margin: 20px auto;
+  text-align: center;
+}
+#loginBtn{
   background: #0b6dff;
   border: 0;
   padding: 10px 20px;
-  margin-top: 20px;
+  width: 80%;
   color: white;
-  border-radius: 20px;
+  border-radius: 5px;
+}
+#registerBtn{
+  background: #b7b7b7;
+  border: 0;
+  padding: 10px 20px;
+  width: 60%;
+  color: black;
+  border-radius: 5px;
+}
+#loginBtn:hover{
+  background-color: #4169a8;
+  cursor: pointer;
+}
+#registerBtn:hover{
+  background-color: #d0cece;
+  cursor: pointer;
 }
 </style>
