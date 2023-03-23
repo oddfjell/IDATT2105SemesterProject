@@ -1,7 +1,7 @@
 <template>
 <header>
   <a class="link" href="/"><img id="logo" src="/Logo.svg" alt=""></a>
-  <a class="link" href="/"><h1 id="title">Tittel</h1></a>
+  <a class="link" href="/"><p id="title">Muligens et marked</p></a>
 </header>
   <LoggedInNavBar v-if="isLoggedIn" />
   <default-nav-bar v-else/>
