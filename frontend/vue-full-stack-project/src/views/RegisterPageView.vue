@@ -126,11 +126,11 @@ export default {
   color: black;
   border-radius: 5px;
 }
-#loginBtn:hover{
+#registerBtn:hover{
   background-color: #4169a8;
   cursor: pointer;
 }
-#registerBtn:hover{
+#loginBtn:hover{
   background-color: #d0cece;
   cursor: pointer;
 }
