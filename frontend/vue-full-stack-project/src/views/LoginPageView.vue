@@ -55,7 +55,6 @@ export default {
         "footer" : "--hilsen fugl.",
         "display" : "none"
       },
-      logo:Image
     };
   },
   methods: {
