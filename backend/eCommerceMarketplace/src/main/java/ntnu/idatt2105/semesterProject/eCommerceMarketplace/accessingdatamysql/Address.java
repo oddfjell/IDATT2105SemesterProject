@@ -1,23 +1,29 @@
 package ntnu.idatt2105.semesterProject.eCommerceMarketplace.accessingdatamysql;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table (name = "address")
 public class Address {
+
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "address_id")
     private int id;
+
+    @Column(name = "country")
     private String country;
+
+    @Column(name = "city")
     private String city;
+
+    @Column(name = "postal_code")
     private int postalCode;
+
+    @Column(name = "street_name")
     private String streetName;
+
+    @Column(name = "street_number")
     private String streetNumber;
-
-    public Address(){}
-
-    public Address(int id, String country, String city, int postalCode, String streetName, String streetNumber) {
-        this.id = id;
-        this.country = country;
-        this.city = city;
-        this.postalCode = postalCode;
-        this.streetName = streetName;
-        this.streetNumber = streetNumber;
-    }
 
     public int getId() {
         return id;
@@ -65,17 +71,5 @@ public class Address {
 
     public void setStreetNumber(String streetNumber) {
         this.streetNumber = streetNumber;
-    }
-
-    @Override
-    public String toString() {
-        return "Address{" +
-                "id=" + id +
-                ", country='" + country + '\'' +
-                ", city='" + city + '\'' +
-                ", postalCode=" + postalCode +
-                ", streetName='" + streetName + '\'' +
-                ", streetNumber='" + streetNumber + '\'' +
-                '}';
     }
 }
