@@ -16,11 +16,6 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 16
-        cache: 'npm'
-        cache-dependency-path: "./vue-full-stack-project/package-lock.json"
     - name: Clean install dependencies and build
       run: |
         npm ci
