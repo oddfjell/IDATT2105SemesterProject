@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c44d86ab-ae88-42f9-bcd5-0525e24d117a" name="Changes" comment="" />
+    <list default="true" id="c44d86ab-ae88-42f9-bcd5-0525e24d117a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/services/itemService.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/services/itemService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/services/setUserService.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/services/tokenService.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/services/userService.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/services/userService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/stores/token.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/stores/token.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/views/ProfilePageView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/views/ProfilePageView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/views/RegisterPageView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/views/RegisterPageView.vue" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
