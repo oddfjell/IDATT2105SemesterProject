@@ -46,10 +46,10 @@ public class MainController {
 
     // Create new user and adds it to database
     // Proposed solution for return values:
-    // 0: username ALREADY EXIST
-    // 1: phoneNumber ALREADY EXIST
-    // 2: email ALREADY EXIST
-    // 3: CREATED
+    // 0: CREATED
+    // 1: username ALREADY EXIST
+    // 2: phoneNumber ALREADY EXIST
+    // 3: email ALREADY EXIST
     // 4: ERROR
 
     @RequestMapping(value = "/createuser", method = RequestMethod.POST)
@@ -58,22 +58,22 @@ public class MainController {
 
             // Checks if user with given username already exist in database
             if (userRepository.findByUsername(user.getUsername())!= null) {
-                return 0;
-            }
-
-            // Checks if user with given phone_number already exist in database
-            if (userRepository.findByPhoneNumber(user.getPhoneNumber()) != null) {
                 return 1;
             }
 
             // Checks if user with given phone_number already exist in database
-            if (userRepository.findByEmail(user.getEmail()) != null) {
+            if (userRepository.findByPhoneNumber(user.getPhoneNumber()) != null) {
                 return 2;
+            }
+
+            // Checks if user with given phone_number already exist in database
+            if (userRepository.findByEmail(user.getEmail()) != null) {
+                return 3;
             }
 
             // Since username, phoneNumber and email were not already taken, user is created
             userRepository.save(user);
-            return 3;
+            return 0;
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
