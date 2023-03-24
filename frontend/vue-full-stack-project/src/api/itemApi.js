@@ -12,8 +12,8 @@ export default {
     publishItem(item){
         return apiClient.post('/item', item);
     },
-    getItems() {
-        return apiClient.get('/items/');
+    async getItems() {
+        return await apiClient.get('/getitems/');
     },
     getItemByID(id){
         return apiClient.get(`/item/${id}`);
