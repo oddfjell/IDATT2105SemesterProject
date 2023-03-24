@@ -79,7 +79,8 @@
 </template>
 
 <script>
-import setUserService from "@/services/setUserService";
+//import setUserService from "@/services/setUserService";
+import userService from "@/services/userService";
 import BaseInput from "@/components/Form/Input.vue";
 import { useField, useForm } from "vee-validate";
 import {string, object, date, number} from "yup";
@@ -154,7 +155,8 @@ export default {
     const {value: phone_number} = useField("phone_number");
     const{value:date_of_birth} = useField("date_of_birth")
     const submit = handleSubmit((values) => {
-      setUserService.methods.sendUserRegister(values)
+      userService.registerUser(values);
+      //setUserService.methods.sendUserRegister(values)
     });
     return {
       username,

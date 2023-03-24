@@ -1,12 +1,12 @@
 import axios from 'axios';
 import {useTokenStore} from "@/stores/token";
+import router from "@/router";
 
 const userApiClient = axios.create({
     baseURL: 'http://localhost:8080/users',
     headers: {
         'Content-Type': 'application/json',
         "Authorization" : "Bearer " + useTokenStore().jwtToken
-        //TODO header for username? nei
     },
     //withCredentials: true
 });
@@ -14,9 +14,7 @@ const userApiClient = axios.create({
 const userServiceApiClient = axios.create({
     baseURL: 'http://localhost:8080/users/service',
     headers: {
-        'Content-Type': 'application/json',
-        "Authorization" : "Bearer " + useTokenStore().jwtToken
-        //TODO header for username? nei
+        'Content-Type': 'application/json'
     },
     //withCredentials: true
 });
@@ -28,8 +26,22 @@ export default {
     getJwtToken(values){
         return userServiceApiClient.post('/login', values);
     },
-    registerUser(user){
+    /*registerUser(user){
         return userServiceApiClient.post('/register', user);
+    },*/
+
+    async registerUser(user) {
+        try {
+            const response = await userServiceApiClient.post('/register', user);
+            if(response.data != null){ //TODO send feilmedling og ta den imot
+                await router.push("/profile")
+            } else{
+                return "gal input"
+            }
+            //return response.data; //TODO her .data
+        } catch (error) {
+            console.error(error);
+        }
     },
     getUsername(username){ //TODO is logged in er her ja
         return userApiClient.get('/getusername', username);

@@ -1,6 +1,8 @@
 //import axios from "axios";
 import { defineStore } from "pinia";
-import {getJwtToken} from "@/services/tokenService"
+//import {getJwtToken} from "@/services/tokenService"
+
+import userService from "@/services/userService";
 
 export const useTokenStore = defineStore("token", {
     state: () => ({
@@ -14,7 +16,7 @@ export const useTokenStore = defineStore("token", {
     actions: {
         async getTokenAndSaveInStore(values) { ///username, password
             try{
-                let response = await getJwtToken(values);//valuesusername, password
+                let response = await userService.getJwtToken(values);//valuesusername, password
 
                 console.log("yo")
                 console.log(response)

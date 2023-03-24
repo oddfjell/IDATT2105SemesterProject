@@ -36,7 +36,8 @@
 <script>
 //import ItemComponent from "@/components/Item.vue";  //TODO fiks duplikat kode og lag heller flere templates
 import { useTokenStore } from "../stores/token";
-import {isUserLoggedIn} from "../services/tokenService"
+//import {isUserLoggedIn} from "../services/tokenService"
+import userService from "@/services/userService";
 
 export default {
   name: "ProfilePageView.vue",
@@ -51,7 +52,8 @@ export default {
       console.log("Unauthenticated context");
     } else {
       console.log("Authenticated context");
-      let response  = await isUserLoggedIn(this.tokenStore.loggedInUser, this.tokenStore.jwtToken);
+      let response  = await userService.getUsername(this.tokenStore.loggedInUser);//, this.tokenStore.jwtToken
+          //isUserLoggedIn(this.tokenStore.loggedInUser, this.tokenStore.jwtToken);
       this.user = response.data.username;//TODO
     }
   },
