@@ -4,6 +4,7 @@ const apiClient = axios.create({
     baseURL: 'http://localhost:8080',
     headers: {
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'http://localhost:8080',
     },
     withCredentials: true
 });
@@ -13,7 +14,8 @@ export default {
         return apiClient.post('/item', item);
     },
     async getItems() {
-        return await apiClient.get('/getitems/');
+        let response = await apiClient.get('/getitems');
+        return response.data
     },
     getItemByID(id){
         return apiClient.get(`/item/${id}`);
