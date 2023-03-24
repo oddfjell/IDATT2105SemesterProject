@@ -8,4 +8,9 @@ import ntnu.idatt2105.semesterProject.eCommerceMarketplace.accessingdatamysql.Us
 
 public interface UserRepository extends CrudRepository<User, Integer> {
 
+    public User findByUsername(String username);
+
+    public User findByPhoneNumber(String phoneNumber);
+
+    public User findByEmail(String email);
 }
