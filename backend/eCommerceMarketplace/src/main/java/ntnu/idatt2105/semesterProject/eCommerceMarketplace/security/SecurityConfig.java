@@ -23,6 +23,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers("/token").permitAll() //TODO de andre offentlige
                 .requestMatchers("/user").permitAll()
+                .requestMatchers("/getitems").permitAll()
                 .requestMatchers("/v3/**").permitAll() //TODO http://localhost:8080/v3/api-docs
                 .requestMatchers("/swagger-ui/**").permitAll() //TODO http://localhost:8080/swagger-ui/index.html#/user-info-controller/getUser
                 .requestMatchers("/swagger-ui.html/**").permitAll()
