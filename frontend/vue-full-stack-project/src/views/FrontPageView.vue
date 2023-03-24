@@ -15,7 +15,7 @@ import ItemComponent from "@/components/Item.vue";
 import router from "@/router";
 
 import {Itemstore} from '@/stores/selectedItem'
-import itemApi from "@/services/itemApi";
+import itemService from "@/services/itemService";
 
 export default {
   name: "FrontPageView.vue",
@@ -26,14 +26,13 @@ export default {
   },
   methods:{
     selectItem(item){
-      console.log(item)
       router.push("/item")
       this.store.selectItem(item)
     }
   },
   async setup() {
     let items=[]
-    let getItems = await itemApi.getItems()
+    let getItems = await itemService.getItems()
     for(let item of getItems){
       items.unshift(item)
     }
