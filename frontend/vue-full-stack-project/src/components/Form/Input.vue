@@ -24,10 +24,10 @@ export default {
       default: "",
     },
     modelValue: {
-      type: [String, Number],
+      type: [String, Number, Date, Function],
       default: "",
     },
-    type:[String,Number]
+    type:[String,Number, Date, Function]
   },
 };
 </script>
