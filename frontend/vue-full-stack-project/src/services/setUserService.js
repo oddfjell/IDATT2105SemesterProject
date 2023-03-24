@@ -5,7 +5,6 @@ const apiUserService = axios.create({
     baseURL: 'http://localhost:8080',
     headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'http://localhost:8080'
     }
 })
 
@@ -18,7 +17,7 @@ export default {
             try {
                 const response = await apiUserService.post('/login', user);
                 console.log(response)
-                if(response.data != false){ //TODO send feilmedling og ta den imot
+                if(response.data !== false){ //TODO send feilmedling og ta den imot
                     //session og user
                     // store ting
                     await router.push("/profile")

@@ -1,6 +1,6 @@
 <template>
 <div>
-  <router-link id="backBtn" to="/"><img src="public/icons/left-arrow.svg" alt=""></router-link>
+  <router-link id="backBtn" to="/"><img src="/icons/left-arrow.svg" alt=""></router-link>
 </div>
 </template>
 

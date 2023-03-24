@@ -15,6 +15,9 @@ public class Item {
     @Column(name = "title")
     private String title;
 
+    @Column(name = "briefDescription")
+    private String briefDescription;
+
     @Column(name = "description")
     private String description;
 
@@ -41,6 +44,10 @@ public class Item {
 
     public String getTitle() {
         return title;
+    }
+
+    public String getBriefDescription() {
+        return briefDescription;
     }
 
     public String getDescription() {
@@ -75,6 +82,9 @@ public class Item {
         this.title = title;
     }
 
+    public void setBriefDescription(String briefDescription) {
+        this.briefDescription = briefDescription;
+    }
     public void setDescription(String description) {
         this.description = description;
     }

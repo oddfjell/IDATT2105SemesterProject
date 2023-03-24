@@ -10,8 +10,9 @@ const apiClient = axios.create({
 });
 
 export default {
-    publishItem(item){
-        return apiClient.post('/item', item);
+    async publishItem(item){
+        let response = await apiClient.post('/createitem', item)
+        return response;
     },
     async getItems() {
         let response = await apiClient.get('/getitems');
