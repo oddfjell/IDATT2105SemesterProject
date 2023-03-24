@@ -8,6 +8,8 @@ const apiClient = axios.create({
     withCredentials: true
 });
 
+//TODO denne er ooof ja
+
 export default {
     publishItem(item){
         return apiClient.post('/item', item);
@@ -19,6 +21,7 @@ export default {
         return apiClient.get(`/item/${id}`);
     }
 };
+
 
 export const publishItem = (item, token) => { //valid token sjekk
     const config = {

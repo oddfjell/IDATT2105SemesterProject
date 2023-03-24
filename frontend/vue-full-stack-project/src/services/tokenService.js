@@ -12,7 +12,7 @@ export const getJwtToken = (values) => {//username, password //TODO dette er log
             "Content-type": "application/json",
         },
     };
-    return axios.post("http://localhost:8080/token", values, config);//TODO JSON.stringify({ username: username, password: password })
+    return axios.post("http://localhost:8080/users/service/login", values, config);//TODO JSON.stringify({ username: username, password: password })
 }
 /**
  * Checks if the user exists in the database and validates the accsess

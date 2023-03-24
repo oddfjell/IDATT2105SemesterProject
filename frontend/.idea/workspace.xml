@@ -5,15 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c44d86ab-ae88-42f9-bcd5-0525e24d117a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/UserInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/UserInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/model/UserInfoResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/model/UserInfoResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/MainController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/TokenController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/UserInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/security/JWTAuthorizationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/security/JWTAuthorizationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/security/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/services/httpService.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/services/tokenService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/services/itemService.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/services/itemService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/services/tokenService.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/services/tokenService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/services/userService.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/services/userService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/stores/token.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/stores/token.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/views/ProfilePageView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/views/ProfilePageView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
