@@ -1,6 +1,6 @@
 //import axios from "axios";
 import { defineStore } from "pinia";
-import {getJwtToken} from "@/services/httpService"
+import {getJwtToken} from "@/services/tokenService"
 
 export const useTokenStore = defineStore("token", {
     state: () => ({

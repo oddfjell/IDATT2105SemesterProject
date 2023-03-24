@@ -94,7 +94,7 @@ public class MainController {
 
     // Return user with given id
     @CrossOrigin
-    @GetMapping("/user/{id}")
+    @GetMapping("/user/{id}") //TODO username??
     public @ResponseBody Optional<User> getUser(@PathVariable int id) {
         return userRepository.findById(id);
     }

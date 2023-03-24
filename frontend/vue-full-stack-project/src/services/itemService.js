@@ -19,3 +19,13 @@ export default {
         return apiClient.get(`/item/${id}`);
     }
 };
+
+export const publishItem = (item, token) => { //valid token sjekk
+    const config = {
+        headers: {
+            "Content-type": "application/json",
+            "Authorization" : "Bearer " + token
+        },
+    };
+    return axios.post('http://localhost:8080/item', item, config);
+}
