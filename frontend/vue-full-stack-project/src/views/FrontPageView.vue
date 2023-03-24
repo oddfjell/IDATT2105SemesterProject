@@ -15,7 +15,7 @@ import ItemComponent from "@/components/Item.vue";
 import router from "@/router";
 
 import {Itemstore} from '@/stores/selectedItem'
-import itemApi from "@/api/itemApi";
+import itemApi from "@/services/itemApi";
 
 export default {
   name: "FrontPageView.vue",

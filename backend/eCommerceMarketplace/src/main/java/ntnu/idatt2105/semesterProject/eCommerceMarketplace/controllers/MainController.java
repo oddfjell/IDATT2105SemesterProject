@@ -1,4 +1,4 @@
-package ntnu.idatt2105.semesterProject.eCommerceMarketplace.controller;
+package ntnu.idatt2105.semesterProject.eCommerceMarketplace.controllers;
 
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.accessingdatamysql.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -99,17 +99,44 @@ public class MainController {
 
 
 
-
     // Update user (id must be present in payload, or new user will be created)
 
+    // Proposed solution for return values:
+    // 0: username ALREADY EXIST
+    // 1: phoneNumber ALREADY EXIST
+    // 2: email ALREADY EXIST
+    // 3: CREATED
+    // 4: ERROR
+    @CrossOrigin
     @PutMapping("/updateuser")
-    public @ResponseBody boolean updateUser(@RequestBody User user) {
+    public @ResponseBody int updateUser(@RequestBody User user) {
         try {
+
+            System.out.println(user.getPhoneNumber());
+            System.out.println(userRepository.findByPhoneNumber(user.getPhoneNumber()));
+
+            // Checks if user with given username already exist in database
+            if (userRepository.findByUsername(user.getUsername()) != null) {
+                return 0;
+            }
+
+            // Checks if user with given phone_number already exist in database
+            if (userRepository.findByPhoneNumber(user.getPhoneNumber()) != null) {
+                return 1;
+            }
+
+            // Checks if user with given phone_number already exist in database
+            if (userRepository.findByEmail(user.getEmail()) != null) {
+                return 2;
+            }
+
+            // Update here
             userRepository.save(user);
-            return true;
+            return 3;
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            return false;
+            return 4;
         }
     }
 

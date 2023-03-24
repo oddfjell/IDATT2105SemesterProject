@@ -1,5 +1,5 @@
 
-package ntnu.idatt2105.semesterProject.eCommerceMarketplace.accessingdatamysql;
+package ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities;
 
 import jakarta.persistence.*;
 import java.util.List;

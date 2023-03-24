@@ -23,9 +23,8 @@
         class="field"
     />
     <div class="Btn">
-     <button id="loginBtn" v-on:click="handleLoginClick" type="submit">Sign in</button>
+     <button id="loginBtn" type="submit">Sign in</button>
     </div>
-      <alert-box :popupData="popupData" ></alert-box>
   </form>
     <div class="Btn">
       <button id="registerBtn" @click="onRegister" >Dont have an account? Register here!</button>
@@ -34,8 +33,8 @@
 </template>
 
 <script>
-import setUserService from "@/services/setUserService";
-import AlertBox from "@/components/AlertBox.vue";
+//import setUserService from "@/services/setUserService";
+import { useTokenStore } from "../stores/token";
 import BaseInput from "@/components/Form/Input.vue";
 import { useField, useForm } from "vee-validate";
 import { string, object } from "yup";
@@ -43,7 +42,7 @@ import router from "@/router";
 import BackHeader from "@/components/Header/backHeader.vue";
 export default {
   name: "LoginPageView.vue",
-  components: {BackHeader, BaseInput, AlertBox},
+  components: {BackHeader, BaseInput},
   data() {
     return {
       user: {
@@ -59,30 +58,9 @@ export default {
       },
     };
   },
-  methods: {
-    onInputUsername(username) {
-      this.username = username.target.value;
-      //this.$store.commit("UPDATE_NAME", e.target.value);
-    },
-    onInputPassword(password) {
-      this.password = password.target.value;
-    },
-    onRegister(){
-      router.push("/register")
-    }
-    /*
-    async handleLoginClick() {
-      if(this.user.username === "" || this.user.password === "") {
-        console.log("oi")
-      }else{
-        var login = await setUserService.methods.sendUserLogin(this.user);
-        if(login !== null){
-          this.popupData.display = "block";
-        }
-      }
-    },*/
-  },
   setup() {
+    const tokenStore = useTokenStore();
+
     const validationSchema = object({
       username: string("Wrong format").required("Cannot be empty"),
       password: string("Wrong format").required("Cannot be empty"),
@@ -92,20 +70,39 @@ export default {
     });
     const { value: username } = useField("username");
     const { value: password } = useField("password");
-    const submit = handleSubmit((values) => {
-      setUserService.methods.sendUserLogin(values)
+    const submit = handleSubmit(async (values) => {//TODO values??
+
+      console.log("elo")
+      console.log(values)
+      await tokenStore.getTokenAndSaveInStore(values); //this.user.username, this.user.passwordawait await asyncsetUserService.methods.sendUserLogin(values)
+      if (tokenStore.jwtToken) {
+        await router.push("/profile");
+      } else {
+        console.log("Login failed!")
+        // this.loginStatus = "Login failed!" //TODO
+      }
+
     });
     return {
       username,
       password,
       errors,
       submit,
+      tokenStore
     };
 
   },
-  /*mounted(){
-    this.popupData.display = "block";
-  }*/
+  methods: {
+    onInputUsername(username) {
+      this.username = username.target.value; //this.user.username = username.target.value;
+    },
+    onInputPassword(password) {
+      this.password = password.target.value;// this.user.password = password.target.value;
+    },
+    onRegister(){
+      router.push("/register")
+    }
+  },
 }
 </script>
 
