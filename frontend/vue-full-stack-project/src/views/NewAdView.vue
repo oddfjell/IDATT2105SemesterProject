@@ -40,33 +40,33 @@
           type="text"
           class="field"
       />
-      <ImagePicker/>
+      <ImagePicker class="field" label="Image"/>
       <div class="Btn">
-        <button id="registerProduct" type="submit">Sign in</button>
+        <button id="publishBtn" class="Btn" type="submit">Publish product</button>
       </div>
     </form>
   </div>
 </template>
 
 <script>
-import { useTokenStore } from "../stores/token";
+import { useTokenStore } from "@/stores/token";
 import BaseInput from "@/components/Form/Input.vue";
 import { useField, useForm } from "vee-validate";
-import { string, object } from "yup";
-import router from "@/router";
+import {string, object, number} from "yup";
 import BackHeader from "@/components/Header/backHeader.vue";
 import ImagePicker from "@/components/Form/ImagePicker.vue";
+import itemService from "@/services/itemService";
 export default {
   name: "LoginPageView.vue",
   components: {ImagePicker, BackHeader, BaseInput},
   data() {
     return {
       product: {
-        title:String,
-        price:Number,
-        briefDescription:String,
-        description:String,
-        image:String
+        title:"",
+        price:null,
+        briefDescription:"",
+        description:"",
+        image:""
       },
     };
   },
@@ -74,8 +74,10 @@ export default {
     const tokenStore = useTokenStore();
 
     const validationSchema = object({
-      username: string("Wrong format").required("Cannot be empty"),
-      password: string("Wrong format").required("Cannot be empty"),
+      title: string("Wrong format").required("Cannot be empty"),
+      price: number("Wrong format").required("Cannot be empty"),
+      briefDescription: string("Wrong format").required("Cannot be empt"),
+      description: string("Wrong format").required("Cannot be empty")
     });
     const { handleSubmit, errors } = useForm({
       validationSchema,
@@ -85,11 +87,10 @@ export default {
     const { value: briefDescription } = useField("briefDescription");
     const { value: description } = useField("description");
     const submit = handleSubmit(async (values) => {//TODO values??
-      await tokenStore.getTokenAndSaveInStore(values); //this.user.username, this.user.passwordawait await asyncsetUserService.methods.sendUserLogin(values)
       if (tokenStore.jwtToken) {
-        await router.push("/profile");
+        await itemService.publishItem(values)
       } else {
-        console.log("Login failed!")
+        console.log("Something went wrong!")
         // this.loginStatus = "Login failed!" //TODO
       }
 
@@ -109,7 +110,7 @@ export default {
     onInputTitle(title) {
       this.title = title.target.value;
     },
-    onInputPassword(price) {
+    onInputPrice(price) {
       this.price = price.target.value;
     },
     onInputBriefDescription(briefDesc){
@@ -118,9 +119,6 @@ export default {
     onInputDescription(desc){
       this.briefDescription=desc.target.value;
     },
-    onRegister(){
-      router.push("/register")
-    }
   },
 }
 </script>
@@ -136,7 +134,7 @@ export default {
   margin: 20px auto;
   text-align: center;
 }
-#loginBtn{
+#publishBtn{
   background: #0b6dff;
   border: 0;
   padding: 10px 20px;
@@ -144,20 +142,10 @@ export default {
   color: white;
   border-radius: 5px;
 }
-#registerBtn{
-  background: #b7b7b7;
-  border: 0;
-  padding: 10px 20px;
-  width: 60%;
-  color: black;
-  border-radius: 5px;
-}
-#loginBtn:hover{
+
+#publishBtn:hover{
   background-color: #4169a8;
   cursor: pointer;
 }
-#registerBtn:hover{
-  background-color: #d0cece;
-  cursor: pointer;
-}
+
 </style>
