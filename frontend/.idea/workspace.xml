@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c44d86ab-ae88-42f9-bcd5-0525e24d117a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/ECommerceMarketplaceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/ECommerceMarketplaceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controller/TokenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controller/TokenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/api/itemApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/services/itemService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/api/userApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/services/userService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/services/httpService.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/services/httpService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/views/FrontPageView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/views/FrontPageView.vue" afterDir="false" />
-    </list>
+    <list default="true" id="c44d86ab-ae88-42f9-bcd5-0525e24d117a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
