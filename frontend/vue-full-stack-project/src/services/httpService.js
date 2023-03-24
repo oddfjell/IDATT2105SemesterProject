@@ -16,4 +16,7 @@ export const getUserInfo = (username, token) => {
         },
     };
     return axios.get("http://localhost:8080/users/"+username, config);
+
+    //TODO lag alle
 }
+

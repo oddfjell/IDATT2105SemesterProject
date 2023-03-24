@@ -45,7 +45,6 @@ public class TokenController {
         System.out.println("hi");
         throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Access denied, wrong credentials....");
 
-
     }
 
     public String generateToken(String userId) {

@@ -2,6 +2,7 @@ package ntnu.idatt2105.semesterProject.eCommerceMarketplace.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -21,6 +22,10 @@ public class SecurityConfig {
                 .cors().and()
                 .authorizeHttpRequests()
                 .requestMatchers("/token").permitAll() //TODO de andre offentlige
+                .requestMatchers("/user").permitAll()
+                .requestMatchers("/v3/**").permitAll() //TODO http://localhost:8080/v3/api-docs
+                .requestMatchers("/swagger-ui/**").permitAll() //TODO http://localhost:8080/swagger-ui/index.html#/user-info-controller/getUser
+                .requestMatchers("/swagger-ui.html/**").permitAll()
                 .anyRequest().authenticated().and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .addFilterBefore(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
