@@ -1,4 +1,4 @@
-package ntnu.idatt2105.semesterProject.eCommerceMarketplace.controller;
+package ntnu.idatt2105.semesterProject.eCommerceMarketplace.controllers;
 
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.model.UserInfoResponse;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
