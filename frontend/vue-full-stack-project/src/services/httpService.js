@@ -1,12 +1,12 @@
 import axios from "axios";
 
-export const getJwtToken = (username, password) => {
+export const getJwtToken = (values) => {//username, password
     const config = {
         headers: {
             "Content-type": "application/json",
         },
     };
-    return axios.post("http://localhost:8080/token", JSON.stringify({ username: username, password: password }), config);
+    return axios.post("http://localhost:8080/token", values, config);//TODO JSON.stringify({ username: username, password: password })
 }
 export const getUserInfo = (username, token) => {
     const config = {

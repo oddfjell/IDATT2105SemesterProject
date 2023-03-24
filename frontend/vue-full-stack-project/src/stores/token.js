@@ -12,17 +12,18 @@ export const useTokenStore = defineStore("token", {
     },
 
     actions: {
-        async getTokenAndSaveInStore(username, password) {
+        async getTokenAndSaveInStore(values) { ///username, password
             try{
-                let response = await getJwtToken(username, password);
+                let response = await getJwtToken(values);//valuesusername, password
 
+                console.log("yo")
                 console.log(response)
                 console.log(response.data)
 
                 let data = response.data;
                 if(data != null && data != '' && data != undefined){
                     this.jwtToken = data;
-                    this.loggedInUser = username //TODO user
+                    this.loggedInUser = values.at(0)/// username /TODO user
 
                     console.log(this.jwtToken + this.loggedInUser)
                 }

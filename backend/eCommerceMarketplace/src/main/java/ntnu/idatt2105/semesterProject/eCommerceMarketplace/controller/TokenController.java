@@ -22,7 +22,7 @@ public class TokenController {
     // keyStr is hardcoded here for testing purpose
     // in a real scenario, it should either be stored in a database or injected from the environment
     public static final String keyStr = "testsecrettestsecrettestsecrettestsecrettestsecret";
-    private static final Duration JWT_TOKEN_VALIDITY = Duration.ofSeconds(5); //TODO Duration.ofMinutes(5);
+    private static final Duration JWT_TOKEN_VALIDITY = Duration.ofMinutes(5);
 
 
     @PostMapping(value = "")

@@ -72,8 +72,10 @@ export default {
     const { value: password } = useField("password");
     const submit = handleSubmit(async (values) => {//TODO values??
 
-      await this.tokenStore.getTokenAndSaveInStore(this.user.username, this.user.password); //setUserService.methods.sendUserLogin(values)
-      if (this.tokenStore.jwtToken) {
+      console.log("elo")
+      console.log(values)
+      await tokenStore.getTokenAndSaveInStore(values); //this.user.username, this.user.passwordawait await asyncsetUserService.methods.sendUserLogin(values)
+      if (tokenStore.jwtToken) {
         await router.push("/profile");
       } else {
         console.log("Login failed!")
@@ -92,10 +94,10 @@ export default {
   },
   methods: {
     onInputUsername(username) {
-      this.user.username = username.target.value;
+      this.username = username.target.value; //this.user.username = username.target.value;
     },
     onInputPassword(password) {
-      this.user.password = password.target.value;
+      this.password = password.target.value;// this.user.password = password.target.value;
     },
     onRegister(){
       router.push("/register")
