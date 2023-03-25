@@ -7,7 +7,6 @@ export const Itemstore = defineStore({
     }),
     actions: {
         selectItem(item) {
-            console.log(item.image)
             this.selectedItem = item
         }
     }
