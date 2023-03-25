@@ -17,7 +17,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping(value = "/users")
 @EnableAutoConfiguration
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:5173/", allowCredentials = "true")
 public class UserController { //TODO login
 
     private UserService userService;
