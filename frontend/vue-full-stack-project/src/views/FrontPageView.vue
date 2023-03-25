@@ -1,5 +1,6 @@
 
 <template>
+  <Header />
   <main>
     <h1>Her kommer det evt. en søkebar</h1>
     <div id="item_grid">
@@ -12,6 +13,7 @@
 
 <script>
 import ItemComponent from "@/components/Item.vue";
+import Header from "@/components/Header/Header.vue"
 import router from "@/router";
 
 import {Itemstore} from '@/stores/selectedItem'
@@ -19,7 +21,7 @@ import itemService from "@/services/itemService";
 
 export default {
   name: "FrontPageView.vue",
-  components: {ItemComponent},
+  components: {ItemComponent, Header},
   data(){
     return{
       items:Array

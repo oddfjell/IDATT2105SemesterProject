@@ -1,4 +1,5 @@
 <template>
+  <Header />
   <back-header/>
   <div class="container">
     <h1>Register</h1>
@@ -87,10 +88,11 @@ import {string, object, date, number} from "yup";
 import router from "@/router";
 import BackHeader from "@/components/Header/backHeader.vue";
 import ImagePicker from "@/components/Form/ImagePicker.vue";
+import Header from "@/components/Header/Header.vue";
 
 export default {
   name: "RegisterPageView.vue",
-  components: {ImagePicker, BackHeader, BaseInput},
+  components: {ImagePicker, BackHeader, BaseInput, Header},
   data() {
     return {
       user: {

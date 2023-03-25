@@ -17,7 +17,7 @@ export default {
 }
 </script>
 <template>
-  <Header />
+
   <Suspense>
   <RouterView />
   </Suspense>

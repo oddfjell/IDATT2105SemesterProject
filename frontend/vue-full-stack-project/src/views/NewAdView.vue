@@ -1,4 +1,5 @@
 <template>
+  <Header />
   <back-header/>
   <div class="container">
     <h1>Sell a product</h1>
@@ -40,6 +41,7 @@
           type="text"
           class="field"
       />
+      <p>{{product.description}}</p>
       <ImagePicker class="field" label="Image"/>
       <div class="Btn">
         <button id="publishBtn" class="Btn" type="submit">Publish product</button>
@@ -56,9 +58,10 @@ import {string, object, number} from "yup";
 import BackHeader from "@/components/Header/backHeader.vue";
 import ImagePicker from "@/components/Form/ImagePicker.vue";
 import itemService from "@/services/itemService";
+import Header from "@/components/Header/Header.vue";
 export default {
   name: "LoginPageView.vue",
-  components: {ImagePicker, BackHeader, BaseInput},
+  components: {ImagePicker, BackHeader, BaseInput, Header},
   data() {
     return {
       product: {
@@ -117,7 +120,7 @@ export default {
       this.briefDescription = briefDesc.target.value;
     },
     onInputDescription(desc){
-      this.briefDescription=desc.target.value;
+      this.description=desc.target.value;
     },
   },
 }

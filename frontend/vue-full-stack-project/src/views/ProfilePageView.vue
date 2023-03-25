@@ -1,6 +1,5 @@
 <template>
-
-
+  <Header />
   <div>
     <div v-if="user" id="mainContainer">
       <h2>Hey, {{ user.username }}</h2>
@@ -38,10 +37,11 @@
 import { useTokenStore } from "../stores/token";
 //import {isUserLoggedIn} from "../services/tokenService"
 import userService from "@/services/userService";
+import Header from "@/components/Header/Header.vue";
 
 export default {
   name: "ProfilePageView.vue",
-  //components: {ItemComponent},
+  components: { Header},
   setup() {
     const tokenStore = useTokenStore();
     return { tokenStore };

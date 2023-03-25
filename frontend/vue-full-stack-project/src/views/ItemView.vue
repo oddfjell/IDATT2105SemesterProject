@@ -1,4 +1,5 @@
 <template>
+  <Header />
   <back-header tabindex="1" />
 <div id="item-page">
 
@@ -21,8 +22,9 @@
 import { Itemstore } from '../stores/selectedItem'
 import {computed} from "vue";
 import BackHeader from "@/components/Header/backHeader.vue";
+import Header from "@/components/Header/Header.vue";
 export default {
-  components: {BackHeader},
+  components: {BackHeader, Header},
   setup() {
     const store = Itemstore()
     const item = computed(()=>store.$state.selectedItem)

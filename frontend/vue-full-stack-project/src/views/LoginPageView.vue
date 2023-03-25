@@ -1,4 +1,5 @@
 <template>
+  <Header />
   <back-header/>
   <div class="container">
     <h1>Log in</h1>
@@ -40,9 +41,10 @@ import { useField, useForm } from "vee-validate";
 import { string, object } from "yup";
 import router from "@/router";
 import BackHeader from "@/components/Header/backHeader.vue";
+import Header from "@/components/Header/Header.vue";
 export default {
   name: "LoginPageView.vue",
-  components: {BackHeader, BaseInput},
+  components: {BackHeader, BaseInput, Header},
   data() {
     return {
       user: {
