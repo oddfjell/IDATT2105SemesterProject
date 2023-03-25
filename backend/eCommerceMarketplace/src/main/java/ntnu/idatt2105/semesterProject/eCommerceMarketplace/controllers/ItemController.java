@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 public class ItemController {
 
+    @Autowired
     private ItemService itemService;
 
     @CrossOrigin

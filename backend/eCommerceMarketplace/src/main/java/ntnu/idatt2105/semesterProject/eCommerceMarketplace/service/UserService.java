@@ -6,17 +6,19 @@ import ntnu.idatt2105.semesterProject.eCommerceMarketplace.model.UserInfoRespons
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Map;
 import java.util.Optional;
-
+@Service
 public class UserService {
 
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
     private TokenService tokenService;
 
     /**
@@ -86,14 +88,14 @@ public class UserService {
 
     /**
      * Get user
-     * @param isLogggedInRequest
+     * @param username
      * @return
      */
-    public UserInfoResponse getUsername(IsLogggedInRequest isLogggedInRequest){
+    public User getUsername(String username){
 
-        String user = userRepository.findByUsername(isLogggedInRequest.getUsername()).getUsername();
-        if(user == null){
-            return new UserInfoResponse(user);
+        User user = userRepository.findByUsername(username);
+        if(user != null){
+            return user;
         } //else return null;
         throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Access denied, wrong credentials....");
     }

@@ -47,14 +47,13 @@ export default {
     return { tokenStore };
   },
   async mounted() {
-    console.log(this.tokenStore.jwtToken + "ey")
     if(!this.tokenStore.jwtToken) {
       console.log("Unauthenticated context");
     } else {
       console.log("Authenticated context");
-      let response  = await userService.getUsername(this.tokenStore.loggedInUser);//, this.tokenStore.jwtToken
+      let response  = await userService.getUsername(this.tokenStore.loggedInUser, this.tokenStore.jwtToken);//, this.tokenStore.jwtToken
           //isUserLoggedIn(this.tokenStore.loggedInUser, this.tokenStore.jwtToken);
-      this.user = response.data.username;//TODO
+      this.user = response.data;//TODO
     }
   },
   data(){

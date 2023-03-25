@@ -9,6 +9,7 @@ import ntnu.idatt2105.semesterProject.eCommerceMarketplace.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -20,6 +21,7 @@ import java.util.Optional;
 @CrossOrigin(origins = "http://localhost:5173/", allowCredentials = "true")
 public class UserController { //TODO login
 
+    @Autowired
     private UserService userService;
 
     // Return all users
@@ -33,6 +35,7 @@ public class UserController { //TODO login
     @CrossOrigin
     @PostMapping("/service/login")
     public @ResponseBody String loginUser(@RequestBody Map<String, Object> payload) {//
+        System.out.println(payload);
         return userService.loginUser(payload);
     }
 
@@ -42,12 +45,10 @@ public class UserController { //TODO login
         return userService.createUser(user);
     }
 
-    @GetMapping("/getusername")
-    public UserInfoResponse getUsername(@RequestBody IsLogggedInRequest isLogggedInRequest){
-        //return new MockDao().getUser(userId);
-        //return new UserInfoResponse(userId);
-        //return new MockDao().getUser(userId);
-        return userService.getUsername(isLogggedInRequest);
+    @CrossOrigin
+    @GetMapping("/getusername/{username}")
+    public User getUsername(@PathVariable String username){
+        return userService.getUsername(username);
     }
 
     // Return user with given id
