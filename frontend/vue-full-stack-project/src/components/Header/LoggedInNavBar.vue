@@ -1,16 +1,27 @@
 <template>
   <nav>
     <div id="routerList">
-      <router-link class="navElement" to="/">Profile</router-link>
+      <router-link class="navElement" to="/profile">Profile</router-link>
       <router-link class="navElement" to="/">Cart</router-link>
-      <router-link class="navElement" to="/newad">New ad</router-link>
+      <router-link  class="navElement" to="/newad">New ad</router-link>
+      <router-link @click="logOut" class="navElement" to="/login">Log out</router-link>
     </div>
   </nav>
 </template>
 
 <script>
+import {useTokenStore} from "@/stores/token";
+import router from "@/router";
+
 export default {
-  name: "LoggedInNavBar"
+  name: "LoggedInNavBar",
+  methods:{
+    logOut(){
+      const tokenStore = useTokenStore();
+      tokenStore.logOut()
+      router.push("/login")
+    },
+  },
 }
 </script>
 
