@@ -4,15 +4,6 @@ import router from "@/router";
 const userApiClient = axios.create({
     baseURL: 'http://localhost:8080/users',
     headers: {
-        'Content-Type': 'application/json',
-        'Bop':'Vip'
-    },
-    withCredentials: true
-});
-
-const userServiceApiClient = axios.create({
-    baseURL: 'http://localhost:8080/users/service',
-    headers: {
         'Content-Type': 'application/json'
     },
     withCredentials: true
@@ -31,7 +22,7 @@ export default {
         return userApiClient.get('/', addHeader(token));
     },
     getJwtToken(values){
-        return userServiceApiClient.post('/login', values);
+        return userApiClient.post('/service/login', values);
     },
     /*registerUser(user){
         return userServiceApiClient.post('/register', user);
@@ -39,7 +30,7 @@ export default {
 
     async registerUser(user) {
         try {
-            const response = await userServiceApiClient.post('/register', user);
+            const response = await userApiClient.post('/service/register', user);
             if(response.data != null){ //TODO send feilmedling og ta den imot
                 await router.push("/profile")
             } else{
@@ -57,11 +48,11 @@ export default {
     getUser(username){
         return userApiClient.get(`/users/${username}`);
     },*/
-    updateUser(user){
-        return userApiClient.put('/updateUser', user)
+    updateUser(user, token){
+        return userApiClient.put('/updateUser', user, addHeader(token))
     },
-    deleteUser(user){
-        return userApiClient.delete(`/deleteUse`, user)
+    deleteUser(user, token){
+        return userApiClient.delete(`/deleteUse`, user, addHeader(token))
     }
 };
 
