@@ -3,7 +3,7 @@
   <main>
     <h1>Her kommer det evt. en søkebar</h1>
     <div id="item_grid">
-      <div class="item" :key="item.title" v-for="(item,index) in items">
+      <div class="item hoverborder" :key="item.title" v-for="(item,index) in items">
         <ItemComponent :tabindex="index+1" :item="item" v-on:keyup.enter="selectItem(item)" @click="selectItem(item)"/>
       </div>
     </div>
@@ -75,11 +75,13 @@ export default {
 .item{
   height: fit-content;
   width: 100%;
-  box-sizing: border-box;
 }
-.item:hover{
-  border: solid #1abc9c 4px;
+.hoverborder{
+  border:solid transparent 4px;
   border-radius: 10px;
+}
+.hoverborder:hover{
+  border: solid #1abc9c 4px;
 }
 @media only screen and (max-width: 800px) {
   #item_grid{
