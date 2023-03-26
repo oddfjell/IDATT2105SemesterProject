@@ -171,4 +171,12 @@ public class UserService {
             return false;
         }
     }
+
+    public String isAdmin(User user){
+        String role = userRepository.findByUsername(user.getUsername()).getRole();
+        if (role == null){
+            role = "ROLE_USER";
+        }
+        return role;
+    }
 }

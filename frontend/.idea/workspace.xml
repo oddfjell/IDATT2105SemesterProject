@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c44d86ab-ae88-42f9-bcd5-0525e24d117a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/security/JWTAuthorizationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/security/service/JWTAuthorizationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/service/ItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/service/ItemService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/service/TokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/security/service/TokenService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/TestController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/security/service/MyUserDetails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/security/service/UserDetailsServiceImpl.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/stores/token.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/stores/token.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/views/ProfilePageView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/views/ProfilePageView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +72,7 @@
       <workItem from="1679326169791" duration="10056000" />
       <workItem from="1679399161948" duration="2369000" />
       <workItem from="1679403768384" duration="10188000" />
-      <workItem from="1679832773137" duration="11716000" />
+      <workItem from="1679832773137" duration="12297000" />
     </task>
     <servers />
   </component>

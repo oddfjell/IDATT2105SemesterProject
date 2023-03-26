@@ -76,4 +76,10 @@ public class UserController { //TODO login
     public @ResponseBody boolean deleteUser(@RequestBody User user) {
         return userService.deleteUser(user);
     }
+
+    @CrossOrigin
+    @PostMapping("/role")
+    public String isAdmin(@RequestBody User user){
+        return userService.isAdmin(user);
+    }
 }
