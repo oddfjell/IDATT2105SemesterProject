@@ -41,7 +41,6 @@
           type="text"
           class="field"
       />
-      <p>{{product.description}}</p>
       <ImagePicker class="field" label="Image"/>
       <div class="Btn">
         <button id="publishBtn" class="Btn" type="submit">Publish product</button>
@@ -66,7 +65,7 @@ export default {
     return {
       product: {
         title:"",
-        price:null,
+        price:number,
         briefDescription:"",
         description:"",
         image:""
@@ -91,7 +90,7 @@ export default {
     const { value: description } = useField("description");
     const submit = handleSubmit(async (values) => {//TODO values??
       if (tokenStore.jwtToken) {
-        await itemService.publishItem(values)
+        await itemService.publishItem(values, tokenStore.jwtToken)
       } else {
         console.log("Something went wrong!")
         // this.loginStatus = "Login failed!" //TODO
