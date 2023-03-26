@@ -1,7 +1,6 @@
 package ntnu.idatt2105.semesterProject.eCommerceMarketplace.security;
 
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.security.service.JWTAuthorizationFilter;
-import ntnu.idatt2105.semesterProject.eCommerceMarketplace.security.service.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
