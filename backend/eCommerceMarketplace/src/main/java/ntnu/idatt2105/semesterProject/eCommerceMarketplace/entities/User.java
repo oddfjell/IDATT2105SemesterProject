@@ -2,6 +2,7 @@ package ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities;
 
 import jakarta.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table (name = "user")
@@ -33,7 +34,7 @@ public class User {
     private Date dateOfBirth;
 
     @Column(name = "registered")
-    private Date registered;
+    private Date registered = Date.valueOf(LocalDate.now());;
 
     @Column(name = "image")
     private String image;
