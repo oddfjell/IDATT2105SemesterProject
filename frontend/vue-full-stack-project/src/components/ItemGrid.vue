@@ -65,7 +65,8 @@ export default {
 <style scoped>
 
 #item_grid{
-  display: grid;
+  display:grid;
+
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 2%;
   margin-left: 5%;
@@ -73,7 +74,8 @@ export default {
 }
 .item{
   height: fit-content;
-  width: fit-content;
+  width: 100%;
+  box-sizing: border-box;
 }
 .item:hover{
   border: solid #1abc9c 4px;
