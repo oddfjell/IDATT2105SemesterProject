@@ -8,7 +8,8 @@ export const useTokenStore = defineStore("token", {
     state: () => ({
         jwtToken: null,
         loggedInUser: null,
-        loggedInUserID: null
+        loggedInUserID: null,
+        role: null
     }),
     persist: {
         storage: sessionStorage, // note that data in sessionStorage is cleared when the page session ends
@@ -23,7 +24,8 @@ export const useTokenStore = defineStore("token", {
                     this.jwtToken = data.jwt;
                     this.loggedInUser = values.username/// username /TODO user
                     this.loggedInUserID = data.id
-                    console.log(this.loggedInUser + " " + this.loggedInUserID)
+                    this.role = data.role
+                    console.log(this.loggedInUser + " " + this.loggedInUserID + " " + this.jwtToken + " " + this.role)
                 }
             } catch (err){
                 console.log(err)

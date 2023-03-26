@@ -3,6 +3,7 @@ package ntnu.idatt2105.semesterProject.eCommerceMarketplace.service;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities.User;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.model.LoginResponse;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.repositories.UserRepository;
+import ntnu.idatt2105.semesterProject.eCommerceMarketplace.security.service.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -40,7 +41,11 @@ public class UserService {
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
                 String jwt = tokenService.generateToken(username);
                 int id = userRepository.findByUsername(username).getId();
-                return new LoginResponse(jwt, id);
+                String role = userRepository.findByUsername(username).getRole();
+                if(role == null){
+                    role = "ROLE_USER";
+                }
+                return new LoginResponse(jwt, id, role);
                 //return tokenService.generateToken(username);
                 //return true;
             }

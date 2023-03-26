@@ -2,6 +2,9 @@ package ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities;
 
 import jakarta.persistence.*;
 
+/**
+ * Address table
+ */
 @Entity
 @Table (name = "address")
 public class Address {

@@ -52,13 +52,23 @@ export default {
       console.log("Unauthenticated context");
     } else {
       console.log("Authenticated context");
-      let response  = await userService.getUsername(this.tokenStore.loggedInUser, this.tokenStore.jwtToken);//, this.tokenStore.jwtToken
-      let auth = await test.test(this.tokenStore.loggedInUser, this.tokenStore.jwtToken);
+      let response;
+      try{
+        response  = await userService.getUsername(this.tokenStore.loggedInUser, this.tokenStore.jwtToken);//, this.tokenStore.jwtToken
+        this.user = response.data;
+       /* let re = await test.test(this.tokenStore.loggedInUser, this.tokenStore.jwtToken);
+        console.log(re.data)*/
+      } catch (e){
+        console.log("Unauthenticated context: " + e);
+      }
+
+
+      /*let auth = await test.test(this.tokenStore.loggedInUser, this.tokenStore.jwtToken);
       if (auth== true){
         console.log("kul du da")
       } else console.log("nei")
           //isUserLoggedIn(this.tokenStore.loggedInUser, this.tokenStore.jwtToken);
-      this.user = response.data;//TODO
+      this.user = response.data;//TODO*/
     }
   },
   data(){
