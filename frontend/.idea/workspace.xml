@@ -5,11 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c44d86ab-ae88-42f9-bcd5-0525e24d117a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/TestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/security/service/MyUserDetails.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/security/service/UserDetailsServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/ProductImageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/entities/ProductImage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/repositories/ProductImageRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-full-stack-project/public/icons/defaultPfp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-full-stack-project/src/components/Form/MultiImagePicker.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-full-stack-project/src/components/Header/LogoHeader.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-full-stack-project/src/components/ItemGrid.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.github/workflows/nodeTest.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../.github/workflows/nodeTest.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/entities/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/entities/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/security/service/TokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/security/service/TokenService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/components/Form/ImagePicker.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/components/Form/ImagePicker.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/components/Header/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/components/Header/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/components/Item.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/components/Item.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/services/userService.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/services/userService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/stores/token.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/stores/token.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/views/FrontPageView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/views/FrontPageView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/views/ItemView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/views/ItemView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/views/LoginPageView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/views/LoginPageView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/views/NewAdView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/views/NewAdView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/views/ProfilePageView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/views/ProfilePageView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/views/RegisterPageView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/views/RegisterPageView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +93,7 @@
       <workItem from="1679326169791" duration="10056000" />
       <workItem from="1679399161948" duration="2369000" />
       <workItem from="1679403768384" duration="10188000" />
-      <workItem from="1679832773137" duration="12297000" />
+      <workItem from="1679832773137" duration="13111000" />
     </task>
     <servers />
   </component>

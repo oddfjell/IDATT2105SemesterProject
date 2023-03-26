@@ -140,8 +140,10 @@
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 			<version>${springdoc-openapi-starter-webmvc-ui.version}</version>
 		</dependency>
-
-
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
 
 
 		<!--<dependency>

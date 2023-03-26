@@ -10,9 +10,8 @@ import java.time.Instant;
 @Service
 public class TokenService {
 
-
     public static final String keyStr = "testsecrettestsecrettestsecrettestsecrettestsecret";
-    private static final Duration JWT_TOKEN_VALIDITY = Duration.ofMinutes(5);
+    private static final Duration JWT_TOKEN_VALIDITY = Duration.ofMinutes(300);
 
 
     public String generateToken(String userId) {

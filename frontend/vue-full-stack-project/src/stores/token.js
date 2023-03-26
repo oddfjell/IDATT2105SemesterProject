@@ -34,6 +34,8 @@ export const useTokenStore = defineStore("token", {
         logOut(){
             this.jwtToken=null;
             this.loggedInUser=null;
+            this.loggedInUserID=null;
+            this.role=null;
         }
     },
 });
