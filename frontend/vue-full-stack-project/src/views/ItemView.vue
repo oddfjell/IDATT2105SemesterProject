@@ -2,7 +2,6 @@
   <Header />
   <back-header tabindex="1" />
 <div id="item-page">
-
   <div id="image">
     <img :src="item.image" alt="">
   </div>
@@ -19,7 +18,7 @@
 </template>
 
 <script>
-import { Itemstore } from '../stores/selectedItem'
+import { Itemstore } from '@/stores/selectedItem'
 import {computed} from "vue";
 import BackHeader from "@/components/Header/backHeader.vue";
 import Header from "@/components/Header/Header.vue";

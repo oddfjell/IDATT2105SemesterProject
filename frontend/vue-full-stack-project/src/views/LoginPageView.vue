@@ -35,7 +35,7 @@
 
 <script>
 //import setUserService from "@/services/setUserService";
-import { useTokenStore } from "../stores/token";
+import { useTokenStore } from "@/stores/token";
 import BaseInput from "@/components/Form/Input.vue";
 import { useField, useForm } from "vee-validate";
 import { string, object } from "yup";
@@ -73,9 +73,6 @@ export default {
     const { value: username } = useField("username");
     const { value: password } = useField("password");
     const submit = handleSubmit(async (values) => {//TODO values??
-
-      console.log("elo")
-      console.log(values)
       await tokenStore.getTokenAndSaveInStore(values); //this.user.username, this.user.passwordawait await asyncsetUserService.methods.sendUserLogin(values)
       if (tokenStore.jwtToken) {
         await router.push("/profile");

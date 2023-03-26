@@ -41,8 +41,7 @@
           type="text"
           class="field"
       />
-      <p>{{product.description}}</p>
-      <ImagePicker class="field" label="Image"/>
+      <MultiImagePicker v-model="product.listOfImages" :error="errors.listOfImages" @change="onInputImage" type="image" :listOfImages="product.listOfImages" class="field" label="Image"/>
       <div class="Btn">
         <button id="publishBtn" class="Btn" type="submit">Publish product</button>
       </div>
@@ -56,20 +55,23 @@ import BaseInput from "@/components/Form/Input.vue";
 import { useField, useForm } from "vee-validate";
 import {string, object, number} from "yup";
 import BackHeader from "@/components/Header/backHeader.vue";
-import ImagePicker from "@/components/Form/ImagePicker.vue";
+import MultiImagePicker from "@/components/Form/MultiImagePicker.vue";
 import itemService from "@/services/itemService";
 import Header from "@/components/Header/Header.vue";
+import * as Yup from "yup";
+import userService from "@/services/userService";
 export default {
   name: "LoginPageView.vue",
-  components: {ImagePicker, BackHeader, BaseInput, Header},
+  components: {MultiImagePicker, BackHeader, BaseInput, Header},
   data() {
     return {
       product: {
         title:"",
-        price:null,
+        price:number,
         briefDescription:"",
         description:"",
-        image:""
+        listOfImages:Array,
+        user:null,
       },
     };
   },
@@ -80,7 +82,8 @@ export default {
       title: string("Wrong format").required("Cannot be empty"),
       price: number("Wrong format").required("Cannot be empty"),
       briefDescription: string("Wrong format").required("Cannot be empt"),
-      description: string("Wrong format").required("Cannot be empty")
+      description: string("Wrong format").required("Cannot be empty"),
+      listOfImages: Yup.mixed().required("Image is required")
     });
     const { handleSubmit, errors } = useForm({
       validationSchema,
@@ -89,9 +92,11 @@ export default {
     const { value: price } = useField("price");
     const { value: briefDescription } = useField("briefDescription");
     const { value: description } = useField("description");
+    const {value: listOfImages} = useField("listOfImages")
     const submit = handleSubmit(async (values) => {//TODO values??
       if (tokenStore.jwtToken) {
-        await itemService.publishItem(values)
+        console.log(values)
+        await itemService.publishItem(values, tokenStore.jwtToken)
       } else {
         console.log("Something went wrong!")
         // this.loginStatus = "Login failed!" //TODO
@@ -103,11 +108,24 @@ export default {
       price,
       briefDescription,
       description,
+      listOfImages,
       errors,
       submit,
       tokenStore
     };
 
+  },
+  async mounted() {
+    if(this.tokenStore.jwtToken) {
+      let response
+      try {
+        response = await userService.getUsername(this.tokenStore.loggedInUser, this.tokenStore.jwtToken);//, this.tokenStore.jwtToken
+      }catch (e){
+        console.log(e)
+        this.tokenStore.logOut()
+      }
+      this.user = response.data;//TODO
+    }
   },
   methods: {
     onInputTitle(title) {
@@ -122,6 +140,10 @@ export default {
     onInputDescription(desc){
       this.description=desc.target.value;
     },
+    onInputImage(event){
+      this.listOfImages=event.target.files
+      console.log(this.listOfImages)
+    }
   },
 }
 </script>

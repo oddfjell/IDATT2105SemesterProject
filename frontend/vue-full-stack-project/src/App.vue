@@ -1,6 +1,7 @@
 <script setup>
 import { RouterView } from 'vue-router'
 import Footer from "@/components/Footer.vue";
+import LogoHeader from "@/components/Header/LogoHeader.vue";
 
 </script>
 <script>
@@ -17,19 +18,22 @@ export default {
 }
 </script>
 <template>
-
-  <Suspense>
+  <div id="pageContainer">
+  <LogoHeader/>
   <RouterView />
-  </Suspense>
+  </div>
   <Footer/>
 </template>
 
 <style>
+#pageContainer{
+  position: relative;
+  min-height: 100vh;
+}
 .container {
   max-width: 500px;
   margin: 30px auto;
   overflow: auto;
-  min-height: 300px;
   border: 1px solid steelblue;
   padding: 30px;
   border-radius: 5px;

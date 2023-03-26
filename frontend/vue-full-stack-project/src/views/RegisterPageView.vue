@@ -24,16 +24,16 @@
       />
       <div id="name" class="field">
         <BaseInput
-            v-model="user.first_name"
-            :modelValue="user.first_name"
+            v-model="user.firstName"
+            :modelValue="user.firstName"
             :error="errors.first_name"
             @input="onInputFirstname"
             label="Firstname"
             type="text"
         />
         <BaseInput
-            v-model="user.last_name"
-            :modelValue="user.last_name"
+            v-model="user.lastName"
+            :modelValue="user.lastName"
             :error="errors.last_name"
             @input="onInputLastname"
             label="Lastname"
@@ -50,9 +50,9 @@
       class="field"
       />
       <BaseInput
-          v-model="user.phone_number"
-          :modelValue="user.phone_number"
-          :error="errors.phone_number"
+          v-model="user.phoneNumber"
+          :modelValue="user.phoneNumber"
+          :error="errors.phoneNumber"
           @input="onInputPhone"
           label="Phone number"
           type="number"
@@ -60,9 +60,9 @@
       />
 
      <BaseInput
-          v-model="user.date_of_birth"
-          :modelValue="date_of_birth"
-          :error="errors.date_of_birth"
+          v-model="user.dateOfBirth"
+          :modelValue="dateOfBirth"
+          :error="errors.dateOfBirth"
           @input="onInputDateOfBirth"
           label="Date of birth"
           type="date"
@@ -98,11 +98,11 @@ export default {
       user: {
         username: "",
         password: "",
-        first_name:"",
-        last_name:"",
+        firstName:"",
+        lastName:"",
         email: "",
-        phone_number:number,
-        date_of_birth:date,
+        phoneNumber:number,
+        dateOfBirth:date,
         registered:date,
         image:"",
       },
@@ -121,16 +121,16 @@ export default {
       this.password = password.target.value;
     },
     onInputFirstname(firstname){
-      this.first_name = firstname.target.value
+      this.firstName = firstname.target.value
     },
     onInputLastname(lastname){
-      this.last_name = lastname.target.value
+      this.lastName = lastname.target.value
     },
     onInputPhone(phone){
-      this.phone_number = phone.target.value
+      this.phoneNumber = phone.target.value
     },
     onInputDateOfBirth(date){
-      this.date_of_birth = date.target.value
+      this.dateOfBirth = date.target.value
     },
     onLogin(){
       router.push("/login")
@@ -141,10 +141,10 @@ export default {
       username: string("Wrong format").required("Cannot be empty"),
       email: string("Wrong format").email("Please enter a valid email").required("Cannot be empty"),
       password: string("Wrong format").required("Cannot be empty"),
-      first_name:string("Wrong format").required("Cannot be empty"),
-      last_name:string("Wrong format").required("Cannot be empty"),
-      phone_number:number("Must be a number").positive("Must be positive").min(8, "Must be more than 8").required("Please enter a phone number"),
-      date_of_birth:date("Must be a valid date")
+      firstName:string("Wrong format").required("Cannot be empty"),
+      lastName:string("Wrong format").required("Cannot be empty"),
+      phoneNumber:number("Must be a number").positive("Must be positive").min(8, "Must be more than 8").required("Please enter a phone number"),
+      dateOfBirth:date("Must be a valid date")
     });
     const {handleSubmit, errors} = useForm({
       validationSchema,
@@ -152,23 +152,22 @@ export default {
     const {value: username} = useField("username");
     const {value: email} = useField("email");
     const {value: password} = useField("password");
-    const {value: first_name} = useField("first_name");
-    const {value: last_name} = useField("last_name");
-    const {value: phone_number} = useField("phone_number");
-    const{value:date_of_birth} = useField("date_of_birth")
+    const {value: firstName} = useField("firstName");
+    const {value: lastName} = useField("lastName");
+    const {value: phoneNumber} = useField("phoneNumber");
+    const{value:dateOfBirth} = useField("dateOfBirth")
     const submit = handleSubmit((values) => {
       userService.registerUser(values);
-      //setUserService.methods.sendUserRegister(values)
     });
     return {
       username,
       email,
       password,
       errors,
-      first_name,
-      last_name,
-      phone_number,
-      date_of_birth,
+      firstName,
+      lastName,
+      phoneNumber,
+      dateOfBirth,
       submit,
     };
   }

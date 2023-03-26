@@ -26,6 +26,10 @@ public class SecurityConfig {
                 .requestMatchers("/v3/**").permitAll() //TODO http://localhost:8080/v3/api-docs
                 .requestMatchers("/swagger-ui/**").permitAll() //TODO http://localhost:8080/swagger-ui/index.html#/user-info-controller/getUser
                 .requestMatchers("/swagger-ui.html/**").permitAll()
+
+                .requestMatchers("/image/**").permitAll()
+                .requestMatchers("/").permitAll()
+
                 .anyRequest().authenticated().and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .addFilterBefore(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div id="thumbnail">
-      <img alt="bird" :src=item.image>
+      <img v-if="item.image" alt="" :src=item.image>
     </div>
     <div id="item-header">
   <label id="title">{{item.title}}</label>
@@ -36,6 +36,11 @@ export default {
   border-radius: 5px;
   background-color: #eeeeee;
 }
+#thumbnail {
+  height: 100px;
+}
+
+
 label{
   font-size: x-large;
   font-weight: bold;
@@ -46,6 +51,10 @@ label{
   font-weight: bold;
 }
 img{
-  width: 100%;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+
 }
 </style>
