@@ -24,9 +24,6 @@ public class Item {
     @Column(name = "price")
     private double price;
 
-    @Column(name = "image")
-    private String image;
-
     @Column(name = "for_sale")
     private boolean forSale;
 
@@ -58,10 +55,6 @@ public class Item {
         return price;
     }
 
-    public String getImage() {
-        return image;
-    }
-
     public boolean isForSale() {
         return forSale;
     }
@@ -91,10 +84,6 @@ public class Item {
 
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
     }
 
     public void setForSale(boolean forSale) {

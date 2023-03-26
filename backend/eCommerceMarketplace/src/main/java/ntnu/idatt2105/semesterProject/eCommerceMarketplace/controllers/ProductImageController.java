@@ -1,5 +1,6 @@
 package ntnu.idatt2105.semesterProject.eCommerceMarketplace.controllers;
 
+import ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities.Item;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities.ProductImage;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.repositories.ProductImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,13 +22,19 @@ class ProductImageController {
 
     @CrossOrigin
     @PostMapping("/image")
-    int uploadImage(@RequestParam MultipartFile multipartImage) throws Exception {
-        System.out.println("vises dette?");
-        ProductImage productImage = new ProductImage();
-        productImage.setName(multipartImage.getName());
-        productImage.setContent(multipartImage.getBytes());
+    boolean uploadImage(@RequestParam MultipartFile multipartImage, Item item) throws Exception {
 
-        return productImageRepository.save(productImage).getId();
+        try {
+            ProductImage productImage = new ProductImage();
+            productImage.setContent(multipartImage.getBytes());
+            productImage.setItem(item);
+
+            productImageRepository.save(productImage);
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
 
     @CrossOrigin
