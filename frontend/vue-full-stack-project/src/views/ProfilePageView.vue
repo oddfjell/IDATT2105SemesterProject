@@ -38,6 +38,7 @@ import { useTokenStore } from "../stores/token";
 //import {isUserLoggedIn} from "../services/tokenService"
 import userService from "@/services/userService";
 import Header from "@/components/Header/Header.vue";
+import test from "@/services/test";
 
 export default {
   name: "ProfilePageView.vue",
@@ -52,6 +53,10 @@ export default {
     } else {
       console.log("Authenticated context");
       let response  = await userService.getUsername(this.tokenStore.loggedInUser, this.tokenStore.jwtToken);//, this.tokenStore.jwtToken
+      let auth = await test.test(this.tokenStore.loggedInUser, this.tokenStore.jwtToken);
+      if (auth== true){
+        console.log("kul du da")
+      } else console.log("nei")
           //isUserLoggedIn(this.tokenStore.loggedInUser, this.tokenStore.jwtToken);
       this.user = response.data;//TODO
     }

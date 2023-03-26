@@ -1,13 +1,11 @@
 package ntnu.idatt2105.semesterProject.eCommerceMarketplace.service;
 
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities.User;
-import ntnu.idatt2105.semesterProject.eCommerceMarketplace.model.IsLogggedInRequest;
-import ntnu.idatt2105.semesterProject.eCommerceMarketplace.model.UserInfoResponse;
+import ntnu.idatt2105.semesterProject.eCommerceMarketplace.model.LoginResponse;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Map;
@@ -34,13 +32,16 @@ public class UserService {
      * @param payload Map<String, Object>
      * @return boolean
      */
-    public String loginUser(Map<String, Object> payload) {//boolean
+    public LoginResponse loginUser(Map<String, Object> payload) {//boolean
         String username = payload.get("username").toString();
         String password = payload.get("password").toString();
 
         for (User user : userRepository.findAll()) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                return tokenService.generateToken(username);
+                String jwt = tokenService.generateToken(username);
+                int id = userRepository.findByUsername(username).getId();
+                return new LoginResponse(jwt, id);
+                //return tokenService.generateToken(username);
                 //return true;
             }
         }
