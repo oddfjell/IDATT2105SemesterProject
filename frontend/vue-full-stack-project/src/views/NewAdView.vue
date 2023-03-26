@@ -4,7 +4,6 @@
   <div class="container">
     <h1>Sell a product</h1>
     <form id="registerItemField" @submit.prevent="submit">
-
       <BaseInput
           v-model="product.title"
           :modelValue="product.title"
@@ -81,7 +80,7 @@ export default {
       price: number("Wrong format").required("Cannot be empty"),
       briefDescription: string("Wrong format").required("Cannot be empt"),
       description: string("Wrong format").required("Cannot be empty"),
-      listOfImages: Yup.mixed().required("Image is required")
+      listOfImages: Yup.mixed().required(""),
     });
     const { handleSubmit, errors } = useForm({
       validationSchema,
@@ -90,14 +89,26 @@ export default {
     const { value: price } = useField("price");
     const { value: briefDescription } = useField("briefDescription");
     const { value: description } = useField("description");
-    const {value: listOfImages} = useField("listOfImages")
-    const submit = handleSubmit(async (values) => {//TODO values??
+    const { value: listOfImages } = useField("listOfImages");
+    const submit = handleSubmit(async (values) => {
       if (tokenStore.jwtToken) {
+        console.log(values)
+        let listOfImages = values["listOfImages"]
+        console.log(listOfImages)
+        let imagesByte = []
+        for (const image of listOfImages) {
+          let reader = new FileReader();
+          reader.addEventListener('load', (event) => {
+            const buffer = event.target.result;
+            imagesByte.push(new Uint8Array(buffer));
+          });
+          reader.readAsArrayBuffer(image)
+        }
+        values["listOfImages"] = imagesByte
         console.log(values)
         await itemService.publishItem(values, tokenStore.jwtToken)
       } else {
         console.log("Something went wrong!")
-        // this.loginStatus = "Login failed!" //TODO
       }
 
     });
