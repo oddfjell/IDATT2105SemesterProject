@@ -9,12 +9,11 @@ const userApiClient = axios.create({
     withCredentials: true
 });
 function addHeader(token){
-    const config ={
+    return {
         headers: {
             "Authorization": "Bearer " + token
         },
     }
-    return config
 }
 
 export default {
@@ -41,9 +40,14 @@ export default {
             console.error(error);
         }
     },
-    getUsername(username, token){
-        console.log(username)//TODO is logged in er her ja
-        return userApiClient.get('/getusername/' + username, addHeader(token));
+    async getUsername(username, token){
+        let user
+        try {
+            user = await userApiClient.get('/getusername/' + username, addHeader(token))
+        }catch (e){
+            throw new Error();
+        }
+        return user
     },/**
     getUser(username){
         return userApiClient.get(`/users/${username}`);
