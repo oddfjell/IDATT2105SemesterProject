@@ -21,5 +21,9 @@ jobs:
     - name: Install Dependencies
       run: npm install
 
-    - name: Run Tests
-      run: npm test
+    - name: Vitest
+      run: test:unit
+    - name: Start-server-and-test preview http://localhost:4173 'cypress run --e2e'
+      run: npm test:e2e
+    - name: Start-server-and-test 'vite dev --port 4173' http://localhost:4173 'cypress open --e2e'
+      run: test:e2e:dev
