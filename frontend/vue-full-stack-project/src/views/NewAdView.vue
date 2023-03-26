@@ -58,6 +58,7 @@ import MultiImagePicker from "@/components/Form/MultiImagePicker.vue";
 import itemService from "@/services/itemService";
 import Header from "@/components/Header/Header.vue";
 import * as Yup from "yup";
+import userService from "@/services/userService";
 export default {
   name: "LoginPageView.vue",
   components: {MultiImagePicker, BackHeader, BaseInput, Header},
@@ -69,6 +70,7 @@ export default {
         briefDescription:"",
         description:"",
         listOfImages:Array,
+        user:null,
       },
     };
   },
@@ -123,6 +125,18 @@ export default {
       tokenStore
     };
 
+  },
+  async mounted() {
+    if(this.tokenStore.jwtToken) {
+      let response
+      try {
+        response = await userService.getUsername(this.tokenStore.loggedInUser, this.tokenStore.jwtToken);//, this.tokenStore.jwtToken
+      }catch (e){
+        console.log(e)
+        this.tokenStore.logOut()
+      }
+      this.user = response.data;//TODO
+    }
   },
   methods: {
     onInputTitle(title) {
