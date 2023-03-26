@@ -37,6 +37,7 @@ import ItemGrid from "@/components/ItemGrid.vue";
 import itemService from "@/services/itemService";
 import ItemComponent from "@/components/Item.vue";
 
+
 export default {
   name: "ProfilePageView.vue",
   components: {ItemComponent, Header, BackHeader, ItemGrid},
