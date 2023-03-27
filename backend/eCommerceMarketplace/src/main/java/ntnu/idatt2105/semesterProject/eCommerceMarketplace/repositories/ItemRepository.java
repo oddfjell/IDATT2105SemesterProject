@@ -8,4 +8,6 @@ import ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities.Item;
 
 public interface ItemRepository extends CrudRepository<Item, Integer> {
 
+    public boolean deleteById(int id);
+
 }

@@ -43,4 +43,14 @@ public class ItemController {
         } else return new ResponseEntity<>(items, HttpStatus.OK);
 
     }
+
+    @DeleteMapping ("/delete")
+    public ResponseEntity<Iterable<Item>> deleteItem(@RequestBody Item item)  {
+        boolean gotDeleted = itemService.deleteItem(item);
+        if(gotDeleted){
+            return new ResponseEntity<>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 }
