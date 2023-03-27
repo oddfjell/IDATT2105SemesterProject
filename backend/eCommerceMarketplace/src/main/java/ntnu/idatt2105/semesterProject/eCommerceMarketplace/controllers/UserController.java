@@ -84,8 +84,7 @@ public class UserController { //TODO login
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }else if(updateResponse == 3){
             return new ResponseEntity<>(updateResponse, HttpStatus.OK);
-        } else return new ResponseEntity<>(HttpStatus.CONFLICT);
-
+        } else return new ResponseEntity<>(updateResponse, HttpStatus.CONFLICT);
     }
 
     // Delete user (id must be present in payload, or new user will be created)
