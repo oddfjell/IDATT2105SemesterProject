@@ -97,7 +97,7 @@ public class UserService {
      * @param username
      * @return
      */
-    public User getUsername(String username){
+    public User getUserByUsername(String username){
 
         return userRepository.findByUsername(username);
         /*if(user != null){
@@ -111,7 +111,7 @@ public class UserService {
      * @param id int
      * @return Optional<User>
      */
-    public User getUser(int id) {
+    public User getUserById(int id) {
         return userRepository.findById(id);
     }//TODO username
 

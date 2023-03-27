@@ -49,10 +49,11 @@ public class UserController { //TODO login
         } else return new ResponseEntity<>(HttpStatus.CONFLICT);
     }
 
+    // return user with given username
     @CrossOrigin
     @GetMapping("/getusername/{username}")
     public ResponseEntity<User> getUsername(@PathVariable String username){
-        User user = userService.getUsername(username);
+        User user = userService.getUserByUsername(username);
         if(user == null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else return new ResponseEntity<>(user, HttpStatus.OK);
@@ -62,7 +63,7 @@ public class UserController { //TODO login
     @CrossOrigin
     @GetMapping("/{id}") //TODO username??
     public ResponseEntity<User> getUser(@PathVariable int id) {
-        User user = userService.getUser(id);
+        User user = userService.getUserById(id);
         if(user == null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else return new ResponseEntity<>(user, HttpStatus.OK);
