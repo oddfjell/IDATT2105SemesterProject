@@ -15,24 +15,31 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
-
 import java.io.IOException;
 import java.util.Collections;
 
+/**
+ * AuthorizationFilter to check http requests
+ */
 public class JWTAuthorizationFilter extends OncePerRequestFilter {
 
     private static final Logger LOGGER = LogManager.getLogger(JWTAuthorizationFilter.class);
 
-    public static final String USER = "USER";
-    public static final String ROLE_USER = "ROLE_" + USER;
-
+    /**
+     * Checks the header "Bearer" for a jwt-token
+     * then if it is valid
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @param filterChain FilterChain
+     * @throws ServletException exception
+     * @throws IOException exception
+     */
     @Override
     protected void doFilterInternal(
             HttpServletRequest request,
             HttpServletResponse response,
             FilterChain filterChain) throws ServletException, IOException {
 
-        // check Bearer auth header
         final String header = request.getHeader(HttpHeaders.AUTHORIZATION);
 
         if (header == null || !header.startsWith("Bearer ")) {
@@ -40,9 +47,6 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
             return;
         }
 
-        // if Bearer auth header exists, validate token, and extract userId from token.
-        // Note that we have added userId as subject to the token when it is generated
-        // Note also that the token comes in this format 'Bearer token'
         String token = header.substring(7);
         LOGGER.info("token is: {}", token);
         final String username = validateTokenAndGetUserId(token);
@@ -52,19 +56,20 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
             return;
         }
 
-        // if token is valid, add user details to the authentication context
-        // Note that user details should be fetched from the database in real scenarios
-        // this is case we will retrieve use details from mock
         UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(
                 username,
                 null,
-                Collections.singletonList(new SimpleGrantedAuthority(ROLE_USER))); //TODO
+                Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"))); //TODO
         SecurityContextHolder.getContext().setAuthentication(auth);
 
-        // then, continue with authenticated user context
         filterChain.doFilter(request, response);
     }
 
+    /**
+     * Checks if the token is valid with the correct signature and time
+     * @param token String
+     * @return String
+     */
     public String validateTokenAndGetUserId(final String token) {
         try {
             final Algorithm hmac512 = Algorithm.HMAC512(TokenService.keyStr);;
