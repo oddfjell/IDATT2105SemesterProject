@@ -8,11 +8,13 @@ import ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities.User;
 
 public interface UserRepository extends CrudRepository<User, Integer> {
 
+    // READ / GET
     public User findByUsername(String username);
-
     public User findByPhoneNumber(String phoneNumber);
-
     public User findByEmail(String email);
-
     public User findById (int id);
+
+
+    // DELETE
+    public void deleteById(int id);
 }

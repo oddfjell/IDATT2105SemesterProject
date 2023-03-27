@@ -148,7 +148,7 @@ public class UserService {
             }
 
             // Update here
-            userRepository.save(user);
+            // userRepository.save(user);
             return 3;
 
         } catch (Exception e) {
@@ -164,7 +164,15 @@ public class UserService {
      */
     public boolean deleteUser(User user) {
         try {
-            userRepository.delete(user);
+
+            // Check if user actually exist in database before deletion:
+            if (!userRepository.existsById(user.getId())) {
+                System.out.println("User with given id does not exist in database");
+                return false;
+            }
+
+            // Delete user from data by its id
+            userRepository.deleteById(user.getId());
             return true;
         } catch (Exception e) {
             System.out.println(e.getMessage());
