@@ -150,6 +150,7 @@ import Header from "@/components/Header/Header.vue";
 
 export default {
   name: "RegisterPageView.vue",
+  // eslint-disable-next-line vue/no-reserved-component-names
   components: {ImagePicker, BackHeader, BaseInput, Header},
   data() {
     return {
