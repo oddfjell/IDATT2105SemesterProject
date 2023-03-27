@@ -1,12 +1,10 @@
 package ntnu.idatt2105.semesterProject.eCommerceMarketplace.controllers;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.ECommerceMarketplaceApplication;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities.Item;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities.User;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.service.ItemService;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -43,8 +41,6 @@ public class ItemControllerTest {
 
     @MockBean
     private ItemService itemService;
-
-    //TODO create       TODO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     @Test
     public void testGetAllItems() throws Exception {

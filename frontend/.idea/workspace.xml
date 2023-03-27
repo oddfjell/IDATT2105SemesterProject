@@ -5,10 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c44d86ab-ae88-42f9-bcd5-0525e24d117a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/test/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/ItemControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/test/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/ItemControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/test/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/test/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/UserControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/test/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/service/ItemServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/test/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/service/UserServiceTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/components/Item.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/components/Item.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/services/userService.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/services/userService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/views/NewAdView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/views/NewAdView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/cypress/e2e/example.cy.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/cypress/e2e/example.cy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/components/AlertBox.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/middlewares/loginCheckAuthentication.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/router/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,20 +42,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/annma/Documents/aar2dataing/Full-stack/4/kal&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/annma/Documents/aar2dataing/Full-stack/3",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\annma\Documents\aar2dataing\Full-stack\Frivillig\IDATT2105SemesterProject\frontend\vue-full-stack-project\src" />
@@ -75,6 +80,7 @@
       <workItem from="1679399161948" duration="2369000" />
       <workItem from="1679403768384" duration="10188000" />
       <workItem from="1679832773137" duration="13506000" />
+      <workItem from="1679934244069" duration="1605000" />
     </task>
     <servers />
   </component>
