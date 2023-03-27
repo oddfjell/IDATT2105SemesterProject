@@ -97,7 +97,7 @@ public class UserService {
      * @param username
      * @return
      */
-    public User getUsername(String username){
+    public User getUserByUsername(String username){
 
         User user = userRepository.findByUsername(username);
         if(user != null){
@@ -106,14 +106,14 @@ public class UserService {
         throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Access denied, wrong credentials....");
     }
 
-    /**
-     * Returns s user with given id
-     * @param id int
-     * @return Optional<User>
-     */
-    public Optional<User> getUser(int id) {
-        return userRepository.findById(id);
-    }//TODO username
+    public User getUserById(int id) {
+        User user = userRepository.findById(id);
+        if(user != null){
+            return user;
+        } //else return null;
+        throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Access denied, wrong credentials....");
+    }
+
 
     /**
      * Update user (id must be present in payload, or new user will be created)

@@ -40,18 +40,18 @@ public class UserController { //TODO login
         return userService.createUser(user);
     }
 
+    // return user with given username
     @CrossOrigin
-    @GetMapping("/getusername/{username}")
-    public User getUsername(@PathVariable String username){
-        return userService.getUsername(username);
+    @GetMapping("/username/{username}")
+    public User getUserByUsername(@PathVariable String username){
+        return userService.getUserByUsername(username);
     }
 
     // Return user with given id
     @CrossOrigin
-    @GetMapping("/{id}") //TODO username??
-    public @ResponseBody Optional<User> getUser(@PathVariable int id) {
-        return userService.getUser(id);
-       // return userRepository.findById(id);
+    @GetMapping("/{id}")
+    public User getUserById(@PathVariable int id) {
+       return userService.getUserById(id);
     }
 
 
