@@ -107,6 +107,7 @@ export default {
           reader.readAsArrayBuffer(image)
         }
         values["listOfImages"] = imagesByte
+        values["user"] = tokenStore.loggedInUserID
         console.log(values)
         await itemService.publishItem(values, tokenStore.jwtToken)
       } else {
