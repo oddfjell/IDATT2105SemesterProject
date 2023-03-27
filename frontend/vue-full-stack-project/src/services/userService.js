@@ -21,7 +21,9 @@ export default {
         return userApiClient.get('/', addHeader(token));
     },
     getJwtToken(values){
-        return userApiClient.post('/service/login', values);
+        return userApiClient.post('/service/login', values).catch((error) => {
+                console.log(error.headers.text);
+        });
     },
     /*registerUser(user){
         return userServiceApiClient.post('/register', user);

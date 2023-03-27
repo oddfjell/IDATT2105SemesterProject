@@ -4,6 +4,8 @@ import ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities.Item;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -17,14 +19,20 @@ public class ItemController {
 
     @CrossOrigin
     @PostMapping("/createitem")
-    public @ResponseBody boolean createItem(@RequestBody Item item) {
-        return itemService.createItem(item);
+    public ResponseEntity<Boolean> createItem(@RequestBody Item item) {
+        if(itemService.createItem(item)){
+            return new ResponseEntity<>(true, HttpStatus.CREATED);
+        } else return new ResponseEntity<>(false, HttpStatus.BAD_REQUEST);
     }
 
     // Return all users
     @CrossOrigin
     @GetMapping("/service/getitems")
-    public @ResponseBody Iterable<Item> getAllItems() {
-        return itemService.getAllItems();
+    public ResponseEntity<Iterable<Item>> getAllItems() {
+        Iterable<Item> items = itemService.getAllItems();
+        if(items == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else return new ResponseEntity<>(items, HttpStatus.OK);
+
     }
 }
