@@ -72,11 +72,11 @@ The layout and design of user-interface elements such as screens is open-ended a
 > mvn spring-boot:run
 
 ### Database
-> cd db
->
-> mysql -u root > create.sql && mysql -u root (creation and running)
+> The database used in this project is a student database
+> that runs on NTNU's servers. The user should therefore not need to do anything
+> with the database. Everything is already configured in:
 > 
-> mysql -u root > delete.sql (deletion)
+> backend/eCommerceMarketplace/src/main/resources/application.properties
 
 ### Swagger
 > cd backend/eCommerceMarketplace

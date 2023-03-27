@@ -8,13 +8,6 @@ const itemApiClient = axios.create({
     },
     //withCredentials: true
 });
-const itemServiceApiClient = axios.create({
-    baseURL: 'http://localhost:8080/item/service',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    withCredentials: true
-});
 
 function addHeader(token){
     return {
@@ -31,7 +24,7 @@ export default {
         return await itemApiClient.post('/createitem', item, addHeader(token));
     },
     async getItems() {
-        let response = await itemServiceApiClient.get('/getitems');
+        let response = await itemApiClient.get('/service/getitems');
         return response.data
     },
     async getItemByID(id, token){

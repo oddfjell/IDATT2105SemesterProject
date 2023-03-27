@@ -45,7 +45,7 @@
                  :error="errors.image"
                  @input="onInputImage"
                  label="URL to an image"
-                 type="url"
+                 type="text"
                  class="field"
       />
 
@@ -103,7 +103,7 @@ export default {
       if (tokenStore.jwtToken) {
         await itemService.publishItem(values, tokenStore.jwtToken)
       } else {
-        console.log("Something went wrong!")
+        console.log("You dont have a token!")
       }
 
     });

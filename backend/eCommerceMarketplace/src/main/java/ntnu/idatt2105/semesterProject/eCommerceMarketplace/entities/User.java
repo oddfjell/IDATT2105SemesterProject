@@ -36,10 +36,10 @@ public class User {
     private Date dateOfBirth;
     @Column(name = "registered")
     private Date registered = Date.valueOf(LocalDate.now());;
-    @Column(name = "image_url")
-    private String image_url;
     @Column(name = "role")
     private String role;
+    @Column(name = "image")
+    private String image;
 
     /**
      * JOINS
@@ -92,8 +92,8 @@ public class User {
     public String getRole() {
         return role;
     }
-    public String getImage_url() {
-        return image_url;
+    public String getImage() {
+        return image;
     }
 
     /**
@@ -135,7 +135,30 @@ public class User {
     public void setRole(String role) {
         this.role = role;
     }
-    public void setImage_url(String image_url) {
-        this.image_url = image_url;
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    /**
+     * toString()
+     * @return String
+     */
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", registered=" + registered +
+                ", image='" + image + '\'' +
+                ", listOfItems=" + listOfItems +
+                ", address=" + address +
+                ", role='" + role + '\'' +
+                '}';
     }
 }
