@@ -5,10 +5,85 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c44d86ab-ae88-42f9-bcd5-0525e24d117a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@googlemaps/js-api-loader/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@googlemaps/js-api-loader/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@googlemaps/js-api-loader/dist/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@googlemaps/js-api-loader/dist/index.dev.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@googlemaps/js-api-loader/dist/index.esm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@googlemaps/js-api-loader/dist/index.esm.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@googlemaps/js-api-loader/dist/index.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@googlemaps/js-api-loader/dist/index.test.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@googlemaps/js-api-loader/dist/index.umd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@googlemaps/js-api-loader/dist/index.umd.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@googlemaps/js-api-loader/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@googlemaps/js-api-loader/src/index.test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@googlemaps/js-api-loader/src/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/reference/control.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/reference/coordinates.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/reference/data.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/reference/directions.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/reference/distance-matrix.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/reference/drawing.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/reference/elevation.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/reference/event.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/reference/geocoder.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/reference/geometry.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/reference/image-overlay.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/reference/info-window.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/reference/kml.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/reference/map.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/reference/marker.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/reference/max-zoom.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/reference/overlay-view.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/reference/places-autocomplete-service.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/reference/places-service.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/reference/places-widget.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/reference/polygon.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/reference/street-view-service.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/reference/street-view.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/reference/visualization.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/@types/googlemaps/style-reference.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fast-deep-equal/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fast-deep-equal/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fast-deep-equal/es6/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fast-deep-equal/es6/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fast-deep-equal/es6/react.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fast-deep-equal/es6/react.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fast-deep-equal/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fast-deep-equal/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fast-deep-equal/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fast-deep-equal/react.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/fast-deep-equal/react.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/google-maps/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/google-maps/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/google-maps/lib/cjs/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/google-maps/lib/cjs/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/google-maps/lib/cjs/loader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/google-maps/lib/cjs/loader.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/google-maps/lib/cjs/types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/google-maps/lib/cjs/types.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/google-maps/lib/esm/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/google-maps/lib/esm/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/google-maps/lib/esm/loader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/google-maps/lib/esm/loader.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/google-maps/lib/esm/types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/google-maps/lib/esm/types.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/google-maps/lib/types/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/google-maps/lib/types/loader.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/google-maps/lib/types/types.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/google-maps/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/test/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/ItemControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/test/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/ItemControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/test/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/test/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/UserControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/components/Item.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/components/Item.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/services/userService.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/services/userService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/views/NewAdView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/views/NewAdView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/cypress/e2e/example.cy.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/cypress/e2e/example.cy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/cypress/e2e/jsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/cypress/e2e/jsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,20 +112,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/annma/Documents/aar2dataing/Full-stack/4/kal&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/annma/Documents/aar2dataing/Full-stack/3",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\annma\Documents\aar2dataing\Full-stack\Frivillig\IDATT2105SemesterProject\frontend\vue-full-stack-project\src" />
@@ -58,6 +133,66 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\annma\Documents\aar2dataing\Full-stack\IDATT2105SemesterProject\frontend\vue-full-stack-project\src\services" />
     </key>
+  </component>
+  <component name="RunManager" selected="Vitest.My First Test.visits the app root url">
+    <configuration name="ItemView" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/vue-full-stack-project/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$/vue-full-stack-project" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/vue-full-stack-project/cypress/e2e/example.cy.js" />
+      <test-names>
+        <test-name value="ItemView" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="ItemView.renders the item details properly" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/vue-full-stack-project/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$/vue-full-stack-project" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/vue-full-stack-project/cypress/e2e/example.cy.js" />
+      <test-names>
+        <test-name value="ItemView" />
+        <test-name value="renders the item details properly" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="LoginPageView" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/vue-full-stack-project/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$/vue-full-stack-project" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/vue-full-stack-project/cypress/e2e/example.cy.js" />
+      <test-names>
+        <test-name value="LoginPageView" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="My First Test.visits the app root url" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/vue-full-stack-project/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$/vue-full-stack-project" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/vue-full-stack-project/cypress/e2e/example.cy.js" />
+      <test-names>
+        <test-name value="My First Test" />
+        <test-name value="visits the app root url" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Vitest.My First Test.visits the app root url" />
+        <item itemvalue="Vitest.LoginPageView" />
+        <item itemvalue="Vitest.ItemView" />
+        <item itemvalue="Vitest.ItemView.renders the item details properly" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -75,6 +210,7 @@
       <workItem from="1679399161948" duration="2369000" />
       <workItem from="1679403768384" duration="10188000" />
       <workItem from="1679832773137" duration="13506000" />
+      <workItem from="1679934244069" duration="2894000" />
     </task>
     <servers />
   </component>

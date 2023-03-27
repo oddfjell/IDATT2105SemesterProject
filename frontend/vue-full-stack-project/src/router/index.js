@@ -24,27 +24,23 @@ const router = createRouter({
       //TODO if auth fra store
       component: () => import('../views/ProfilePageView.vue'),
     },
-
     {
       path:'/item',
       name:'itemView',
       component: ()=> import('../views/ItemView.vue'),
-
     },
-
     {
       path: '/newad',
       name: 'NewAdView',
       component: () => import('../views/NewAdView.vue')
     },
-
     //catch all 404
-    /*{
+    {
       path: '/:catchAll(.*)',  //redux pattern
       name: 'notFound',
-      component: () => import('../views/NotFoundView.vue')
-    }*///TODO
+      component: () => import('../views/404View.vue')
+    }
   ]
-});//la til semikolon
+});
 
 export default router

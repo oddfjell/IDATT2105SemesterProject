@@ -8,7 +8,6 @@ import ntnu.idatt2105.semesterProject.eCommerceMarketplace.service.UserService;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -82,31 +81,6 @@ public class UserControllerTest {
                         .andExpect(jsonPath("$[1].id", is(2)))
                         .andExpect(jsonPath("$[1].username", is("user2")));
     }
-    /**@Test
-    public void testJunitGetAllUsers() throws Exception {
-        List<User> userList = new ArrayList<>();
-        User user1 = new User();
-        user1.setId(1);
-        user1.setUsername("user1");
-        userList.add(user1);
-        User user2 = new User();
-        user2.setId(2);
-        user2.setUsername("user2");
-        userList.add(user2);
-        when(userService.getAllUsers()).thenReturn(userList);
-
-        // Call the API
-        ResponseEntity<Iterable<User>> result = userController.getAllUsers();
-
-        // Verify the result
-        assertNotNull(result);
-        List<User> resultList = new ArrayList<>();
-        result.getBody().forEach(resultList::add);
-        assertEquals(2, resultList.size());
-        assertEquals("user1", resultList.get(0).getUsername());
-        assertEquals("user2", resultList.get(1).getUsername());
-    }*/
-
 
     @Test
     public void testLoginUser() throws Exception {
@@ -129,15 +103,9 @@ public class UserControllerTest {
 
     }
 
-
-
     @Test
-    public void testCreateUser() throws Exception { //TODO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    public void testCreateUser() throws Exception {
         User user1 = new User();
-        /*user1.setId(1);
-        user1.setUsername("user1");
-        user1.setEmail("user@user");
-        user1.setPhoneNumber("90909090");*/
 
         ResponseEntity<Integer> responseEntity = new ResponseEntity<>(3, HttpStatus.CREATED);
         when(userService.createUser(user1)).thenReturn(responseEntity.getBody());
@@ -145,13 +113,9 @@ public class UserControllerTest {
         mockMvc.perform(post("http://localhost:8080/users/service/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(user1)))
-                .andExpect(status().isConflict());//isCreated());
-                //.andExpect(jsonPath("$.*", hasSize(1)))
-                //.andExpect(jsonPath("$.*", is(3)))
+                .andExpect(status().isConflict());
 
     }
-
-
 
     @Test
     public void testGetUserByUserName() throws Exception {
@@ -164,7 +128,7 @@ public class UserControllerTest {
 
         mockMvc.perform(get("http://localhost:8080/users/getusername/"+username))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.username", is(username)));//TODO fiks ovenfor
+                .andExpect(jsonPath("$.username", is(username)));
     }
     @Test
     public void testErrorGetUserByUserName() throws Exception {
@@ -176,44 +140,8 @@ public class UserControllerTest {
                 .andExpect(status().isNotFound());
     }
 
-
-
     @Test
-    public void testUpdateUser() throws Exception {//TODO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //TODO
-    }
-
-    @Test
-    public void testDeleteUser() throws Exception {//TODO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-       // User user1 = new User();
-        /*user1.setId(1);
-        user1.setUsername("user1");
-        user1.setPassword("passord");
-        user1.setFirstName("u");
-        user1.setLastName("u");
-        user1.setEmail("oo@oo");
-        user1.setPhoneNumber("77777777");
-        user1.setDateOfBirth(Date.valueOf(LocalDate.now()));
-        user1.setRegistered(Date.valueOf(LocalDate.now()));
-        user1.setImage_url("woo");
-        user1.setListOfItems(null);
-        user1.setAddress(null);
-        user1.setRole("ROLE_USER");*/
-
-
-        when(userService.deleteUser(Mockito.any(User.class))).thenReturn(true);
-
-        mockMvc.perform(delete("http://localhost:8080/users/deleteUser")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(new ObjectMapper().writeValueAsString(User.class)))
-                .andExpect(status().isOk())
-                .andExpect(content().string("true"));
-
-
-    }
-
-    @Test
-    public void testErrorDeleteUser() throws Exception {//TODO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    public void testErrorDeleteUser() throws Exception {
         User user1 = new User();
 
         when(userService.deleteUser(user1)).thenReturn(false);
@@ -225,8 +153,6 @@ public class UserControllerTest {
                 .andExpect(content().string("false"));
     }
 
-
-
     @Test
     public void getNonExistentCourseReturns404() throws Exception {
 
@@ -236,275 +162,4 @@ public class UserControllerTest {
         mockMvc.perform(get("/courses"))
                 .andExpect(status().isNotFound());
     }
-
-   /* @Test
-    void getExistentCourseWorks() throws Exception {
-        when(service.getById(1))
-                .thenReturn(response);
-
-        mockMvc.perform(get("/courses/1"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.code", is(request.getCode())));
-    }
-
-    @Test
-    void deletingCourseWorks() throws Exception {
-        when(service.deleteById(1))
-                .thenReturn(response);
-
-        mockMvc.perform(delete("/courses/{id}", 1))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.code", is(request.getCode())));
-    }*/
-
-
-
-
-
-    /**
-    @InjectMocks
-    private UserController userController;
-
-    @Mock
-    private UserService userService;
-
-    @Rule //initMocks
-    public MockitoRule rule = MockitoJUnit.rule();
-
-    @Autowired
-    private MockMvc mockMvc;
-
-
-    @Test
-    public void getNonExistentCourseReturns404() throws Exception {
-
-        mockMvc.perform(get("/courses/1"))
-                .andExpect(status().isNotFound());//.isNotFound());
-
-        mockMvc.perform(get("/courses"))
-                .andExpect(status().isNotFound());
-    }
-
-
-    @Test
-    public void testGetAllUsers(){
-        // Mock data
-        List<User> userList = new ArrayList<>();
-        User user1 = new User();
-        user1.setId(1);
-        user1.setUsername("user1");
-        userList.add(user1);
-        User user2 = new User();
-        user2.setId(2);
-        user2.setUsername("user2");
-        userList.add(user2);
-        when(userService.getAllUsers()).thenReturn(userList);
-
-        // Call the API
-        ResponseEntity<Iterable<User>> result = userController.getAllUsers();
-
-        // Verify the result
-        assertNotNull(result);
-        List<User> resultList = new ArrayList<>();
-        result.getBody().forEach(resultList::add);
-        assertEquals(2, resultList.size());
-        assertEquals("user1", resultList.get(0).getUsername());
-        assertEquals("user2", resultList.get(1).getUsername());
-    }*/
-
-
-
-
-/*
-    @Test
-    public void testLoginUser() {
-        // Mock data
-        Map<String, Object> payload = new HashMap<>();
-        payload.put("username", "test1");
-        payload.put("password", "test1password");
-        LoginResponse loginResponse;// = new LoginResponse();
-        loginResponse.setUsername("testuser");
-        loginResponse.setToken("testtoken");
-        ResponseEntity<LoginResponse> responseEntity = new ResponseEntity<>(loginResponse, HttpStatus.OK);
-        when(userService.loginUser(payload)).thenReturn(responseEntity);
-
-        // Call the API
-        ResponseEntity<LoginResponse> result = userController.loginUser(payload);
-
-        // Verify the result
-        assertNotNull(result);
-        assertEquals(HttpStatus.OK, result.getStatusCode());
-        assertEquals("testuser", result.getBody().getUsername());
-        assertEquals("testtoken", result.getBody().getToken());
-    }
-
-    @Test
-    public void testCreateUser() {
-        // Mock data
-        User user = new User();
-        user.setId(1);
-        user.setUsername("testuser");
-        when(userService.createUser(user)).thenReturn(1);
-
-        // Call the API
-        int result = userController.createUser(user);
-
-        // Verify the result
-        assertEquals(1, result);
-    }
-
-    @Test
-    public void testGetUsername() {
-        // Mock data
-        User user = new User();
-        user.setId(1);
-        user.setUsername("testuser");
-        when(userService.getUsername("testuser")).thenReturn(user);
-
-        // Call the API
-        User result = userController.getUsername("testuser");
-
-        // Verify the result
-        assertNotNull(result);
-        assertEquals(1, result.getId());
-        assertEquals("testuser", result.getUsername());
-    }
-
-    @Test
-    public void testGetUser(){
-
-    }*/
-
 }
-/*
-import TestResources.UnitsGnotts;
-import WGames.Model.Classes.Army;
-import WGames.Model.Classes.Filewriter;
-import WGames.Model.Units.Unit;
-import org.junit.Test;
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.Assert.*;
-
-public class ArmyTest {
-
-    @Test
-    public void testConstructorWithName(){
-        Army army = new Army("Army");
-
-        assertEquals(army.getName(),"Army");
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testExceptionEmptyNameConstructorWithName(){
-        Army army = new Army("");
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testExceptionNameLengthConstructorWithName(){
-        Army army = new Army("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
-    }
-    @Test(expected = IllegalArgumentException.class)
-    public void testExceptionSymbolNameConstructorWithName(){
-        Army army = new Army("+");
-    }
-
-    @Test
-    public void testConstructorWithNameAndList(){
-        List<Unit> units = new ArrayList<>();
-        Army army = new Army("Army", units);
-
-        assertEquals(army.getName(),"Army");
-        assertEquals(army.getAllUnits().size(), 0);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testExceptionEmptyNameConstructorWithNameAndList(){
-        List<Unit> units = new ArrayList<>();
-        Army army = new Army("", units);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testExceptionSymbolNameConstructorWithNameAndList(){
-        List<Unit> units = new ArrayList<>();
-        Army army = new Army("+", units);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testExceptionNameLengthConstructorWithNameAndList(){
-        List<Unit> units = new ArrayList<>();
-        Army army = new Army("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr", units);
-    }
-
-    @Test
-    public void testAddToArmy() {
-        UnitsGnotts unitsGnotts = new UnitsGnotts();
-
-        ArrayList<Unit> gnotts = unitsGnotts.getGnotts();
-        gnotts.add(unitsGnotts.getGnott1());
-
-        assertEquals(1, gnotts.size());
-    }
-
-    @Test
-    public void testAddAllToArmy() {
-        UnitsGnotts unitsGnotts = new UnitsGnotts();
-
-        ArrayList<Unit> gnotts = new ArrayList<>();
-        Army army = new Army("hei", gnotts);
-        army.addAll(unitsGnotts.getSevralGnotts());
-
-        assertEquals(4, army.getAllUnits().size());
-    }
-
-
-    @Test
-    public void testRemoveFromArmy() {
-        UnitsGnotts unitsGnotts = new UnitsGnotts();
-
-        ArrayList<Unit> gnotts = unitsGnotts.getSevralGnotts();
-        gnotts.remove(0);
-
-        assertEquals(3, gnotts.size());
-    }
-
-    @Test
-    public void testHasUnits() {
-        UnitsGnotts unitsGnotts = new UnitsGnotts();
-
-        assertTrue(unitsGnotts.premier().hasUnits());
-        assertFalse(unitsGnotts.deuxieme().hasUnits());
-    }
-
-    @Test
-    public void testGetInfantryUnits(){
-        UnitsGnotts unitsGnotts = new UnitsGnotts();
-
-        assertEquals(1,unitsGnotts.premier().getInfantryUnits().size());
-    }
-
-    @Test
-    public void testGetCommanderUnits(){
-        UnitsGnotts unitsGnotts = new UnitsGnotts();
-
-        assertEquals(1,unitsGnotts.premier().getCommanderUnits().size());
-    }
-
-    @Test
-    public void testCavalryUnits(){
-        UnitsGnotts unitsGnotts = new UnitsGnotts();
-
-        assertEquals(1,unitsGnotts.premier().getCavalryUnits().size());
-    }
-
-    @Test
-    public void testGetRangedUnits(){
-        UnitsGnotts unitsGnotts = new UnitsGnotts();
-        Filewriter filewriter = new Filewriter();
-
-        assertEquals(1,unitsGnotts.premier().getRangedUnits().size());
-    }
-}
-
- */

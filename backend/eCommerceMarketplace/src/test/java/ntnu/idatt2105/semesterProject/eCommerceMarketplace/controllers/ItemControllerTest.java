@@ -1,12 +1,10 @@
 package ntnu.idatt2105.semesterProject.eCommerceMarketplace.controllers;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.ECommerceMarketplaceApplication;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities.Item;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities.User;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.service.ItemService;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -43,8 +41,6 @@ public class ItemControllerTest {
 
     @MockBean
     private ItemService itemService;
-
-    //TODO create       TODO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     @Test
     public void testGetAllItems() throws Exception {
@@ -115,57 +111,4 @@ public class ItemControllerTest {
                         .content("{\"id\": 1}"))
                 .andExpect(status().isNotFound());
     }
-
-
-
-    /*@Test
-    public void deleteItem() throws Exception {
-        Item itemToDelete = new Item();
-        itemToDelete.setId(1);
-        when(itemService.deleteItem(itemToDelete)).thenReturn(true);
-
-        mockMvc.perform(delete("http://localhost:8080/item/delete")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        //.content(new ObjectMapper().writeValueAsString(itemToDelete)))
-                       // .content(String.valueOf(itemToDelete))
-                        .content("{ \"id\": 1 }"))
-                .andExpect(status().isOk());
-    }
-
-    @Test
-    void deleteItem_notFound() throws Exception {
-        Item itemToDelete = new Item();
-        itemToDelete.setId(1L);
-        when(itemService.deleteItem(itemToDelete)).thenReturn(false);
-
-        mockMvc.perform(MockMvcRequestBuilders.delete("/delete")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content("{ \"id\": 1 }"))
-                .andExpect(MockMvcResultMatchers.status().isNotFound());
-    }*/
-
-
-
-
-
-    //TODO delete
-
-
-     /*
-        mockMvc.perform(delete("http://localhost:8080/users/deleteUser")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(new ObjectMapper().writeValueAsString(user1)))
-                .andExpect(status().isBadRequest())
-                .andExpect(content().string("false"));*/
-    /*Item item = new Item();
-
-        when(itemService.createItem(item)).thenReturn(true);
-
-        mockMvc.perform(get("http://localhost:8080/item/createitem")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(new ObjectMapper().writeValueAsString(item)))
-                .andExpect(status().isCreated())
-                .andExpect(content().string("true"));*/
-
-
 }
