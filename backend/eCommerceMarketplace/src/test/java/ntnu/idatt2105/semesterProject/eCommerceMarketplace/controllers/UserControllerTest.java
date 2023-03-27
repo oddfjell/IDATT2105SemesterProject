@@ -9,6 +9,7 @@ import org.junit.Rule;
 import org.junit.Test;
 
 import org.junit.Assert.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -18,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.annotation.DirtiesContext;
@@ -51,6 +53,97 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc(addFilters = false)
 public class UserControllerTest {
 
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @MockBean
+    private UserService userService;
+
+    private User user;
+    @BeforeEach
+    void setup() {
+        user = new User();
+    }
+
+    @Test
+    public void testGetAllUsers(){
+        // Mock data
+        List<User> userList = new ArrayList<>();
+        User user1 = new User();
+        user1.setId(1);
+        user1.setUsername("user1");
+        userList.add(user1);
+        User user2 = new User();
+        user2.setId(2);
+        user2.setUsername("user2");
+        userList.add(user2);
+        when(userService.getAllUsers()).thenReturn(userList);
+
+        // Call the API
+        ResponseEntity<Iterable<User>> result = userController.getAllUsers();
+
+        // Verify the result
+        assertNotNull(result);
+        List<User> resultList = new ArrayList<>();
+        result.getBody().forEach(resultList::add);
+        assertEquals(2, resultList.size());
+        assertEquals("user1", resultList.get(0).getUsername());
+        assertEquals("user2", resultList.get(1).getUsername());
+    }
+
+    @Test
+    public void testGetAllUsers() throws Exception {
+        List<User> userList = new ArrayList<>();
+        User user1 = new User();
+        user1.setId(1);
+        user1.setUsername("user1");
+        userList.add(user1);
+        User user2 = new User();
+        user2.setId(2);
+        user2.setUsername("user2");
+        userList.add(user2);
+        when(userService.getAllUsers()).thenReturn(userList);
+        
+        mockMvc.perform(get("/"))
+                        .andExpect(status().isOk())
+    }
+
+    @Test
+    void getNonExistentCourseReturns404() throws Exception {
+
+        mockMvc.perform(get("/courses/1"))
+                .andExpect(status().isNotFound());
+
+        mockMvc.perform(get("/courses"))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void getExistentCourseWorks() throws Exception {
+        when(service.getById(1))
+                .thenReturn(response);
+
+        mockMvc.perform(get("/courses/1"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.code", is(request.getCode())));
+    }
+
+    @Test
+    void deletingCourseWorks() throws Exception {
+        when(service.deleteById(1))
+                .thenReturn(response);
+
+        mockMvc.perform(delete("/courses/{id}", 1))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.code", is(request.getCode())));
+    }
+
+
+
+
+
+    /**
     @InjectMocks
     private UserController userController;
 
@@ -75,7 +168,7 @@ public class UserControllerTest {
     }
 
 
-   /* @Test
+    @Test
     public void testGetAllUsers(){
         // Mock data
         List<User> userList = new ArrayList<>();
@@ -90,17 +183,21 @@ public class UserControllerTest {
         when(userService.getAllUsers()).thenReturn(userList);
 
         // Call the API
-        Iterable<User> result = userController.getAllUsers();
+        ResponseEntity<Iterable<User>> result = userController.getAllUsers();
 
         // Verify the result
         assertNotNull(result);
         List<User> resultList = new ArrayList<>();
-        result.forEach(resultList::add);
+        result.getBody().forEach(resultList::add);
         assertEquals(2, resultList.size());
         assertEquals("user1", resultList.get(0).getUsername());
         assertEquals("user2", resultList.get(1).getUsername());
-    }
+    }*/
 
+
+
+
+/*
     @Test
     public void testLoginUser() {
         // Mock data

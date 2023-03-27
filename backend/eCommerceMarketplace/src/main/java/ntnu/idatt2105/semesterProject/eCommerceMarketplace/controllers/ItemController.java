@@ -8,15 +8,26 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Rest controller for all /item endpoints
+ */
 @RestController
 @RequestMapping(value = "/item")
 @EnableAutoConfiguration
 @CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 public class ItemController {
 
+    /**
+     * ItemService field injection
+     */
     @Autowired
     private ItemService itemService;
 
+    /**
+     * /createitem will return a boolen which tells
+     * @param item
+     * @return
+     */
     @CrossOrigin
     @PostMapping("/createitem")
     public ResponseEntity<Boolean> createItem(@RequestBody Item item) {
