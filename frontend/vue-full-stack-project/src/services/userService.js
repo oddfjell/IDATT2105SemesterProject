@@ -45,7 +45,7 @@ export default {
     async getUsername(username, token){
         let user
         try {
-            user = await userApiClient.get('/username/' + username, addHeader(token))
+            user = await userApiClient.get('/getusername/' + username, addHeader(token))
         }catch (e){
             throw new Error();
         }
