@@ -47,7 +47,7 @@ public class ItemController {
 
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Iterable<Item>> getItemsByUserId()  {
+    public ResponseEntity<Iterable<Item>> getItemsByUserId(@PathVariable String id)  {
         Iterable<Item> items = null; //itemService.getItemsByUserId();
         if(items == null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

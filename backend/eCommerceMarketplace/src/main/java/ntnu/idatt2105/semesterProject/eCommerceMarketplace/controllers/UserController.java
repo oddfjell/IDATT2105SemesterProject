@@ -97,6 +97,8 @@ public class UserController { //TODO login
     @DeleteMapping("/deleteUser")
     public ResponseEntity<Boolean> deleteUser(@RequestBody User user) {
         boolean deleted = userService.deleteUser(user);
+        System.out.println(userService.deleteUser(user));
+        System.out.println(deleted);
         if(deleted){
             return new ResponseEntity<>(true, HttpStatus.OK);
         }else return new ResponseEntity<>(false, HttpStatus.BAD_REQUEST);

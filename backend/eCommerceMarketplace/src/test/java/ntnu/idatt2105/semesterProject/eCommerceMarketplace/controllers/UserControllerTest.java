@@ -20,6 +20,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -100,6 +101,30 @@ public class UserControllerTest {
                         .andExpect(jsonPath("$[1].id", is(2)))
                         .andExpect(jsonPath("$[1].username", is("user2")));
     }
+    /**@Test
+    public void testJunitGetAllUsers() throws Exception {
+        List<User> userList = new ArrayList<>();
+        User user1 = new User();
+        user1.setId(1);
+        user1.setUsername("user1");
+        userList.add(user1);
+        User user2 = new User();
+        user2.setId(2);
+        user2.setUsername("user2");
+        userList.add(user2);
+        when(userService.getAllUsers()).thenReturn(userList);
+
+        // Call the API
+        ResponseEntity<Iterable<User>> result = userController.getAllUsers();
+
+        // Verify the result
+        assertNotNull(result);
+        List<User> resultList = new ArrayList<>();
+        result.getBody().forEach(resultList::add);
+        assertEquals(2, resultList.size());
+        assertEquals("user1", resultList.get(0).getUsername());
+        assertEquals("user2", resultList.get(1).getUsername());
+    }*/
 
 
     @Test
@@ -179,8 +204,8 @@ public class UserControllerTest {
 
     @Test
     public void testDeleteUser() throws Exception {//TODO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        /*User user1 = new User();
-        user1.setId(1);
+       // User user1 = new User();
+        /*user1.setId(1);
         user1.setUsername("user1");
         user1.setPassword("passord");
         user1.setFirstName("u");
@@ -195,11 +220,11 @@ public class UserControllerTest {
         user1.setRole("ROLE_USER");*/
 
 
-        when(userService.deleteUser(null)).thenReturn(true);
+        when(userService.deleteUser(Mockito.any(User.class))).thenReturn(true);
 
         mockMvc.perform(delete("http://localhost:8080/users/deleteUser")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(new ObjectMapper().writeValueAsString(null)))
+                        .content(new ObjectMapper().writeValueAsString(User.class)))
                 .andExpect(status().isOk())
                 .andExpect(content().string("true"));
 
