@@ -1,20 +1,21 @@
 <template>
   <div id="container">
     <label>{{label}}</label>
-    <input id="filePicker" @change="onChange" class="field" type="file" accept="image/jpeg, image/png, image/jpg" >
+    <input id="filePicker" @change="onChange" class="field" type="file" accept="image/jpeg, image/png, image/jpg" multiple >
   </div>
 </template>
 
 <script>
 export default {
   name: "ImagePicker",
-  image:Function,
+  listOfImages:Array,
   props:{
     label:String,
   },
   methods:{
     onChange(event){
-      this.image=event.target.file
+      this.listOfImages=event.target.files
+      console.log(this.listOfImages)
     }
   }
 

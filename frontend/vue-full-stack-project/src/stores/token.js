@@ -8,6 +8,8 @@ export const useTokenStore = defineStore("token", {
     state: () => ({
         jwtToken: null,
         loggedInUser: null,
+        loggedInUserID: null,
+        role: null
     }),
     persist: {
         storage: sessionStorage, // note that data in sessionStorage is cleared when the page session ends
@@ -19,9 +21,11 @@ export const useTokenStore = defineStore("token", {
                 let response = await userService.getJwtToken(values);//valuesusername, password
                 let data = response.data;
                 if(data != null && data != '' && data != undefined){
-                    this.jwtToken = data;
+                    this.jwtToken = data.jwt;
                     this.loggedInUser = values.username/// username /TODO user
-                    console.log(this.loggedInUser)
+                    this.loggedInUserID = data.id
+                    this.role = data.role
+                    console.log(this.loggedInUser + " " + this.loggedInUserID + " " + this.jwtToken + " " + this.role)
                 }
             } catch (err){
                 console.log(err)
@@ -30,6 +34,8 @@ export const useTokenStore = defineStore("token", {
         logOut(){
             this.jwtToken=null;
             this.loggedInUser=null;
+            this.loggedInUserID=null;
+            this.role=null;
         }
     },
 });

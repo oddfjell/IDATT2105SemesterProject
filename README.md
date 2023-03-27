@@ -77,3 +77,10 @@ The layout and design of user-interface elements such as screens is open-ended a
 > mysql -u root > create.sql && mysql -u root (creation and running)
 > 
 > mysql -u root > delete.sql (deletion)
+
+### Swagger
+> cd backend/eCommerceMarketplace
+> 
+> mvn spring-boot:run
+>
+> *go to http://localhost:8080/swagger-ui/index.html#/*

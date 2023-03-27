@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c44d86ab-ae88-42f9-bcd5-0525e24d117a" name="Changes" comment="" />
+    <list default="true" id="c44d86ab-ae88-42f9-bcd5-0525e24d117a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/views/NewAdView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/views/NewAdView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/views/ProfilePageView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/views/ProfilePageView.vue" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,6 +69,7 @@
       <workItem from="1679326169791" duration="10056000" />
       <workItem from="1679399161948" duration="2369000" />
       <workItem from="1679403768384" duration="10188000" />
+      <workItem from="1679832773137" duration="13506000" />
     </task>
     <servers />
   </component>

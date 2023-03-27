@@ -1,15 +1,10 @@
 package ntnu.idatt2105.semesterProject.eCommerceMarketplace.controllers;
 
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities.User;
-import ntnu.idatt2105.semesterProject.eCommerceMarketplace.model.IsLogggedInRequest;
-import ntnu.idatt2105.semesterProject.eCommerceMarketplace.model.LoginRequest;
-import ntnu.idatt2105.semesterProject.eCommerceMarketplace.model.UserInfoResponse;
-import ntnu.idatt2105.semesterProject.eCommerceMarketplace.repositories.UserRepository;
+import ntnu.idatt2105.semesterProject.eCommerceMarketplace.model.LoginResponse;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -34,7 +29,7 @@ public class UserController { //TODO login
 
     @CrossOrigin
     @PostMapping("/service/login")
-    public @ResponseBody String loginUser(@RequestBody Map<String, Object> payload) {//
+    public @ResponseBody LoginResponse loginUser(@RequestBody Map<String, Object> payload) {//var string
         System.out.println(payload);
         return userService.loginUser(payload);
     }
@@ -80,5 +75,11 @@ public class UserController { //TODO login
     @DeleteMapping("/deleteUser")
     public @ResponseBody boolean deleteUser(@RequestBody User user) {
         return userService.deleteUser(user);
+    }
+
+    @CrossOrigin
+    @PostMapping("/role")
+    public String isAdmin(@RequestBody User user){
+        return userService.isAdmin(user);
     }
 }
