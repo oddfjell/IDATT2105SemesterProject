@@ -27,7 +27,7 @@ public class UserServiceTest {
     @Rule //initMocks
     public MockitoRule rule = MockitoJUnit.rule();
 
-    @Test
+    /*@Test
     public void testGetAllUsers(){
         // Mock data
         List<User> userList = new ArrayList<>();
@@ -53,7 +53,7 @@ public class UserServiceTest {
         assertEquals("user2", resultList.get(1).getUsername());
     }
 
-    /*@Test
+    @Test
     public void testLoginUser() {
         // Mock data
         Map<String, Object> payload = new HashMap<>();

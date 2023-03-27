@@ -27,14 +27,15 @@ public class UserService {
      */
     public Iterable<User> getAllUsers() {
         return userRepository.findAll();
+        //return new ResponseEntity<>(userRepository.findAll(), HttpStatus.OK);
     }
 
     /**
      * login
      * @param payload Map<String, Object>
-     * @return boolean
+     * @return LoginResponse
      */
-    public ResponseEntity<LoginResponse> loginUser(Map<String, Object> payload) {//boolean
+    public LoginResponse loginUser(Map<String, Object> payload) {//boolean
         String username = payload.get("username").toString();
         String password = payload.get("password").toString();
 
@@ -46,14 +47,10 @@ public class UserService {
                 if(role == null){
                     role = "ROLE_USER";
                 }
-                return new ResponseEntity<>(new LoginResponse(jwt, id, role), HttpStatus.CREATED);
-                //return new LoginResponse(jwt, id, role);
-                //return tokenService.generateToken(username);
-                //return true;
+                return new LoginResponse(jwt, id, role);
             }
         }
-        return new ResponseEntity<>(HttpStatus.CONFLICT);
-        //throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Access denied, wrong credentials....");
+        return null;
     }
 
     /**
@@ -102,11 +99,11 @@ public class UserService {
      */
     public User getUsername(String username){
 
-        User user = userRepository.findByUsername(username);
-        if(user != null){
+        return userRepository.findByUsername(username);
+        /*if(user != null){
             return user;
-        } //else return null;
-        throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Access denied, wrong credentials....");
+        } else return null;*/
+        //throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Access denied, wrong credentials....");
     }
 
     /**
@@ -114,7 +111,7 @@ public class UserService {
      * @param id int
      * @return Optional<User>
      */
-    public Optional<User> getUser(int id) {
+    public User getUser(int id) {
         return userRepository.findById(id);
     }//TODO username
 

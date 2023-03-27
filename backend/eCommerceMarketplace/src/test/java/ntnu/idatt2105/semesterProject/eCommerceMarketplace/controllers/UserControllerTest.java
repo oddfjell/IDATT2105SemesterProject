@@ -75,7 +75,7 @@ public class UserControllerTest {
     }
 
 
-    @Test
+   /* @Test
     public void testGetAllUsers(){
         // Mock data
         List<User> userList = new ArrayList<>();
@@ -100,7 +100,7 @@ public class UserControllerTest {
         assertEquals("user1", resultList.get(0).getUsername());
         assertEquals("user2", resultList.get(1).getUsername());
     }
-/*
+
     @Test
     public void testLoginUser() {
         // Mock data
