@@ -162,25 +162,4 @@ public class UserControllerTest {
         mockMvc.perform(get("/courses"))
                 .andExpect(status().isNotFound());
     }
-
-   /* @Test
-    void getExistentCourseWorks() throws Exception {
-        when(service.getById(1))
-                .thenReturn(response);
-
-        mockMvc.perform(get("/courses/1"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.code", is(request.getCode())));
-    }
-
-    @Test
-    void deletingCourseWorks() throws Exception {
-        when(service.deleteById(1))
-                .thenReturn(response);
-
-        mockMvc.perform(delete("/courses/{id}", 1))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.code", is(request.getCode())));
-    }*/
-
 }
