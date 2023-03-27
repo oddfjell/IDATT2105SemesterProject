@@ -1,28 +1,14 @@
 package ntnu.idatt2105.semesterProject.eCommerceMarketplace.controllers;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.annotation.PostConstruct;
-import jakarta.persistence.*;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.ECommerceMarketplaceApplication;
-import ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities.Address;
-import ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities.Item;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities.User;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.model.LoginResponse;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.service.UserService;
-import org.junit.Rule;
 import org.junit.Test;
-
-import org.junit.Assert.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnit;
-import org.mockito.junit.MockitoRule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -36,17 +22,12 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import static org.hamcrest.Matchers.is;
-
-import java.sql.Date;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import static org.hamcrest.Matchers.hasSize;
-//TODO mport static org.hamcrest.collection.IsCollectionWithSize.hasSize;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 

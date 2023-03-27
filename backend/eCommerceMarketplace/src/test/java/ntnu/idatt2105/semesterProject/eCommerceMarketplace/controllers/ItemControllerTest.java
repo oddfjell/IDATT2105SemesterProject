@@ -26,8 +26,7 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.when;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.MOCK;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
@@ -44,6 +43,8 @@ public class ItemControllerTest {
 
     @MockBean
     private ItemService itemService;
+
+    //TODO create       TODO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     @Test
     public void testGetAllItems() throws Exception {
@@ -67,46 +68,87 @@ public class ItemControllerTest {
                 .andExpect(jsonPath("$[1].title", is("yeyyyyyy")));
     }
 
-
     @Test
     public void testGetItemsByUserId() throws Exception{
-        String username = "user1";
         User user1 = new User();
-        user1.setUsername(username);
         user1.setId(1);
 
-        //when(itemService.getI.getUserByUsername(username)).thenReturn(user1);
+        List<Item> itemList = new ArrayList<>();
+        Item item1 = new Item();
+        item1.setId(1);
+        item1.setTitle("yey");
+        itemList.add(item1);
+        Item item2 = new Item();
+        item2.setId(2);
+        item2.setTitle("yeyyyyyy");
+        itemList.add(item2);
 
-        mockMvc.perform(get("http://localhost:8080/users/getusername/"+username))
+        when(itemService.getItemsByUserId(user1.getId())).thenReturn(itemList);
+
+        mockMvc.perform(get("http://localhost:8080/item/"+user1.getId()))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.username", is(username)));//TODO fiks ovenfor
+                .andExpect(jsonPath("$", hasSize(2)))
+                .andExpect(jsonPath("$[0].id", is(1)))
+                .andExpect(jsonPath("$[0].title", is("yey")))
+                .andExpect(jsonPath("$[1].id", is(2)))
+                .andExpect(jsonPath("$[1].title", is("yeyyyyyy")));
     }
-
-
-
     @Test
-    public void testGetUserByUserName() throws Exception {
-        String username = "user1";
+    public void testErrorGetItemsByUserId() throws Exception{
         User user1 = new User();
-        user1.setUsername(username);
         user1.setId(1);
 
-        when(userService.getUserByUsername(username)).thenReturn(user1);
+        when(itemService.getItemsByUserId(user1.getId())).thenReturn(null);
 
-        mockMvc.perform(get("http://localhost:8080/users/getusername/"+username))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.username", is(username)));//TODO fiks ovenfor
-    }
-    @Test
-    public void testErrorGetUserByUserName() throws Exception {
-        String username = "user1";
-
-        when(userService.getUserByUsername(username)).thenReturn(null);
-
-        mockMvc.perform(get("http://localhost:8080/users/getusername/"+username))
+        mockMvc.perform(get("http://localhost:8080/item/"+user1.getId()))
                 .andExpect(status().isNotFound());
     }
 
+    @Test
+    public void deleteItem() throws Exception {//TODO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        Item itemToDelete = new Item();
+        itemToDelete.setId(1);
+        when(itemService.deleteItem(itemToDelete)).thenReturn(true);
+
+        mockMvc.perform(delete("http://localhost:8080/item/delete")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"id\": 1}"))
+                .andExpect(status().isNotFound());
+    }
+
+
+
+    /*@Test
+    public void deleteItem() throws Exception {
+        Item itemToDelete = new Item();
+        itemToDelete.setId(1);
+        when(itemService.deleteItem(itemToDelete)).thenReturn(true);
+
+        mockMvc.perform(delete("http://localhost:8080/item/delete")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        //.content(new ObjectMapper().writeValueAsString(itemToDelete)))
+                       // .content(String.valueOf(itemToDelete))
+                        .content("{ \"id\": 1 }"))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    void deleteItem_notFound() throws Exception {
+        Item itemToDelete = new Item();
+        itemToDelete.setId(1L);
+        when(itemService.deleteItem(itemToDelete)).thenReturn(false);
+
+        mockMvc.perform(MockMvcRequestBuilders.delete("/delete")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{ \"id\": 1 }"))
+                .andExpect(MockMvcResultMatchers.status().isNotFound());
+    }*/
+
+
+
+
+
+    //TODO delete
 
 
      /*
