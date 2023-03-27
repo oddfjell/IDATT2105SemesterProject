@@ -52,6 +52,9 @@ public class User {
     @JsonBackReference
     private Address address;
 
+    @Column(name = "role")
+    private String role;
+
     public int getId() {
         return id;
     }
@@ -146,5 +149,13 @@ public class User {
 
     public void setListOfItems(List<Item> listOfItems) {
         this.listOfItems = listOfItems;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }
