@@ -17,5 +17,5 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 
 
     // DELETE
-    public void deleteById(int id);
+    public void deleteById(Integer id);
 }

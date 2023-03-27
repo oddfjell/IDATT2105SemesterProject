@@ -28,12 +28,25 @@ public class ItemService {
         }
     }
 
+    // Returns all items
     public Iterable<Item> getAllItems() {
         return itemRepository.findAll();
+    }
+
+
+    public boolean deleteItem(Item item) {
+
+        // Check if user actually exist in database before deletion:
+        if (!itemRepository.existsById(item.getId())) {
+            System.out.println("Item with given id does not exist in database");
+            return false;
+        }
+
+        itemRepository.deleteById(item.getId());
+        return true;
     }
 
     public List<Item> getItemsByUserId(int userId){
         return itemRepository.findItemsByUserId(userId);
     }
-
 }
