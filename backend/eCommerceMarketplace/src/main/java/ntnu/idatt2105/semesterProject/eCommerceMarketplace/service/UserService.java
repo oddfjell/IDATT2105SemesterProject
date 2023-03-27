@@ -6,6 +6,7 @@ import ntnu.idatt2105.semesterProject.eCommerceMarketplace.repositories.UserRepo
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.security.service.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -26,12 +27,13 @@ public class UserService {
      */
     public Iterable<User> getAllUsers() {
         return userRepository.findAll();
+        //return new ResponseEntity<>(userRepository.findAll(), HttpStatus.OK);
     }
 
     /**
      * login
      * @param payload Map<String, Object>
-     * @return boolean
+     * @return LoginResponse
      */
     public LoginResponse loginUser(Map<String, Object> payload) {//boolean
         String username = payload.get("username").toString();
@@ -46,11 +48,9 @@ public class UserService {
                     role = "ROLE_USER";
                 }
                 return new LoginResponse(jwt, id, role);
-                //return tokenService.generateToken(username);
-                //return true;
             }
         }
-        throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Access denied, wrong credentials....");
+        return null;
     }
 
     /**
@@ -99,21 +99,21 @@ public class UserService {
      */
     public User getUserByUsername(String username){
 
-        User user = userRepository.findByUsername(username);
-        if(user != null){
+        return userRepository.findByUsername(username);
+        /*if(user != null){
             return user;
-        } //else return null;
-        throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Access denied, wrong credentials....");
+        } else return null;*/
+        //throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Access denied, wrong credentials....");
     }
 
+    /**
+     * Returns s user with given id
+     * @param id int
+     * @return Optional<User>
+     */
     public User getUserById(int id) {
-        User user = userRepository.findById(id);
-        if(user != null){
-            return user;
-        } //else return null;
-        throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Access denied, wrong credentials....");
-    }
-
+        return userRepository.findById(id);
+    }//TODO username
 
     /**
      * Update user (id must be present in payload, or new user will be created)

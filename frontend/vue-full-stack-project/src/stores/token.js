@@ -28,7 +28,7 @@ export const useTokenStore = defineStore("token", {
                     console.log(this.loggedInUser + " " + this.loggedInUserID + " " + this.jwtToken + " " + this.role)
                 }
             } catch (err){
-                console.log(err)
+                console.log("getTokenAndSaveInStore: " + err)
             }
         },
         logOut(){

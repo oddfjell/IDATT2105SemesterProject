@@ -1,5 +1,8 @@
 package ntnu.idatt2105.semesterProject.eCommerceMarketplace.model;
 
+/**
+ * LoginResponse is to
+ */
 public class LoginResponse {
     private String jwt;
     private int id;
