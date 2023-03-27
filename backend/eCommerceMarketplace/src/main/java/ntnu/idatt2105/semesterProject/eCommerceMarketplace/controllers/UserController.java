@@ -5,6 +5,7 @@ import ntnu.idatt2105.semesterProject.eCommerceMarketplace.model.LoginResponse;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -27,9 +28,9 @@ public class UserController { //TODO login
        // return userRepository.findAll();
     }
 
-    @CrossOrigin
+    @CrossOrigin //TODO responseentiry
     @PostMapping("/service/login")
-    public @ResponseBody LoginResponse loginUser(@RequestBody Map<String, Object> payload) {//var string
+    public ResponseEntity<LoginResponse> loginUser(@RequestBody Map<String, Object> payload) {//var string
         System.out.println(payload);
         return userService.loginUser(payload);
     }

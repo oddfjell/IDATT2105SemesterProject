@@ -6,6 +6,7 @@ import ntnu.idatt2105.semesterProject.eCommerceMarketplace.repositories.UserRepo
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.security.service.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -33,7 +34,7 @@ public class UserService {
      * @param payload Map<String, Object>
      * @return boolean
      */
-    public LoginResponse loginUser(Map<String, Object> payload) {//boolean
+    public ResponseEntity<LoginResponse> loginUser(Map<String, Object> payload) {//boolean
         String username = payload.get("username").toString();
         String password = payload.get("password").toString();
 
@@ -45,12 +46,14 @@ public class UserService {
                 if(role == null){
                     role = "ROLE_USER";
                 }
-                return new LoginResponse(jwt, id, role);
+                return new ResponseEntity<>(new LoginResponse(jwt, id, role), HttpStatus.CREATED);
+                //return new LoginResponse(jwt, id, role);
                 //return tokenService.generateToken(username);
                 //return true;
             }
         }
-        throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Access denied, wrong credentials....");
+        return new ResponseEntity<>(HttpStatus.CONFLICT);
+        //throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Access denied, wrong credentials....");
     }
 
     /**
