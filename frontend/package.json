@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@googlemaps/js-api-loader": "^1.15.1",
+    "google-maps": "^4.3.3"
+  }
+}

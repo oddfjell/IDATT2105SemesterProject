@@ -11,10 +11,20 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+/**
+ * Configuration class
+ */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig{
 
+    /**
+     * Security filter chain. Some endpoints are available while the client does not
+     * have a valid jwt-token
+     * @param http HttpSecurity
+     * @return SecurityFilterChain
+     * @throws Exception exception
+     */
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         System.out.println("sikkerhet" + http.toString());
@@ -22,12 +32,11 @@ public class SecurityConfig{
                 .csrf().disable()
                 .cors().and()
                 .authorizeHttpRequests()
-                .requestMatchers("/item/service/**").permitAll() //TODO de andre offentlige
+                .requestMatchers("/item/service/**").permitAll()
                 .requestMatchers("/users/service/**").permitAll()
-                .requestMatchers("/v3/**").permitAll() //TODO http://localhost:8080/v3/api-docs
-                .requestMatchers("/swagger-ui/**").permitAll() //TODO http://localhost:8080/swagger-ui/index.html#/user-info-controller/getUser
+                .requestMatchers("/v3/**").permitAll()
+                .requestMatchers("/swagger-ui/**").permitAll()
                 .requestMatchers("/swagger-ui.html/**").permitAll()
-                .requestMatchers("/image/**").permitAll()
                 .requestMatchers("/").permitAll()
                 .anyRequest().authenticated().and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()

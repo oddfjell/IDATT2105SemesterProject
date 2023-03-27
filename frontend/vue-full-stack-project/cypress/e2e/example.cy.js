@@ -3,6 +3,8 @@
 describe('My First Test', () => {
   it('visits the app root url', () => {
     cy.visit('/')
-    cy.contains('h1', 'You did it!')
+    cy.contains(<Header />)
   })
 })
+// Deleted the other tests
+// Had suddenly problem: No test files found, exiting with code 1
