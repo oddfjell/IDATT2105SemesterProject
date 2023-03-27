@@ -38,11 +38,13 @@ export default {
     }
   },
   async mounted(){
-    try {
-      let response = await userService.getUser(this.item.user, useTokenStore().jwtToken)
-      this.seller = response.data
-    }catch (e){
-      console.log(e)
+    if(useTokenStore().jwtToken) {
+      try {
+        let response = await userService.getUser(this.item.user, useTokenStore().jwtToken)
+        this.seller = response.data
+      } catch (e) {
+        console.log(e)
+      }
     }
   },
   name: "ItemView",
@@ -56,7 +58,7 @@ export default {
   },
   methods:{
     addToCart(){
-      itemService.
+      itemService.deleteItem(this.item.id, useTokenStore().jwtToken)
       alert("You added " + this.item.title + " to the cart")
     }
   },
