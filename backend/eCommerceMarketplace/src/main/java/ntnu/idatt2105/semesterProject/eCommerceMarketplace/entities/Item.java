@@ -27,8 +27,8 @@ public class Item {
     @Column(name = "price")
     private double price;
 
-    @Column (name = "image_url")
-    private String image_url;
+    @Column (name = "image")
+    private String image;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name="user_id")
@@ -82,12 +82,25 @@ public class Item {
         this.user = user;
     }
 
-    public String getImage_url() {
-        return image_url;
+    public String getImage() {
+        return image;
     }
 
-    public void setImage_url(String image_url) {
-        this.image_url = image_url;
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", briefDescription='" + briefDescription + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", image='" + image + '\'' +
+                ", user=" + user +
+                '}';
     }
 }
 
