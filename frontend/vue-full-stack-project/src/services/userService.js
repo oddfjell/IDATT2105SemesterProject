@@ -57,6 +57,9 @@ export default {
     },
     deleteUser(user, token){
         return userApiClient.delete(`/deleteUse`, user, addHeader(token))
+    },
+    isAdmin(user, token){
+        return userApiClient.post(`/role`, user, addHeader(token))
     }
 };
 

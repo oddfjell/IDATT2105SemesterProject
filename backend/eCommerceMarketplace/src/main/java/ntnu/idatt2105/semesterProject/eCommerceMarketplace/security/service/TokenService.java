@@ -1,4 +1,4 @@
-package ntnu.idatt2105.semesterProject.eCommerceMarketplace.service;
+package ntnu.idatt2105.semesterProject.eCommerceMarketplace.security.service;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
@@ -9,7 +9,6 @@ import java.time.Duration;
 import java.time.Instant;
 @Service
 public class TokenService {
-
 
     public static final String keyStr = "testsecrettestsecrettestsecrettestsecrettestsecret";
     private static final Duration JWT_TOKEN_VALIDITY = Duration.ofMinutes(300);

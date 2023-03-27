@@ -4,7 +4,6 @@ import ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities.Item;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.repositories.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.*;
 
 @Service
 public class ItemService {

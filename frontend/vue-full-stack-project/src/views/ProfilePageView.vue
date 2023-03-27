@@ -15,6 +15,11 @@
           <li>Registered: {{user.registered}}</li>
         </ul>
       </div>
+      <div id="item_grid">
+        <div class="item hoverborder" :key="item.title" v-for="(item,index) in items">
+          <ItemComponent :tabindex="index+1" :item="item"/>
+        </div>
+      </div>
     </div>
   <div v-else>
     <h2>You are not logged in ...</h2>
@@ -28,10 +33,13 @@ import { useTokenStore } from "@/stores/token";
 import userService from "@/services/userService";
 import Header from "@/components/Header/Header.vue";
 import BackHeader from "@/components/Header/backHeader.vue";
+import ItemGrid from "@/components/ItemGrid.vue";
+import itemService from "@/services/itemService";
+import ItemComponent from "@/components/Item.vue";
 
 export default {
   name: "ProfilePageView.vue",
-  components: { Header, BackHeader},
+  components: {ItemComponent, Header, BackHeader, ItemGrid},
   setup() {
     const tokenStore = useTokenStore();
     return { tokenStore };
@@ -47,13 +55,20 @@ export default {
       }
       this.user = response.data;//TODO
     }
+    try {
+      let getItems = await itemService.getItems()
+      for (let item of getItems) {
+        this.items.unshift(item)
+      }
+    }catch (e){
+      console.log(e)
+    }
   },
+
   data(){
     return{
       user: null,
-      props:{
-        items:Array
-      },
+      items:[],
     }
   },
   computed:{

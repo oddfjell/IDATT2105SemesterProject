@@ -94,6 +94,32 @@
 			<version>8.0.0.Final</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>3.0-alpha-1</version>
+			<scope>provided</scope>
+		</dependency>-->
+		<!-- https://mvnrepository.com/artifact/org.json/json
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20230227</version>
+		</dependency>-->
+
+
+
+		<!-- https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity5 -->
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
+			<version>3.1.1.RELEASE</version>
+		</dependency>
+
+
+
+
 
 		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2
 		<dependency>

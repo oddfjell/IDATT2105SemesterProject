@@ -1,4 +1,4 @@
-package ntnu.idatt2105.semesterProject.eCommerceMarketplace.security;
+package ntnu.idatt2105.semesterProject.eCommerceMarketplace.security.service;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
@@ -8,8 +8,6 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-//import ntnu.idatt2105.semesterProject.eCommerceMarketplace.controllers.TokenController;
-import ntnu.idatt2105.semesterProject.eCommerceMarketplace.service.TokenService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpHeaders;
