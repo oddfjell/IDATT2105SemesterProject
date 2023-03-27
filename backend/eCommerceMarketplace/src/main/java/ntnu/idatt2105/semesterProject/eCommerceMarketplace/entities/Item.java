@@ -38,10 +38,6 @@ public class Item {
     @JsonBackReference
     private User user;
 
-    @ManyToMany
-    @JoinTable(name = "item_category", joinColumns = @JoinColumn(name = "item_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
-    private List<Category> categories;
-
     public int getId() {
         return id;
     }
@@ -70,10 +66,6 @@ public class Item {
         return user;
     }
 
-    public List<Category> getCategories() {
-        return categories;
-    }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -99,10 +91,6 @@ public class Item {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public void setCategories(List<Category> categories) {
-        this.categories = categories;
     }
 
     public String getImage_url() {
