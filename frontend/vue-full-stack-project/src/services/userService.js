@@ -51,8 +51,11 @@ export default {
         }
         return user
     },
-    getUser(id, token){
-        return userApiClient.get(`/${id}`, addHeader(token));
+    getUser(id){
+        return userApiClient.get(`/service/${id}`);
+    },
+    getUserAddress(id){
+        return userApiClient.get(`/service/getAddress/${id}`)
     },
     updateUser(user, token){
         return userApiClient.put('/updateUser', user, addHeader(token))

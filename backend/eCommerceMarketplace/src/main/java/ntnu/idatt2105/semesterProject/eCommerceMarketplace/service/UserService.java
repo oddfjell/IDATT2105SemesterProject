@@ -1,5 +1,6 @@
 package ntnu.idatt2105.semesterProject.eCommerceMarketplace.service;
 
+import ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities.Address;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities.User;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.model.LoginResponse;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.repositories.UserRepository;
@@ -132,6 +133,16 @@ public class UserService {
             role = "ROLE_USER";
         }
         return role;
+    }
+
+    public Address getAddress(int id){
+        try {
+            Address address = userRepository.findById(id).getAddress();
+            return address;
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return null;
     }
 
 

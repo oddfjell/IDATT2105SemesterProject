@@ -1,5 +1,6 @@
 package ntnu.idatt2105.semesterProject.eCommerceMarketplace.repositories;
 
+import ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities.Address;
 import org.springframework.data.repository.CrudRepository;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities.User;
 
