@@ -4,7 +4,6 @@
   <div class="container">
     <h1>Register</h1>
     <form id="loginField" class="loginField" @submit.prevent="submit">
-
       <BaseInput
           v-model="user.username"
           :modelValue="user.username"
@@ -14,7 +13,6 @@
           type="text"
           class="field"
       />
-
       <BaseInput
           v-model="user.password"
           :modelValue="user.password"
@@ -24,7 +22,6 @@
           type="password"
           class="field"
       />
-
       <div id="name" class="field">
         <BaseInput
             v-model="user.firstName"
@@ -34,7 +31,6 @@
             label="Firstname"
             type="text"
         />
-
         <BaseInput
             v-model="user.lastName"
             :modelValue="user.lastName"
@@ -43,9 +39,7 @@
             label="Lastname"
             type="text"
         />
-
       </div>
-
       <BaseInput
           v-model="user.email"
           :modelValue="user.email"
@@ -55,7 +49,6 @@
           type="email"
           class="field"
       />
-
       <BaseInput
           v-model="user.phoneNumber"
           :modelValue="user.phoneNumber"
@@ -75,11 +68,19 @@
           type="date"
           class="field"
       />
+      <BaseInput v-model="user.image"
+                 :model-value="user.image"
+                 :error="errors.image"
+                 @input="onInputImage"
+                 label="URL to an image"
+                 type="url"
+                 class="field"
+      />
 
       <BaseInput
           v-model="user.address.city"
           :modelValue="user.address.city"
-          :error="errors.city"
+          :error="errors.address?.city"
           @input="onInputCity"
           label="City"
           type="text"
@@ -89,7 +90,7 @@
       <BaseInput
           v-model="user.address.country"
           :modelValue="user.address.country"
-          :error="errors.country"
+          :error="errors.address?.country"
           @input="onInputCountry"
           label="Country"
           type="text"
@@ -99,7 +100,7 @@
       <BaseInput
           v-model="user.address.postalCode"
           :modelValue="user.address.postalCode"
-          :error="errors.postalCode"
+          :error="errors.address?.postalCode"
           @input="onInputPostalCode"
           label="Postal code"
           type="number"
@@ -109,7 +110,7 @@
       <BaseInput
           v-model="user.address.streetName"
           :modelValue="user.address.streetName"
-          :error="errors.streetName"
+          :error="errors.address?.streetName"
           @input="onInputStreetName"
           label="Street name"
           type="text"
@@ -119,14 +120,12 @@
       <BaseInput
           v-model="user.address.streetNumber"
           :modelValue="user.address.streetNumber"
-          :error="errors.streetNumber"
+          :error="errors.address?.streetNumber"
           @input="onInputStreetNumber"
           label="Street number"
           type="text"
           class="field"
       />
-
-      <ImagePicker label="Profile picture" class="field"/>
       <div class="Btn">
         <button id="registerBtn" type="submit">Register</button>
       </div>
@@ -138,7 +137,7 @@
 </template>
 
 <script>
-//import setUserService from "@/services/setUserService";
+
 import userService from "@/services/userService";
 import BaseInput from "@/components/Form/Input.vue";
 import {useField, useForm} from "vee-validate";
@@ -147,6 +146,8 @@ import router from "@/router";
 import BackHeader from "@/components/Header/backHeader.vue";
 import ImagePicker from "@/components/Form/ImagePicker.vue";
 import Header from "@/components/Header/Header.vue";
+import {reactive} from "vue";
+
 
 export default {
   name: "RegisterPageView.vue",
@@ -160,16 +161,15 @@ export default {
         firstName: "",
         lastName: "",
         email: "",
-        phoneNumber: number,
-        dateOfBirth: date,
-        registered: date,
+        phoneNumber: null,
+        dateOfBirth: null,
         image: "",
         address: {
           city: "",
           country: "",
-          postalCode: number,
+          postalCode: "",
           streetName: "",
-          streetNumber: ""
+          streetNumber: "",
         }
       },
       errorText: ""
@@ -178,7 +178,6 @@ export default {
   methods: {
     onInputUsername(username) {
       this.username = username.target.value;
-      //this.$store.commit("UPDATE_NAME", e.target.value);
     },
     onInputEmail(email) {
       this.email = email.target.value;
@@ -198,27 +197,29 @@ export default {
     onInputDateOfBirth(date) {
       this.dateOfBirth = date.target.value
     },
+    onInputImage(image){
+      this.image = image.target.value
+    },
 
     onInputCity(city) {
-      this.city = city.target.value
+      this.address.city = city.target.value
     },
 
     onInputCountry(country) {
-      this.country = country.target.value
+      this.address.country = country.target.value
     },
 
     onInputPostalCode(postalCode) {
-      this.postalCode = postalCode.target.value
+      this.address.postalCode = postalCode.target.value
     },
 
     onInputStreetName(streetName) {
-      this.streetName = streetName.target.value
+      this.address.streetName = streetName.target.value
     },
 
     onInputStreetNumber(streetNumber) {
-      this.streetNumber = streetNumber.target.value
+      this.address.streetNumber = streetNumber.target.value
     },
-
     onLogin() {
       router.push("/login")
     }
@@ -232,15 +233,14 @@ export default {
       lastName: string("Wrong format").required("Cannot be empty"),
       phoneNumber: number("Must be a number").positive("Must be positive").min(8, "Must be more than 8").required("Please enter a phone number"),
       dateOfBirth: date("Must be a valid date"),
-
-      address: {
-        city: string("Wrong format").required("Cannot be empty"),
+      image:string("Must be a url"),
+      address: object({
+        city: string().required("Cannot be empty"),
         country: string("Wrong format").required("Cannot be empty"),
         postalCode: number("Must be a number").positive("Must be positive").min(1000, "Must be more than 999").max(9999, "Must be less than 10000").required("Please enter a phone number"),
         streetName: string("Wrong format").required("Cannot be empty"),
         streetNumber: string("Wrong format").required("Cannot be empty"),
-      }
-
+      })
     });
     const {handleSubmit, errors} = useForm({
       validationSchema,
@@ -252,17 +252,22 @@ export default {
     const {value: firstName} = useField("firstName");
     const {value: lastName} = useField("lastName");
     const {value: phoneNumber} = useField("phoneNumber");
-    const {value: dateOfBirth} = useField("dateOfBirth")
-
-
-    const {value: city} = useField("city")
-    const {value: country} = useField("country")
-    const {value: postalCode} = useField("postalCode");
-    const {value: streetName} = useField("streetName");
-    const {value: streetNumber} = useField("streetNumber");
-
-    const submit = handleSubmit((values) => {
-      userService.registerUser(values);
+    const {value: image} = useField("image");
+    const {value: dateOfBirth} = useField("dateOfBirth");
+    const {value: city} = useField("address.city")
+    const {value: country} = useField("address.country");
+    const {value: postalCode} = useField("address.postalCode");
+    const {value: streetName} = useField("address.streetName");
+    const {value: streetNumber} = useField("address.streetNumber");
+    const {value: address} = reactive(useField("address"))
+    const submit = handleSubmit(async (values) => {
+      console.log(values)
+      let response
+      try {
+        await userService.registerUser(values);
+      }catch (e){
+        console.log(e)
+      }
     });
 
     return {
@@ -274,13 +279,8 @@ export default {
       lastName,
       phoneNumber,
       dateOfBirth,
-      address: {
-        city,
-        country,
-        postalCode,
-        streetName,
-        streetNumber
-      },
+      image,
+      address,
       submit,
     };
   }

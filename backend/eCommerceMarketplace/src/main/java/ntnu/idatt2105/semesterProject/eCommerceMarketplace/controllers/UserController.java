@@ -61,7 +61,7 @@ public class UserController { //TODO login
 
     // Return user with given id
     @CrossOrigin
-    @GetMapping("/{id}") //TODO username??
+    @GetMapping("/service/{id}") //TODO username??
     public ResponseEntity<User> getUser(@PathVariable int id) {
         User user = userService.getUserById(id);
         if(user == null){
@@ -88,20 +88,4 @@ public class UserController { //TODO login
     }
 
     // Delete user (id must be present in payload, or new user will be created)
-    @CrossOrigin
-    @DeleteMapping("/deleteUser")
-    public ResponseEntity<Boolean> deleteUser(@RequestBody User user) {
-        if(userService.deleteUser(user)){
-            return new ResponseEntity<>(true, HttpStatus.OK);
-        }else return new ResponseEntity<>(false, HttpStatus.BAD_REQUEST);
-    }
-
-    @CrossOrigin
-    @PostMapping("/role")
-    public ResponseEntity<String> isAdmin(@RequestBody User user){
-        String role = userService.isAdmin(user);
-        if(role != null){
-            return new ResponseEntity<>(role, HttpStatus.OK);
-        } return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-    }
 }

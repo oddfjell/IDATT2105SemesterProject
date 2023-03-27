@@ -4,6 +4,8 @@
   <p>Name: {{seller.firstName}} {{seller.lastName}}</p>
   <p>Email: {{seller.email}}</p>
   <p>Phone number: {{seller.phoneNumber}}</p>
+  <p>Address: {{seller.address.country}} {{seller.address.city}} {{seller.address.postalCode}} </p>
+  <p>Street: {{seller.address.streetName}} {{seller.address.streetNumber}}</p>
 
   <div id="map"></div>
 </div>

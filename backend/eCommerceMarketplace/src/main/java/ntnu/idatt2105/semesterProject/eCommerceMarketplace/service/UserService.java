@@ -60,38 +60,6 @@ public class UserService {
         return returnedValue;
     }
 
-
-    // Logic for deleting a user with given user data
-    public boolean deleteUser(User user) {
-        try {
-
-            // Check if user actually exist in database before deletion:
-            if (!userRepository.existsById(user.getId())) {
-                System.out.println("User with given id does not exist in database");
-                return false;
-            }
-
-            // Delete user from data by its id
-            userRepository.deleteById(user.getId());
-            return true;
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return false;
-        }
-    }
-
-
-    // ?
-    public String isAdmin(User user){
-        String role = userRepository.findByUsername(user.getUsername()).getRole();
-        if (role == null){
-            role = "ROLE_USER";
-        }
-        return role;
-    }
-
-
-    // ?
     public LoginResponse loginUser(Map<String, Object> payload) {//boolean
         String username = payload.get("username").toString();
         String password = payload.get("password").toString();
@@ -134,4 +102,37 @@ public class UserService {
             return 4;
         }
     }
+
+    /**
+     * Delete user (id must be present in payload, or new user will be created)
+     * @param user User
+     * @return boolean
+     */
+    public boolean deleteUser(User user) {
+        try {
+
+            // Check if user actually exist in database before deletion:
+            if (!userRepository.existsById(user.getId())) {
+                System.out.println("User with given id does not exist in database");
+                return false;
+            }
+
+            // Delete user from data by its id
+            userRepository.deleteById(user.getId());
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+    public String isAdmin(User user){
+        String role = userRepository.findByUsername(user.getUsername()).getRole();
+        if (role == null){
+            role = "ROLE_USER";
+        }
+        return role;
+    }
+
+
 }
