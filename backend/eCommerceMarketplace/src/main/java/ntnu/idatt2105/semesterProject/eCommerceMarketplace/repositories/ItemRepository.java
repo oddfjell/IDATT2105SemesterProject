@@ -11,6 +11,6 @@ import java.util.List;
 public interface ItemRepository extends CrudRepository<Item, Integer> {
     List<Item> findItemsByUserId(int UserId);
 
-    public boolean deleteById(int id);
+    public Boolean deleteById(int id);
 
 }
