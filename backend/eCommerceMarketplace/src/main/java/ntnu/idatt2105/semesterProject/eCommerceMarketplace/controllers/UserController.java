@@ -90,7 +90,6 @@ public class UserController { //TODO login
         }else if(updateResponse == 3){
             return new ResponseEntity<>(updateResponse, HttpStatus.OK);
         } else return new ResponseEntity<>(updateResponse, HttpStatus.CONFLICT);
-
     }
 
     // Delete user (id must be present in payload, or new user will be created)
