@@ -2,7 +2,6 @@
   <nav>
    <div id="routerList">
     <router-link class="navElement" to="/login">Login</router-link>
-    <router-link class="navElement" to="/">Cart</router-link>
    </div>
   </nav>
 </template>
