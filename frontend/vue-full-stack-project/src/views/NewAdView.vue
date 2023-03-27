@@ -40,7 +40,15 @@
           type="text"
           class="field"
       />
-      <MultiImagePicker v-model="product.listOfImages" :error="errors.listOfImages" @change="onInputImage" type="image" :listOfImages="product.listOfImages" class="field" label="Image"/>
+      <BaseInput v-model="product.image"
+                 :model-value="product.image"
+                 :error="errors.image"
+                 @input="onInputImage"
+                 label="URL to an image"
+                 type="url"
+                 class="field"
+      />
+
       <div class="Btn">
         <button id="publishBtn" class="Btn" type="submit">Publish product</button>
       </div>
@@ -57,7 +65,6 @@ import BackHeader from "@/components/Header/backHeader.vue";
 import MultiImagePicker from "@/components/Form/MultiImagePicker.vue";
 import itemService from "@/services/itemService";
 import Header from "@/components/Header/Header.vue";
-import * as Yup from "yup";
 import userService from "@/services/userService";
 export default {
   name: "LoginPageView.vue",
@@ -69,7 +76,7 @@ export default {
         price:number,
         briefDescription:"",
         description:"",
-        listOfImages:Array,
+        image:"",
         user:null,
       },
     };
@@ -82,7 +89,7 @@ export default {
       price: number("Wrong format").required("Cannot be empty"),
       briefDescription: string("Wrong format").required("Cannot be empt"),
       description: string("Wrong format").required("Cannot be empty"),
-      listOfImages: Yup.mixed().required(""),
+      image: string().required("The item should have a URL to a image")
     });
     const { handleSubmit, errors } = useForm({
       validationSchema,
@@ -91,24 +98,9 @@ export default {
     const { value: price } = useField("price");
     const { value: briefDescription } = useField("briefDescription");
     const { value: description } = useField("description");
-    const { value: listOfImages } = useField("listOfImages");
+    const { value: image } = useField("image");
     const submit = handleSubmit(async (values) => {
       if (tokenStore.jwtToken) {
-        console.log(values)
-        let listOfImages = values["listOfImages"]
-        console.log(listOfImages)
-        let imagesByte = []
-        for (const image of listOfImages) {
-          let reader = new FileReader();
-          reader.addEventListener('load', (event) => {
-            const buffer = event.target.result;
-            imagesByte.push(new Uint8Array(buffer));
-          });
-          reader.readAsArrayBuffer(image)
-        }
-        values["listOfImages"] = imagesByte
-        values["user"] = tokenStore.loggedInUserID
-        console.log(values)
         await itemService.publishItem(values, tokenStore.jwtToken)
       } else {
         console.log("Something went wrong!")
@@ -120,7 +112,7 @@ export default {
       price,
       briefDescription,
       description,
-      listOfImages,
+      image,
       errors,
       submit,
       tokenStore
@@ -152,9 +144,8 @@ export default {
     onInputDescription(desc){
       this.description=desc.target.value;
     },
-    onInputImage(event){
-      this.listOfImages=event.target.files
-      console.log(this.listOfImages)
+    onInputImage(image){
+      this.image=image.target.value;
     }
   },
 }
