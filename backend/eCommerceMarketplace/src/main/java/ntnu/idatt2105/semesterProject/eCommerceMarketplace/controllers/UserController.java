@@ -3,7 +3,10 @@ package ntnu.idatt2105.semesterProject.eCommerceMarketplace.controllers;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities.Item;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities.User;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.model.LoginResponse;
+import ntnu.idatt2105.semesterProject.eCommerceMarketplace.security.service.JWTAuthorizationFilter;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.service.UserService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.HttpStatus;
@@ -19,6 +22,7 @@ import java.util.Optional;
 @CrossOrigin(origins = "http://localhost:5173/", allowCredentials = "true")
 public class UserController { //TODO login
 
+    private static final Logger LOGGER = LogManager.getLogger(UserController.class);
     @Autowired
     private UserService userService;
 
@@ -26,6 +30,7 @@ public class UserController { //TODO login
     @CrossOrigin
     @GetMapping("/")
     public ResponseEntity<Iterable<User>> getAllUsers() {
+        LOGGER.info("eloooooooooooooooooooo");//TODO
         return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
     }
 
@@ -39,14 +44,14 @@ public class UserController { //TODO login
     }
 
     @CrossOrigin
-    @RequestMapping(value = "/service/register", method = RequestMethod.POST) //TODO add ikke sprerra
+    @RequestMapping(value = "/service/register", method = RequestMethod.POST)
     public ResponseEntity<Integer> createUser(@RequestBody User user) {
         int createResponse = userService.createUser(user);
         if(createResponse == 4){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }else if(createResponse == 3){
             return new ResponseEntity<>(createResponse, HttpStatus.CREATED);
-        } else return new ResponseEntity<>(HttpStatus.CONFLICT);
+        } else return new ResponseEntity<>(createResponse, HttpStatus.CONFLICT);
     }
 
     // return user with given username
@@ -84,7 +89,7 @@ public class UserController { //TODO login
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }else if(updateResponse == 3){
             return new ResponseEntity<>(updateResponse, HttpStatus.OK);
-        } else return new ResponseEntity<>(HttpStatus.CONFLICT);
+        } else return new ResponseEntity<>(updateResponse, HttpStatus.CONFLICT);
 
     }
 
@@ -92,7 +97,8 @@ public class UserController { //TODO login
     @CrossOrigin
     @DeleteMapping("/deleteUser")
     public ResponseEntity<Boolean> deleteUser(@RequestBody User user) {
-        if(userService.deleteUser(user)){
+        boolean deleted = userService.deleteUser(user);
+        if(deleted){
             return new ResponseEntity<>(true, HttpStatus.OK);
         }else return new ResponseEntity<>(false, HttpStatus.BAD_REQUEST);
     }

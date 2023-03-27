@@ -25,4 +25,16 @@ public class LoginResponse {
     public String getRole() {
         return role;
     }
+
+    public void setJwt(String jwt) {
+        this.jwt = jwt;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 }
