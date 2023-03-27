@@ -11,7 +11,7 @@
   </div>
   <h4 id="brief-description">{{item.briefDescription}}</h4>
   <p id="full-description">{{item.description}}</p>
-  <Seller v-if="seller" :seller="seller" />
+  <Seller v-if="seller && address" :seller="seller" :address="address" />
   <div class="flex">
 
   <button id="buyBtn" tabindex="0" @click="addToCart">AddToCart</button>
@@ -38,14 +38,18 @@ export default {
     }
   },
   async mounted(){
-    if(useTokenStore().jwtToken) {
       try {
-        let response = await userService.getUser(this.item.user, useTokenStore().jwtToken)
+        let response = await userService.getUser(this.item.user)
         this.seller = response.data
       } catch (e) {
         console.log(e)
       }
-    }
+      try{
+        let response = await userService.getUserAddress(this.item.user)
+        this.address = response.data
+      }catch (e) {
+        console.log(e)
+      }
   },
   name: "ItemView",
   item:{
@@ -54,6 +58,7 @@ export default {
   data(){
     return{
       seller:null,
+      address:null,
     }
   },
   methods:{

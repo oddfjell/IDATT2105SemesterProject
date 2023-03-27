@@ -1,5 +1,6 @@
 package ntnu.idatt2105.semesterProject.eCommerceMarketplace.controllers;
 
+import ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities.Address;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities.Item;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities.User;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.model.LoginResponse;
@@ -87,5 +88,12 @@ public class UserController { //TODO login
         } else return new ResponseEntity<>(updateResponse, HttpStatus.CONFLICT);
     }
 
-    // Delete user (id must be present in payload, or new user will be created)
+    @CrossOrigin
+    @GetMapping("/service/getAddress/{id}")
+    public ResponseEntity<Address> getAddress(@PathVariable int id){
+        Address address = userService.getAddress(id);
+        if(address == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else return new ResponseEntity<>(address, HttpStatus.OK);
+    }
 }
