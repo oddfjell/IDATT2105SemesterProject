@@ -11,7 +11,9 @@
   </div>
   <h4 id="brief-description">{{item.briefDescription}}</h4>
   <p id="full-description">{{item.description}}</p>
+  <Seller v-if="seller" :seller="seller" />
   <div class="flex">
+
   <button id="buyBtn" tabindex="0" @click="addToCart">AddToCart</button>
   </div>
 </div>
@@ -22,8 +24,12 @@ import { Itemstore } from '@/stores/selectedItem'
 import {computed} from "vue";
 import BackHeader from "@/components/Header/backHeader.vue";
 import Header from "@/components/Header/Header.vue";
+import Seller from "@/components/Seller.vue";
+import userService from "@/services/userService";
+import itemService from "@/services/itemService";
+import {useTokenStore} from "@/stores/token";
 export default {
-  components: {BackHeader, Header},
+  components: {Seller, BackHeader, Header},
   setup() {
     const store = Itemstore()
     const item = computed(()=>store.$state.selectedItem)
@@ -31,12 +37,26 @@ export default {
       item
     }
   },
+  async mounted(){
+    try {
+      let response = await userService.getUser(this.item.user, useTokenStore().jwtToken)
+      this.seller = response.data
+    }catch (e){
+      console.log(e)
+    }
+  },
   name: "ItemView",
   item:{
-    type:Number
+    type:Object
+  },
+  data(){
+    return{
+      seller:null,
+    }
   },
   methods:{
     addToCart(){
+      itemService.
       alert("You added " + this.item.title + " to the cart")
     }
   },
@@ -44,7 +64,7 @@ export default {
     priceText(){
       return this.item.price + " kr"
     }
-  }
+  },
   }
 
 </script>

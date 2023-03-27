@@ -39,8 +39,8 @@ public class User {
     @Column(name = "registered")
     private Date registered = Date.valueOf(LocalDate.now());;
 
-    @Column(name = "image")
-    private String image;
+    @Column(name = "image_url")
+    private String image_url;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @Column(nullable = true)
@@ -91,10 +91,6 @@ public class User {
         return registered;
     }
 
-    public String getImage() {
-        return image;
-    }
-
     public Address getAddress() {
         return address;
     }
@@ -135,10 +131,6 @@ public class User {
         this.registered = registered;
     }
 
-    public void setImage(String image) {
-        this.image = image;
-    }
-
     public void setAddress(Address address) {
         this.address = address;
     }
@@ -157,5 +149,13 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getImage_url() {
+        return image_url;
+    }
+
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
     }
 }

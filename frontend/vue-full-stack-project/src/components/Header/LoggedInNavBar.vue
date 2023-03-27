@@ -2,7 +2,6 @@
   <nav>
     <div id="routerList">
       <router-link class="navElement" to="/profile">Profile</router-link>
-      <router-link class="navElement" to="/">Cart</router-link>
       <router-link  class="navElement" to="/newad">New ad</router-link>
       <router-link @click="logOut" class="navElement" to="/login">Log out</router-link>
     </div>

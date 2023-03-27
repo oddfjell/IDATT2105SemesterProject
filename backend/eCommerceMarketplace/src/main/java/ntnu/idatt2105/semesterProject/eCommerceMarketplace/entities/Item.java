@@ -30,11 +30,8 @@ public class Item {
     @Column(name = "for_sale")
     private boolean forSale;
 
-
-    @OneToMany(mappedBy = "item", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @Column(nullable = true)
-    @JsonManagedReference
-    private List<ProductImage> listOfImages;
+    @Column (name = "image_url")
+    private String image_url;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name="user_id")
@@ -108,13 +105,12 @@ public class Item {
         this.categories = categories;
     }
 
-
-    public List<ProductImage> getListOfImages() {
-        return listOfImages;
+    public String getImage_url() {
+        return image_url;
     }
 
-    public void setListOfImages(List<ProductImage> listOfImages) {
-        this.listOfImages = listOfImages;
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
     }
 }
 

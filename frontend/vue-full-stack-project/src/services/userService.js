@@ -33,7 +33,7 @@ export default {
         try {
             const response = await userApiClient.post('/service/register', user);
             if(response.data != null){ //TODO send feilmedling og ta den imot
-                await router.push("/profile")
+                await router.push("/login")
             } else{
                 return "gal input"
             }
@@ -50,10 +50,10 @@ export default {
             throw new Error();
         }
         return user
-    },/**
-    getUser(username){
-        return userApiClient.get(`/users/${username}`);
-    },*/
+    },
+    getUser(id){
+        return userApiClient.get(`/${id}`);
+    },
     updateUser(user, token){
         return userApiClient.put('/updateUser', user, addHeader(token))
     },

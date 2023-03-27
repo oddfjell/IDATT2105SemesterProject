@@ -104,7 +104,7 @@ public class UserControllerTest {
         user2.setUsername("user2");
         userList.add(user2);
         when(userService.getAllUsers()).thenReturn(userList);
-        
+
         mockMvc.perform(get("/"))
                         .andExpect(status().isOk())
     }

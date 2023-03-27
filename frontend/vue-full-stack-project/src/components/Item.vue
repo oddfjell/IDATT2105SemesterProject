@@ -12,6 +12,7 @@
 </template>
 
 <script>
+
 export default {
   name: "Item-component",
   props: {
@@ -20,11 +21,12 @@ export default {
       required: true
     },
   },
+
     computed:{
     price(){
       return this.item.price + " kr"
     }
-    }
+  },
 }
 </script>
 

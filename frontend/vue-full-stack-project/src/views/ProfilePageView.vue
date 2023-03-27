@@ -53,10 +53,11 @@ export default {
         console.log(e)
         this.tokenStore.logOut()
       }
+      console.log(response)
       this.user = response.data;//TODO
     }
     try {
-      let getItems = await itemService.getItems()
+      let getItems = await itemService.getItemByID(this.tokenStore.loggedInUserID, this.tokenStore.jwtToken)
       for (let item of getItems) {
         this.items.unshift(item)
       }
