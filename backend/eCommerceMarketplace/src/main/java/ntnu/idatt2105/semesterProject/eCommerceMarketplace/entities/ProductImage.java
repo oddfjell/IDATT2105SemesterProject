@@ -1,5 +1,6 @@
 package ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -11,8 +12,10 @@ public class ProductImage {
     @Lob
     byte[] content;
 
-    @ManyToOne
-    @JoinColumn(name = "item_id_fk", referencedColumnName = "item_id")
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name="item_fk")
+    @JsonBackReference
     private Item item;
 
     public int getProduct_image_id() {

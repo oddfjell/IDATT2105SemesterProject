@@ -11,13 +11,7 @@ public class ItemService {
     @Autowired
     private ItemRepository itemRepository;
 
-    /**
-     * create
-     * @param item
-     * @return
-     */
     public boolean createItem(Item item) {
-
         try {
             itemRepository.save(item);
             return true;
@@ -27,10 +21,6 @@ public class ItemService {
         }
     }
 
-    /**
-     * Return all items
-     * @return
-     */
     public Iterable<Item> getAllItems() {
         return itemRepository.findAll();
     }

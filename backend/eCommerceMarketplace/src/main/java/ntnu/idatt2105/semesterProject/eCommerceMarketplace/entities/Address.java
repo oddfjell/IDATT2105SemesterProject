@@ -1,10 +1,10 @@
 package ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
-/**
- * Address table
- */
+import java.util.List;
+
 @Entity
 @Table (name = "address")
 public class Address {
@@ -45,10 +45,11 @@ public class Address {
     @Column(name = "street_number")
     private String streetNumber;
 
-    /**
-     * Get id
-     * @return int
-     */
+    @OneToMany(mappedBy = "address", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Column(nullable = true)
+    @JsonManagedReference
+    private List<User> listOfUsers;
+
     public int getId() {
         return id;
     }

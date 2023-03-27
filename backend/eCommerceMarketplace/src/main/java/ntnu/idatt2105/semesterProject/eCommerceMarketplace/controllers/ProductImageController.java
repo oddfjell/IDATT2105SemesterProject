@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:5173/", allowCredentials = "true")
 @EnableAutoConfiguration
@@ -20,6 +22,8 @@ class ProductImageController {
     @Autowired
     ProductImageRepository productImageRepository;
 
+
+    // Upload image to database
     @CrossOrigin
     @PostMapping("/image")
     boolean uploadImage(@RequestParam MultipartFile multipartImage, Item item) throws Exception {
@@ -37,6 +41,7 @@ class ProductImageController {
         }
     }
 
+    // Get image with given image_id (unnecessary)
     @CrossOrigin
     @RequestMapping(value = "/image/{imageId}", method = RequestMethod.GET, produces = MediaType.IMAGE_JPEG_VALUE)
     ByteArrayResource downloadImage(@PathVariable int imageId) {
@@ -46,4 +51,20 @@ class ProductImageController {
 
         return new ByteArrayResource(image);
     }
+
+    /**
+    // Get all images associated with a product
+    @CrossOrigin
+    @RequestMapping(value = "/image/{imageId}", method = RequestMethod.GET, produces = MediaType.IMAGE_JPEG_VALUE)
+    ByteArrayResource getImages(@RequestParam Item item) {
+
+        List<ProductImage> productImages = productImageRepository.findAllByItemId(item.getId());
+        byte[] image = productImageRepository.findById(imageId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND))
+                .getContent();
+
+        return new ByteArrayResource(image);
+    }
+    */
+
 }

@@ -1,7 +1,6 @@
 package ntnu.idatt2105.semesterProject.eCommerceMarketplace.controllers;
 
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities.Item;
-import ntnu.idatt2105.semesterProject.eCommerceMarketplace.repositories.ItemRepository;
 import ntnu.idatt2105.semesterProject.eCommerceMarketplace.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
