@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c44d86ab-ae88-42f9-bcd5-0525e24d117a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/ItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/service/ItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/service/ItemService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/main/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/test/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/test/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/controllers/UserControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/test/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/eCommerceMarketplace/src/test/java/ntnu/idatt2105/semesterProject/eCommerceMarketplace/service/UserServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/components/Item.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/components/Item.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/services/userService.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/services/userService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/stores/token.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/stores/token.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-full-stack-project/src/views/NewAdView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-full-stack-project/src/views/NewAdView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Vue Single File Component" />
         <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -35,6 +30,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2NCGktMLl1iVzNscOORtxKFzMEU" />
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
