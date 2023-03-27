@@ -1,7 +1,10 @@
 
 package ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+
 import java.util.List;
 
 @Entity
@@ -27,8 +30,15 @@ public class Item {
     @Column(name = "for_sale")
     private boolean forSale;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id_fk", referencedColumnName = "user_id")
+
+    @OneToMany(mappedBy = "item", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Column(nullable = true)
+    @JsonManagedReference
+    private List<ProductImage> listOfImages;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name="user_id")
+    @JsonBackReference
     private User user;
 
     @ManyToMany
@@ -96,6 +106,15 @@ public class Item {
 
     public void setCategories(List<Category> categories) {
         this.categories = categories;
+    }
+
+
+    public List<ProductImage> getListOfImages() {
+        return listOfImages;
+    }
+
+    public void setListOfImages(List<ProductImage> listOfImages) {
+        this.listOfImages = listOfImages;
     }
 }
 

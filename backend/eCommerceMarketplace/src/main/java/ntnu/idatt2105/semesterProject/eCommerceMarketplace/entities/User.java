@@ -1,8 +1,11 @@
 package ntnu.idatt2105.semesterProject.eCommerceMarketplace.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table (name = "user")
@@ -39,8 +42,14 @@ public class User {
     @Column(name = "image")
     private String image;
 
-    @ManyToOne
-    @JoinColumn(name = "address_id_fk", referencedColumnName = "address_id")
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Column(nullable = true)
+    @JsonManagedReference
+    private List<Item> listOfItems;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name="address_id")
+    @JsonBackReference
     private Address address;
 
     public int getId() {
@@ -129,5 +138,13 @@ public class User {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public List<Item> getListOfItems() {
+        return listOfItems;
+    }
+
+    public void setListOfItems(List<Item> listOfItems) {
+        this.listOfItems = listOfItems;
     }
 }
