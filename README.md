@@ -77,6 +77,13 @@ The layout and design of user-interface elements such as screens is open-ended a
 > with the database. Everything is already configured in:
 > 
 > backend/eCommerceMarketplace/src/main/resources/application.properties
+> 
+> If the user is interested in exploring the database with a GUI, they can visit https://mysqladmin.it.ntnu.no/
+> and log in with:
+> 
+> username: emiloo_user1
+> 
+> password: password
 
 ### Swagger
 > cd backend/eCommerceMarketplace
